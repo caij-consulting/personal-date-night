@@ -48,9 +48,9 @@ class EmailForm extends Component {
                     </div>
                     <button onClick={this.sendEmail}>Send Email</button>
                 </form>
-                {userEmailsSent && (
+                {/* {userEmailsSent && (
                     <p>Thank you. The links have been sent to your emails.</p>
-                )}
+                )} */}
             </Fragment>
         )
     }
