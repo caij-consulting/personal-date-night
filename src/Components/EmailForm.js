@@ -13,24 +13,24 @@ class EmailForm extends Component {
         } 
     }
 
-    checkValidEmail= (userOne, userTwo) => {
-        //check if @ and . exists for both users
-        //if yes, push to userOneEmail & userTwoEmail
-        //if not, display error message "Please enter a valid email address"
-    }
+    // checkValidEmail= (userOne, userTwo) => {
+    //     //check if @ and . exists for both users
+    //     //if yes, push to userOneEmail & userTwoEmail
+    //     //if not, display error message "Please enter a valid email address"
+    // }
 
-    checkBothEmailsEntered = () => {
-        //if userOneEmail && userTwoEmail === true,
-        //then send email
-        //if one is false, then display error "Please enter both emails"
-    }
+    // checkBothEmailsEntered = () => {
+    //     //if userOneEmail && userTwoEmail === true,
+    //     //then send email
+    //     //if one is false, then display error "Please enter both emails"
+    // }
 
-    sendEmail = (userOne, userTwo) => {
-        //take emails and send email
-        this.setState = {
-            userEmailsSent: true,
-        }
-    }
+    // sendEmail = (userOne, userTwo) => {
+    //     //take emails and send email
+    //     this.setState = {
+    //         userEmailsSent: true,
+    //     }
+    // }
 
 
     render() {
