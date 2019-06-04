@@ -58,7 +58,6 @@ class App extends Component {
         <DisplayResults
         events={this.state.data}/>
         <EmailForm/>
-        <EmailSent/>
         <Footer/>
       </div>
     );
