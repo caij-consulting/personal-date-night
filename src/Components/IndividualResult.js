@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+
 class IndividualResult extends Component {
     render() {
         return (
-            <h1>Result</h1>
+            <div>
+                <h3>{this.props.name}</h3>
+                <p>{this.props.dates.start.localDate}</p>
+            </div>
+            
         )
     }
 }

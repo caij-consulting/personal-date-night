@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Header from "./Components/Header.js";
 import SearchForm from "./Components/SearchForm.js";
 import DisplayResults from "./Components/DisplayResults.js";
+import IndividualResult from "./Components/IndividualResult.js"
 import EmailForm from "./Components/EmailForm.js";
 import Footer from "./Components/Footer.js"
 import './App.scss';
@@ -11,14 +12,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data:[],
+      data: [],
       eventsJSX: "",
       eventName: "",
       eventStartTime: "",
       eventStartDate: "",
       eventVenue: "",
       eventImage: "",
-      
+
     }
   }
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
@@ -31,34 +32,34 @@ class App extends Component {
       this.setState({
         data: response.data._embedded.events,
       })
-      console.log(this.state.data)
+      console.log("result of the API call", this.state.data)
       // console.log(this.parseDataToDisplay());
     })
 
   }
-
-  parseDataToDisplay = () =>{
-    let arrayToParse = [...this.state.data];
-    const eventsJSX = arrayToParse.map((eventObject)=>{
-      return <h3>{eventObject.name}</h3>
-    })
-    this.setState({
-      eventsJSX: eventsJSX,
-    })
+  parseDataToDisplay = () => {
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getTicketmasterData("Toronto", "2019-06-05T18:00:00", "2019-06-05T19:00:00")
+
   }
-  render(){
+  render() {
     return (
       <div className="App">
-        <Header/>
-        <SearchForm/>
-        <DisplayResults
-        events={this.state.data}/>
-        <EmailForm/>
-        <Footer/>
+        <Header />
+        <SearchForm />
+        {this.state.data.length !== 0 ?
+          <div className="display-events">
+            <div className="display-content">
+              {this.state.data.map((eventObject) => {
+                return <IndividualResult name={eventObject.name}/>
+              })}
+            </div>
+          </div> : ""}
+        <EmailForm />
+        <EmailSent />
+        <Footer />
       </div>
     );
   }
