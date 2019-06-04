@@ -19,11 +19,14 @@ class App extends Component {
   getTicketmasterData = (city, startDate, endDate) => {
     axios({
       method: "GET",
-      url: `http://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${city}&localStartEndDateTime=${startDate},${endDate}`,
+      url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${city}&localStartEndDateTime=${startDate},${endDate}`,
+      dataResponse: "jsonp",
     }).then((response) => {
       console.log(response)
-
-
+      this.setState({
+        data: response.data._embedded,
+      })
+      console.log(this.state.data);
     })
 
   }
