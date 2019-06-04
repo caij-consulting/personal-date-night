@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 class DisplayLinks extends Component {
+
     render() {
         return(
             <Fragment>
