@@ -5,7 +5,7 @@ class IndividualResult extends Component {
         return (
             <div>
                 <h3>{this.props.name}</h3>
-                <p>{this.props.dates.start.localDate}</p>
+                <p>{this.props.startDate}</p>
             </div>
             
         )
