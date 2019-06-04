@@ -11,7 +11,7 @@ class SearchForm extends Component{
                 <div>
                     <label htmlFor="location"></label>
                     <select name="location" id="location">
-                        <option disabled selected value> -- Select a Location -- </option>
+                        <option disabled selected defaultValue> -- Select a Location -- </option>
                         <option value="toronto">Toronto</option>
                         {/* can add more locations if needed */}
                     </select>
@@ -19,14 +19,14 @@ class SearchForm extends Component{
                 <div>
                     <label htmlFor="date"></label>
                     <select name="date" id="date">
-                        <option disabled selected value> -- Select a Date -- </option>
+                        <option disabled selected defaultValue> -- Select a Date -- </option>
                         {/* calendar here */}
                     </select>
                 </div>
                 <div>
                     <label htmlFor="time"></label>
                     <select name="time" id="time">
-                        <option disabled selected value> -- Select a Time -- </option>
+                        <option disabled selected defaultValue> -- Select a Time -- </option>
                         {/* this can be a clock */}
                     </select>
                 </div>
