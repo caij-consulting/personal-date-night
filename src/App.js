@@ -53,12 +53,12 @@ class App extends Component {
           <div className="display-events">
             <div className="display-content">
               {this.state.data.map((eventObject) => {
-                return <IndividualResult name={eventObject.name}/>
+                return <IndividualResult name={eventObject.name} startDate={eventObject.dates.start.localDate}/>
               })}
             </div>
           </div> : ""}
         <EmailForm />
-        <EmailSent />
+        {/* <EmailSent /> */}
         <Footer />
       </div>
     );
