@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Header from "./Header.js";
-import SearchForm from "./SearchForm.js";
-import DisplayResults from "./DisplayResults.js";
-import EmailForm from "./EmailForm.js";
-import EmailSent from "./EmailSent.js";
-import Footer from "./Footer.js"
+import Header from "./Components/Header.js";
+import SearchForm from "./Components/SearchForm.js";
+import DisplayResults from "./Components/DisplayResults.js";
+import EmailForm from "./Components/EmailForm.js";
+import EmailSent from "./Components/EmailSent.js";
+import Footer from "./Components/Footer.js"
 import './App.scss';
 
 class App extends Component {
