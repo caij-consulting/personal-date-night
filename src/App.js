@@ -23,21 +23,25 @@ class App extends Component {
     }
   }
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
+
+
   getTicketmasterData = (city, startDate, endDate) => {
+
     axios({
       method: "GET",
       url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${city}&localStartEndDateTime=${startDate},${endDate}`,
       dataResponse: "jsonp",
     }).then((response) => {
+      response = response.data._embedded.events;
       console.log(response)
       this.setState({
-        data: response.data._embedded.events,
+        // data: response.data._embedded.events,
+        data: response,
       })
-      console.log("result of the API call", this.state.data)
-      // console.log(this.parseDataToDisplay());
     })
-
   }
+
+
   parseDataToDisplay = () => {
   }
 
