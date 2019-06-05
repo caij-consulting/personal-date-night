@@ -33,7 +33,8 @@ class SearchForm extends Component{
                     format="y-MM-dd HH:mm"
                     value={this.props.dateTimeEnd}/>
                 </div>
-                <button>Submit</button>
+                <button 
+                onClick={this.props.onSubmit}>Submit</button>
             </form>
             </div>
 
