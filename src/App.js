@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from "./Components/Header.js";
-import SearchForm from "./Components/SearchForm.js";
-import DisplayResults from "./Components/DisplayResults.js";
-import IndividualResult from "./Components/IndividualResult.js"
-import EmailForm from "./Components/EmailForm.js";
-import Footer from "./Components/Footer.js"
+import Header from "./components/Header.js";
+import SearchForm from "./components/SearchForm.js";
+import DisplayResults from "./components/DisplayResults.js";
+import IndividualResult from "./components/IndividualResult.js"
+import EmailForm from "./components/EmailForm.js";
+import Footer from "./components/Footer.js"
 import './App.scss';
 
 class App extends Component {
