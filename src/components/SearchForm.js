@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DateTimePicker from 'react-datetime-picker';
 
 class SearchForm extends Component{
 
@@ -17,18 +18,20 @@ class SearchForm extends Component{
                     </select>
                 </div>
                 <div>
-                    <label htmlFor="date"></label>
-                    <select name="date" id="date">
-                        <option disabled defaultValue> -- Select a Date -- </option>
-                        {/* calendar here */}
-                    </select>
+                    <label htmlFor="">Datetime Range Start</label>
+                    <DateTimePicker
+                    onChange={this.props.handleChange1}
+                    required={true}
+                    format="y-MM-dd HH:mm"
+                    value={this.props.dateTimeStart}/>
                 </div>
                 <div>
-                    <label htmlFor="time"></label>
-                    <select name="time" id="time">
-                        <option disabled defaultValue> -- Select a Time -- </option>
-                        {/* this can be a clock */}
-                    </select>
+                    <label htmlFor="time">Datetime Range End</label>
+                    <DateTimePicker
+                    onChange={this.props.handleChange2}
+                    required={true}
+                    format="y-MM-dd HH:mm"
+                    value={this.props.dateTimeEnd}/>
                 </div>
                 <button>Submit</button>
             </form>

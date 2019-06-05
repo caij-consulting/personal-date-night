@@ -19,6 +19,8 @@ class App extends Component {
       eventStartDate: "",
       eventVenue: "",
       eventImage: "",
+      dateTimeStart: new Date(),
+      dateTimeEnd: new Date(),
 
     }
   }
@@ -43,7 +45,12 @@ class App extends Component {
   }
 
 
-  parseDataToDisplay = () => {
+  handleChange1 = (time) => {
+    this.setState({ dateTimeStart: time })
+  }
+  //handle change for the second dateTime picker
+  handleChange2 = (time) => {
+    this.setState({ dateTimeEnd: time })
   }
 
   componentDidMount() {
@@ -54,7 +61,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <SearchForm />
+        <SearchForm 
+          dateTimeStart={this.state.dateTimeStart}
+          dateTimeEnd={this.state.dateTimeEnd}
+          handleChange1={this.handleChange1}
+          handleChange2={this.handleChange2}
+        />
         {this.state.data.length !== 0 &&
           <div className="display-events">
             <div className="display-content">
