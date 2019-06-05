@@ -13,14 +13,15 @@ class App extends Component {
     super();
     this.state = {
       data: [],
-      eventsJSX: "",
-      eventName: "",
-      eventStartTime: "",
-      eventStartDate: "",
-      eventVenue: "",
-      eventImage: "",
       dateTimeStart: new Date(),
       dateTimeEnd: new Date(),
+      location: "",
+      // eventsJSX: "",
+      // eventName: "",
+      // eventStartTime: "",
+      // eventStartDate: "",
+      // eventVenue: "",
+      // eventImage: "",
 
     }
   }
@@ -54,12 +55,19 @@ class App extends Component {
     this.setState({ dateTimeEnd: time })
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
+  handleLocationChange = (event) => {
+    this.setState({
+      location: event.target.value
+    })
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
     if (this.state.dateTimeStart && this.state.dateTimeEnd) {
-      const dateStart = this.formatDate(this.state.dateTimeStart);
-      const dateEnd = this.formatDate(this.state.dateTimeEnd);
-      this.getTicketmasterData("Toronto", dateStart, dateEnd);
+      let dateStart = this.formatDate(this.state.dateTimeStart);
+      let dateEnd = this.formatDate(this.state.dateTimeEnd);
+      let location = this.state.location;
+      this.getTicketmasterData(location, dateStart, dateEnd);
     } 
   }
 
@@ -106,18 +114,24 @@ class App extends Component {
           dateTimeEnd={this.state.dateTimeEnd}
           handleChange1={this.handleChange1}
           handleChange2={this.handleChange2}
-          onSubmit={this.state.onSubmit}
+          onSubmit={this.onSubmit}
+          handleLocationChange={this.handleLocationChange}
+          location={this.state.location}
         />
         {this.state.data.length !== 0 &&
           <div className="display-events">
             <div className="display-content">
               {this.state.data.map((eventObject) => {
-                return <ResultCard 
+                return (
+                <ResultCard 
+                key={eventObject.id}
                 name={eventObject.name} 
                 startDate={eventObject.dates.start.localDate}
                 startTime={eventObject.dates.start.localTime}
-                key={eventObject.id}
-                image={eventObject.images[1].url}/>
+                image={eventObject.images[1].url}
+                location={eventObject._embedded.venues[0].city.name}
+                />
+                )
               })}
             </div>
           </div>}
