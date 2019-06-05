@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from './node_modules/react';
 
 class EmailForm extends Component {
     constructor() {
