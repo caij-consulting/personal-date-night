@@ -6,7 +6,7 @@ import DisplayResults from "./components/DisplayResults.js";
 import IndividualResult from "./components/IndividualResult.js"
 import EmailForm from "./components/EmailForm.js";
 import Footer from "./components/Footer.js"
-import './App.scss';
+import './styles/App.scss';
 
 class App extends Component {
   constructor() {
