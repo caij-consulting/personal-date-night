@@ -5,7 +5,7 @@ class DisplayLinks extends Component {
     render() {
         return(
             <Fragment>
-             
+              {/*something*/}
                 <h1>Display Links</h1>
                 <h2>You can buy your tickets here</h2>
                 <div>User One: [NAME OF EVENT] <a href="">{data link from API}</a></div>
