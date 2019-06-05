@@ -54,9 +54,48 @@ class App extends Component {
     this.setState({ dateTimeEnd: time })
   }
 
-  componentDidMount() {
-    this.getTicketmasterData("Toronto", "2019-06-05T18:00:00", "2019-06-05T19:00:00")
+  onSubmit = (event) => {
+    event.preventDefault();
+    if (this.state.dateTimeStart && this.state.dateTimeEnd) {
+      const dateStart = this.formatDate(this.state.dateTimeStart);
+      const dateEnd = this.formatDate(this.state.dateTimeEnd);
+      this.getTicketmasterData("Toronto", dateStart, dateEnd);
+    } 
+  }
 
+
+
+
+
+  // converting time function to string so it can be passed as a number in template literals 
+  formatDate = (dateObject) => {
+    let year = dateObject.getFullYear();
+    let month = dateObject.getMonth() + 1;
+    if (month < 10) {
+      month = '0' + month;
+    }
+    let day = dateObject.getDate();
+    if (day < 10) {
+      day = '0' + day;
+    }
+    let hours = dateObject.getHours();
+    if (hours < 10) {
+      hours = '0' + hours;
+    }
+    let minutes = dateObject.getMinutes();
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
+    let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
+    return dateString
+  }
+ //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
+  
+
+  
+
+  componentDidMount() {
+    
   }
   render() {
     return (
@@ -67,6 +106,7 @@ class App extends Component {
           dateTimeEnd={this.state.dateTimeEnd}
           handleChange1={this.handleChange1}
           handleChange2={this.handleChange2}
+          onSubmit={this.state.onSubmit}
         />
         {this.state.data.length !== 0 &&
           <div className="display-events">
