@@ -44,11 +44,12 @@ class App extends Component {
     })
   }
 
-
+  //handle change for the first dateTime picker (for dateTimeStart)
   handleChange1 = (time) => {
+    console.log(time);
     this.setState({ dateTimeStart: time })
   }
-  //handle change for the second dateTime picker
+  //handle change for the second dateTime picker (for dateTimeEnd)
   handleChange2 = (time) => {
     this.setState({ dateTimeEnd: time })
   }
