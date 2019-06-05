@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from "./components/Header.js";
 import SearchForm from "./components/SearchForm.js";
 import DisplayResults from "./components/DisplayResults.js";
-import IndividualResult from "./components/IndividualResult.js"
+import ResultCard from "./components/ResultCard.js"
 import EmailForm from "./components/EmailForm.js";
 import Footer from "./components/Footer.js"
 import "./styles/App.scss";
@@ -59,7 +59,7 @@ class App extends Component {
           <div className="display-events">
             <div className="display-content">
               {this.state.data.map((eventObject) => {
-                return <IndividualResult 
+                return <ResultCard 
                 name={eventObject.name} 
                 startDate={eventObject.dates.start.localDate}
                 startTime={eventObject.dates.start.localTime}
