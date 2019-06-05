@@ -32,6 +32,7 @@ class App extends Component {
       url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${city}&localStartEndDateTime=${startDate},${endDate}`,
       dataResponse: "jsonp",
     }).then((response) => {
+      // console.log(response);
       response = response.data._embedded.events;
       console.log(response)
       this.setState({
@@ -54,7 +55,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <SearchForm />
-        {this.state.data.length !== 0 ?
+        {this.state.data.length !== 0 &&
           <div className="display-events">
             <div className="display-content">
               {this.state.data.map((eventObject) => {
@@ -66,7 +67,7 @@ class App extends Component {
                 image={eventObject.images[1].url}/>
               })}
             </div>
-          </div> : ""}
+          </div>}
         <EmailForm />
         {/* <EmailSent /> */}
         <Footer />
