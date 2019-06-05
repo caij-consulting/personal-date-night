@@ -10,12 +10,13 @@ class SearchForm extends Component{
             <form action="#">
                 <h1>SearchForm</h1>
                 <div>
-                    <label htmlFor="location"></label>
-                    <select name="location" id="location">
-                        <option disabled defaultValue> -- Select a Location -- </option>
-                        <option value="toronto">Toronto</option>
-                        {/* can add more locations if needed */}
-                    </select>
+                    <label htmlFor="Location">Please Enter a City Name:</label>
+                    <input 
+                    type="text" 
+                    name="Location"
+                    onChange={this.props.handleLocationChange}
+                    required={true}
+                    value={this.props.location}/>
                 </div>
                 <div>
                     <label htmlFor="">Datetime Range Start</label>
