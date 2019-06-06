@@ -11,7 +11,7 @@ class DisplayResults extends Component{
         }
     }
     // converting time function to string so it can be passed as a number in template literals 
-    formatDate = (dateObject) => {
+    formatDate = (dateObject, time) => {
         let year = dateObject.getFullYear();
         let month = dateObject.getMonth() + 1;
         if (month < 10) {
@@ -21,14 +21,10 @@ class DisplayResults extends Component{
         if (day < 10) {
             day = '0' + day;
         }
-        let hours = dateObject.getHours();
-        if (hours < 10) {
-            hours = '0' + hours;
-        }
-        let minutes = dateObject.getMinutes();
-        if (minutes < 10) {
-            minutes = '0' + minutes;
-        }
+        let hours = time.substr(0,2);
+        console.log(hours);
+        let minutes = time.substr(3, 5);
+        console.log(minutes);
         let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
         return dateString
     }
@@ -52,10 +48,13 @@ class DisplayResults extends Component{
         })
     }
     componentDidMount(){
-        let dateStart = this.formatDate(this.props.dateTimeStart);
-        let dateEnd = this.formatDate(this.props.dateTimeEnd);
+        let date = this.props.date;
+        let timeStart = this.props.timeStart;
+        let timeEnd = this.props.timeEnd;
+        let startDateTime = this.formatDate(date, timeStart);
+        let endDateTime = this.formatDate(date, timeEnd);
         let location = this.props.location;
-        this.getTicketmasterData(location, dateStart, dateEnd);
+        this.getTicketmasterData(location, startDateTime, endDateTime);
     }
     render(){
         return(
@@ -63,11 +62,7 @@ class DisplayResults extends Component{
 
             <div className="display-events">
                 <div className="display-content">
-
 {/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
-              
-            
-            
                     {this.state.data.map((eventObject) => {
                         return (
                             <ResultCard
