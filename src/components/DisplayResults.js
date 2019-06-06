@@ -7,6 +7,7 @@ class DisplayResults extends Component{
         super();
         this.state = {
             data: [],
+            isLoading: true,
         }
     }
     // converting time function to string so it can be passed as a number in template literals 
@@ -46,17 +47,19 @@ class DisplayResults extends Component{
             this.setState({
                 // data: response.data._embedded.events,
                 data: response,
+                isLoading: false,
             })
         })
     }
     componentDidMount(){
-        let dateStart = this.formatDat(this.props.dateTimeStart);
+        let dateStart = this.formatDate(this.props.dateTimeStart);
         let dateEnd = this.formatDate(this.props.dateTimeEnd);
         let location = this.props.location;
         this.getTicketmasterData(location, dateStart, dateEnd);
     }
     render(){
         return(
+            this.state.isLoading ? <h1>Getting Your Events...</h1>:
             <div className="display-events">
                 <div className="display-content">
                     {this.state.data.map((eventObject) => {

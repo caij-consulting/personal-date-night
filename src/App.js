@@ -47,7 +47,7 @@ class App extends Component {
  //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
-    if (this.state.dateTimeStart && this.state.dateTimeEnd) {
+    if (this.state.dateTimeStart && this.state.dateTimeEnd &&this.state.location) {
       this.setState({
         displayResult: true,
       })
