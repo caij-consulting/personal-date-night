@@ -7,7 +7,6 @@ import ResultCard from "./components/ResultCard.js"
 import EmailForm from "./components/EmailForm.js";
 import Footer from "./components/Footer.js"
 import "./styles/App.scss";
-import { jsxClosingElement, tsParameterProperty } from '@babel/types';
 
 class App extends Component {
   constructor() {
