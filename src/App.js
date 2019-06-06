@@ -7,6 +7,7 @@ import ResultCard from "./components/ResultCard.js"
 import EmailForm from "./components/EmailForm.js";
 import Footer from "./components/Footer.js"
 import "./styles/App.scss";
+import { jsxClosingElement, tsParameterProperty } from '@babel/types';
 
 class App extends Component {
   constructor() {
@@ -27,26 +28,21 @@ class App extends Component {
     }
   }
 
-  //handle change for the first dateTime picker (for dateTimeStart)
-  // handleChange1 = (time) => {
-  //   console.log(time);
-  //   this.setState({ dateTimeStart: time })
-  // }
-  // //handle change for the second dateTime picker (for dateTimeEnd)
-  handleChange2 = (time) => {
-    this.setState({ dateTimeEnd: time })
-  }
-
-  // handleLocationChange = (event) => {
-  //   this.setState({
-  //     location: event.target.value
-  //   })
-  // }
-// for location change
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+  //handle change function
+  handleChange = (event, name) => {
+    console.log(event);
+    // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
+    // if the item onChange has (name) tsParameterProperty, do the following
+    if(name) {
+      this.setState({
+        [name]: event
+      })
+    } else {
+      // which is for location...
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
   }
 
 
@@ -66,12 +62,8 @@ class App extends Component {
         <SearchForm 
           dateTimeStart={this.state.dateTimeStart}
           dateTimeEnd={this.state.dateTimeEnd}
-          // handleChange1={this.handleChange1}
-          // handleChange2={this.handleChange2}
           handleChange={this.handleChange}
-
           onSubmit={this.onSubmit}
-          // handleLocationChange={this.handleLocationChange}
           location={this.state.location}
         />
         {this.state.displayResult &&
