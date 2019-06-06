@@ -46,18 +46,24 @@ class App extends Component {
   }
 
   //handle change for the first dateTime picker (for dateTimeStart)
-  handleChange1 = (time) => {
-    console.log(time);
-    this.setState({ dateTimeStart: time })
-  }
-  //handle change for the second dateTime picker (for dateTimeEnd)
+  // handleChange1 = (time) => {
+  //   console.log(time);
+  //   this.setState({ dateTimeStart: time })
+  // }
+  // //handle change for the second dateTime picker (for dateTimeEnd)
   handleChange2 = (time) => {
     this.setState({ dateTimeEnd: time })
   }
 
-  handleLocationChange = (event) => {
+  // handleLocationChange = (event) => {
+  //   this.setState({
+  //     location: event.target.value
+  //   })
+  // }
+// for location change
+  handleChange = (event) => {
     this.setState({
-      location: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -112,10 +118,12 @@ class App extends Component {
         <SearchForm 
           dateTimeStart={this.state.dateTimeStart}
           dateTimeEnd={this.state.dateTimeEnd}
-          handleChange1={this.handleChange1}
-          handleChange2={this.handleChange2}
+          // handleChange1={this.handleChange1}
+          // handleChange2={this.handleChange2}
+          handleChange={this.handleChange}
+
           onSubmit={this.onSubmit}
-          handleLocationChange={this.handleLocationChange}
+          // handleLocationChange={this.handleLocationChange}
           location={this.state.location}
         />
         {this.state.data.length !== 0 &&
