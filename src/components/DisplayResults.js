@@ -60,8 +60,14 @@ class DisplayResults extends Component{
     render(){
         return(
             this.state.isLoading ? <h1>Getting Your Events...</h1>:
+
             <div className="display-events">
                 <div className="display-content">
+
+{/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
+              
+            
+            
                     {this.state.data.map((eventObject) => {
                         return (
                             <ResultCard
