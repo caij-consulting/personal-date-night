@@ -30,11 +30,14 @@ class DisplayResults extends Component{
     }
 
     //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
-    getTicketmasterData = (city, startDate, endDate) => {
-
+    getTicketmasterData = (location, startDate, endDate) => {
+        console.log('parameters that go to the API Call')
+        console.log("location: ", location)
+        console.log("Start Date: ",startDate);
+        console.log("End Date: ",endDate);
         axios({
             method: "GET",
-            url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${city}&localStartEndDateTime=${startDate},${endDate}`,
+            url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${location}&localStartEndDateTime=${startDate},${endDate}`,
             dataResponse: "jsonp",
         }).then((response) => {
             // console.log(response);

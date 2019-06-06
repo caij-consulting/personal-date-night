@@ -33,7 +33,6 @@ class App extends Component {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
-      console.log(event);
       this.setState({
         [name]: event
       })
