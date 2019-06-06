@@ -13,8 +13,9 @@ class App extends Component {
     super();
     this.state = {
       data: [],
-      dateTimeStart: new Date(),
-      dateTimeEnd: new Date(),
+      timeStart: "00:00",
+      timeEnd: "00:00",
+      date: new Date(),
       location: "",
       displayResult: false,
       // eventsJSX: "",
@@ -29,10 +30,9 @@ class App extends Component {
 
   //handle change function
   handleChange = (event, name) => {
-    console.log(event);
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
-    if(name) {
+    if (name) {
       this.setState({
         [name]: event
       })
@@ -45,10 +45,11 @@ class App extends Component {
   }
 
 
- //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
+  //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
-    if (this.state.dateTimeStart && this.state.dateTimeEnd &&this.state.location) {
+    if (this.state.timeStart && this.state.timeEnd && this.state.location &&
+      Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
       this.setState({
         displayResult: true,
       })
@@ -58,19 +59,21 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <SearchForm 
-          dateTimeStart={this.state.dateTimeStart}
-          dateTimeEnd={this.state.dateTimeEnd}
+        <SearchForm
+          timeStart={this.state.timeStart}
+          timeEnd={this.state.timeEnd}
+          date={this.state.date}
           handleChange={this.handleChange}
           onSubmit={this.onSubmit}
           location={this.state.location}
         />
         {this.state.displayResult &&
-        <DisplayResults
-          dateTimeStart={this.state.dateTimeStart}
-          dateTimeEnd={this.state.dateTimeEnd}
-          location={this.state.location}
-        />
+          <DisplayResults
+            date={this.state.date}
+            timeStart={this.state.timeStart}
+            timeEnd={this.state.timeEnd}
+            location={this.state.location}
+          />
         }
         <EmailForm />
         {/* <EmailSent /> */}
