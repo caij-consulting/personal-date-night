@@ -11,6 +11,8 @@ class DisplayResults extends Component {
             isLoading: true,
             eventCategories: [],
             userCategory: "",
+            eventVenues: [],
+            userVenue: "",
         }
     }
     // converting time function to string so it can be passed as a number in template literals 
@@ -56,28 +58,12 @@ class DisplayResults extends Component {
                 
             })
             this.getEventCategories();
-
+            this.getEventVenues();
         })
     }
-    filterEventName = (e, name) => {
-        e.preventDefault();
-        if(!name){
-            this.setState({
-                filteredEvents: [...this.state.allEvents],
-            })
-        }
-        let copyOfAllEvents = [...this.state.allEvents];
-        let filteredEvents = copyOfAllEvents.filter((eventObject) => {
-            return eventObject.name.toUpperCase().includes(name.toUpperCase());
-        })
-        this.setState({
-            filteredEvents: [...filteredEvents],
-        })
-    }
-
     getEventCategories = () => {
         // loop through all events 
-        let eventCategories = ["All Events"];
+        let eventCategories = ["All Categories"];
         for (let i = 0; i < this.state.allEvents.length; i ++) {
             let eventCategory = this.state.allEvents[i].classifications[0].segment.name;
             console.log(eventCategory);
@@ -91,31 +77,68 @@ class DisplayResults extends Component {
             eventCategories: [...eventCategories],
         })
     }
-
-    // this is a button
-    filterByEventCategories = (e, category) => {
+    getEventVenues = () => {
+        // loop through all events 
+        let eventVenues = ["All Venues"];
+        for (let i = 0; i < this.state.allEvents.length; i++) {
+            let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
+            if (!eventVenues.includes(eventVenue)) {
+                eventVenues.push(eventVenue)
+            }
+        }
+        console.log(eventVenues);
+        this.setState({
+            // ... copies the items to the array
+            eventVenues: [...eventVenues],
+        })
+    }
+    filterEventName = (e, name) => {
         e.preventDefault();
-        console.log(category);
+        if (!name) {
+            this.setState({
+                filteredEvents: [...this.state.allEvents],
+            })
+        }
+        let copyOfAllEvents = [...this.state.allEvents];
+        let filteredEvents = copyOfAllEvents.filter((eventObject) => {
+            return eventObject.name.toUpperCase().includes(name.toUpperCase());
+        })
+        this.setState({
+            filteredEvents: [...filteredEvents],
+        })
+    }
+    filterEvents = (e, textFilter, categoryDropdown, venueDropdown) => {
+        e.preventDefault();
+        let copyOfAllEvents = [...this.state.allEvents];
 
-    
+        const filteredEvents = copyOfAllEvents.filter((eventObj) => {
+            if (textFilter.trim().length > 0) {
+                return eventObj.name.toUpperCase().includes(textFilter.toUpperCase())
+            } else {
+                return true;
+            }
+        })
+            .filter((eventObj) => {
+                if (categoryDropdown==="All Categories"){
+                    return true;
+                }
+                else{
+                    return eventObj.classifications[0].segment.name.includes(categoryDropdown);
+                }
+            })
+            .filter((eventObj) => {
+                if (venueDropdown === "All Venues") {
+                    return true;
+                }
+                else {
+                    return eventObj._embedded.venues[0].name.includes(venueDropdown);
+                }
+            })
+        this.setState({
+            filteredEvents: [...filteredEvents],
+        })
     }
 
-    
-
-    // filterEventName = (name) => {
-    //     if (!name) {
-    //         this.setState({
-    //             filteredEvents: [...this.state.allEvents],
-    //         })
-    //     }
-    //     let copyOfAllEvents = [...this.state.allEvents];
-    //     let filteredEvents = copyOfAllEvents.filter((eventObject) => {
-    //         return eventObject.name.toUpperCase().includes(name.toUpperCase());
-    //     })
-    //     this.setState({
-    //         filteredEvents: [...filteredEvents],
-    //     })
-    // }
 
 
 
@@ -156,7 +179,7 @@ class DisplayResults extends Component {
                                 onChange={(event) => { this.props.handleChange(event) }}
                                 name="textFilter"
                                 value={this.props.textFilter} />
-                            <button onClick={(e) => this.filterEventName(e,this.props.textFilter)}>Filter</button>
+                            {/* <button onClick={(e) => this.filterEventName(e,this.props.textFilter)}>Filter</button> */}
 
                             <label htmlFor="allCategories">Event Categories</label>
                             <select
@@ -170,10 +193,20 @@ class DisplayResults extends Component {
                                     )
                                 })}
                             </select>
+                            {/* <button onClick={(e)=>this.filterByEventCategories(e,this.props.categoryDropdown)}>filter by category</button>  */}
+                            <select
+                                onChange={(event) => { this.props.handleChange(event) }}
+                                name="venueDropdown"
+                                value={this.props.venueDropdown}
+                                id="">
+                                {this.state.eventVenues.map((venue) => {
+                                    return (
+                                        <option value={venue}> {venue} </option>
+                                    )
+                                })}
+                            </select>
                             <button
-                                onClick={(e)=>this.filterByEventCategories(e,this.props.categoryDropdown)}>
-                            filter by category         
-                            </button>            
+                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>            
                         </form>
                         {
                         this.state.filteredEvents.map((eventObject) => {
