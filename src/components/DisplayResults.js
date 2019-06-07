@@ -11,7 +11,9 @@ class DisplayResults extends Component {
             isLoading: true,
             user1: {},
             user2: {},
-            currentUser: 1
+            currentUser: '1',
+
+
 
             // current user has been selected in App.js
             // App.js passes info to DisplayResults
@@ -80,13 +82,16 @@ class DisplayResults extends Component {
     // current user will = user1
 
 
-    handleChangeRadio = (event, name) => {
+    handleChangeRadio = (event) => {
             this.setState({
-                [event.target.name]: event.target.value
-            },
-                // () =>{
-                // }
-            )
+                currentUser: event.target.value
+
+            })
+
+            // () => {
+
+            // }
+            console.log(event)
         }
    
 
@@ -122,19 +127,20 @@ class DisplayResults extends Component {
                                     <form action="">
                                         <div className="user">
                                             <label htmlFor="user1">User 1</label>
-                                            <input onChange ={(event,name)=>{this.handleChangeRadio(event,name)}}  
+                                            <input onChange ={(event)=>{this.handleChangeRadio(event)}}  
                                             type="radio" 
                                             name="currentUser" 
                                             id="user1" 
-                                            checked="checked" 
+                                            checked={this.state.currentUser === "1"}
                                             value = "1" />
                                         </div>
                                         <div className="user">
                                             <label htmlFor="user2">User 2</label>
-                                            <input onChange={(event,name) => { this.handleChangeRadio(event,name) }} 
+                                            <input onChange={(event) => { this.handleChangeRadio(event) }} 
                                             type="radio" 
                                             name="currentUser" 
                                             id="user2" 
+                                            checked={this.state.currentUser === "2"}
                                             value = "2"/>
                                         </div>
                                     </form> 
