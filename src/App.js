@@ -19,6 +19,7 @@ class App extends Component {
       location: "",
       displayResult: false,
       textFilter: "",
+      categoryDropdown: "",
       // eventsJSX: "",
       // eventName: "",
       // eventStartTime: "",
@@ -76,6 +77,7 @@ class App extends Component {
             location={this.state.location}
             handleChange={this.handleChange}
             textFilter={this.state.textFilter}
+            categoryDropdown={this.state.categoryDropdown}
           />
         }
         <EmailForm />
