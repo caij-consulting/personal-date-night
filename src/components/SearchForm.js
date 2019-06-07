@@ -6,23 +6,26 @@ import DateTimePicker from 'react-datetime-picker';
 class SearchForm extends Component{
     //error handling function. if startTime is "10:00", make sure the endTime is atleast "11:00"
     addOneHourToTime = (time) => {
-        let hour = parseInt(this.props.timeStart.substr(0,2),10)
-        if (hour >= 23){
-            hour = "00"
-        }
-        else{
-            hour = hour+1;
-            if (hour<10){
-                hour = `0`+hour;
+        if(time){
+            let hour = parseInt(time.substr(0,2),10)
+            if (hour >= 23){
+                hour = "00"
             }
+            else{
+                hour = hour+1;
+                if (hour<10){
+                    hour = `0`+hour;
+                }
+            }
+            let minute=parseInt(time.substr(3,5),10);
+            if (minute<10){
+                minute = `0`+ minute;
+            }
+            
+            let newTime=`${hour}:${minute}`;
+            
+            return newTime
         }
-        let minute=parseInt(this.props.timeStart.substr(3,5),10);
-        if (minute<10){
-            minute = `0`+ minute;
-        }
-        
-        let newTime=`${hour}:${minute}`;
-        return newTime
 
     }
 

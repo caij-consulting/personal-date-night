@@ -13,6 +13,12 @@ class DisplayResults extends Component {
             userCategory: "",
             eventVenues: [],
             userVenue: "",
+            user1: {},
+            user2: {},
+            currentUser: "1",
+            // current user has been selected in App.js
+            // App.js passes info to DisplayResults
+            //match value to user1 or 
         }
     }
     // converting time function to string so it can be passed as a number in template literals 
@@ -133,7 +139,14 @@ class DisplayResults extends Component {
             filteredEvents: [...filteredEvents],
         })
     }
-
+    // default is user one
+    // which is the selected
+    // current user will = user1
+    handleChangeRadio = (event) => {
+            this.setState({
+                currentUser: event.target.value
+            })
+        }
     componentDidMount() {
         let date = this.props.date;
         let timeStart = this.props.timeStart;
@@ -210,17 +223,40 @@ class DisplayResults extends Component {
                             <button 
                                 reset={this.reset}>Clear</button>
                         </form>
+                        <form action="">
+                            <div className="user">
+                                <label htmlFor="user1">User 1</label>
+                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                    type="radio"
+                                    name="currentUser"
+                                    id="user1"
+                                    checked={this.state.currentUser === "1"}
+                                    value="1" />
+                            </div>
+                            <div className="user">
+                                <label htmlFor="user2">User 2</label>
+                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                    type="radio"
+                                    name="currentUser"
+                                    id="user2"
+                                    checked={this.state.currentUser === "2"}
+                                    value="2" />
+                            </div>
+                        </form> 
                         {
                         this.state.filteredEvents.map((eventObject) => {
                             return (
-                                <ResultCard
-                                    key={eventObject.id}
-                                    name={eventObject.name}
-                                    startDate={eventObject.dates.start.localDate}
-                                    startTime={eventObject.dates.start.localTime}
-                                    image={eventObject.images[1].url}
-                                    location={eventObject._embedded.venues[0].city.name}
-                                />
+                                <div>
+                                    <ResultCard
+                                        key={eventObject.id}
+                                        name={eventObject.name}
+                                        startDate={eventObject.dates.start.localDate}
+                                        startTime={eventObject.dates.start.localTime}
+                                        image={eventObject.images[1].url}
+                                        location={eventObject._embedded.venues[0].city.name}
+                                    />
+                                </div>
+                               
                             )
                         })}
                     </div>
