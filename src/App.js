@@ -19,6 +19,9 @@ class App extends Component {
       location: "",
       displayResult: false,
       textFilter: "",
+      user1: {},
+      user2: {},
+      currentUser: 1,
       // eventsJSX: "",
       // eventName: "",
       // eventStartTime: "",
@@ -43,6 +46,7 @@ class App extends Component {
         [event.target.name]: event.target.value
       })
     }
+    console.log(event)
   }
 
 
@@ -76,6 +80,7 @@ class App extends Component {
             location={this.state.location}
             handleChange={this.handleChange}
             textFilter={this.state.textFilter}
+
           />
         }
         <EmailForm />

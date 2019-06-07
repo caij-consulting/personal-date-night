@@ -9,9 +9,7 @@ class DisplayResults extends Component {
             allEvents: [],
             filteredEvents: [],
             isLoading: true,
-            user1:{},
-            user2:{},
-            currentUser: 1
+
         }
     }
     // converting time function to string so it can be passed as a number in template literals 
