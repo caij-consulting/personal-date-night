@@ -36,6 +36,15 @@ class DisplayResults extends Component {
 
     //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
     getTicketmasterData = (location, startDate, endDate) => {
+        this.setState({
+            allEvents: [],
+            filteredEvents: [],
+            isLoading: true,
+            eventCategories: [],
+            userCategory: "",
+            eventVenues: [],
+            userVenue: "",
+        })
         console.log('parameters that go to the API Call')
         console.log("location: ", location)
         console.log("Start Date: ", startDate);
@@ -135,6 +144,21 @@ class DisplayResults extends Component {
         this.getTicketmasterData(location, startDateTime, endDateTime);  
     }
 
+    // trying to clear field
+    // reset = (e) => {
+    //     e.preventDefault();
+    //     this.setState({ 
+    //         allEvents: [],
+    //         filteredEvents: [],
+    //         isLoading: true,
+    //         eventCategories: [],
+    //         userCategory: "",
+    //         eventVenues: [],
+    //         userVenue: "",
+    //     })
+    //     this.getTicketmasterData(location, startDateTime, endDateTime);  
+    // }
+
 
 
     render() {
@@ -181,7 +205,10 @@ class DisplayResults extends Component {
                                 })}
                             </select>
                             <button
-                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>            
+                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>     
+                                
+                            <button 
+                                reset={this.reset}>Clear</button>
                         </form>
                         {
                         this.state.filteredEvents.map((eventObject) => {

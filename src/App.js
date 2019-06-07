@@ -53,11 +53,29 @@ class App extends Component {
     e.preventDefault();
     if (this.state.timeStart && this.state.timeEnd && this.state.location &&
       Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
-      this.setState({
-        displayResult: true,
+        this.setState({
+// reset fields
+          timeStart: "00:00",
+          timeEnd: "00:00",
+          date: new Date(),
+          location: "",
+// display after all inputs are given
+          displayResult: true,
       })
     }
   }
+
+  // logic 1: after submit, disable submit button. clear button can be used to clear display/API call and reactivate submit button to make another API call
+  // logic 2: axios call in App. on submit, make axios call. user can click submit again with diff input to make another axios call thru componentDidUpdate
+
+
+//write a function to reset axios call
+  reset = () => {
+    this.setState({
+      displayResult: false,
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -79,7 +97,7 @@ class App extends Component {
             handleChange={this.handleChange}
             textFilter={this.state.textFilter}
             categoryDropdown={this.state.categoryDropdown}
-          venueDropdown={this.state.venueDropdown}
+            venueDropdown={this.state.venueDropdown}
           />
         }
         <EmailForm />
