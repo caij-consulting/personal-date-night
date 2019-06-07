@@ -18,6 +18,7 @@ class App extends Component {
       date: new Date(),
       location: "",
       displayResult: false,
+      textFilter: "",
       // eventsJSX: "",
       // eventName: "",
       // eventStartTime: "",
@@ -73,6 +74,8 @@ class App extends Component {
             timeStart={this.state.timeStart}
             timeEnd={this.state.timeEnd}
             location={this.state.location}
+            handleChange={this.handleChange}
+            textFilter={this.state.textFilter}
           />
         }
         <EmailForm />
