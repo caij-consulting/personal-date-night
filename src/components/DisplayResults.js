@@ -9,8 +9,17 @@ class DisplayResults extends Component {
             allEvents: [],
             filteredEvents: [],
             isLoading: true,
+            user1: {},
+            user2: {},
+            currentUser: 1,
+            checked:'checked'
+
+            // current user has been selected in App.js
+            // App.js passes info to DisplayResults
+            //match value to user1 or 
 
         }
+
     }
     // converting time function to string so it can be passed as a number in template literals 
     formatDate = (dateObject, time) => {
@@ -72,15 +81,17 @@ class DisplayResults extends Component {
     // current user will = user1
 
 
-    // switchUser = () =>{
-    //     if (currentUser === 1){
+    handleChangeRadio = (event, selected) => {
+            this.setState({
+                [event.target.name]: event.target.value
+            },
+                (selected) =>{
+                 
+                }
+            )
+        }
+   
 
-    //         currentUser = user1
-    //     } else if (currentUser === 2) {
-            
-    //         currentUser = user2
-    //     }
-    // }
 
     componentDidMount() {
         let date = this.props.date;
@@ -113,16 +124,16 @@ class DisplayResults extends Component {
                                     <form action="">
                                         <div className="user">
                                             <label htmlFor="user1">User 1</label>
-                                            <input onChange ={(event,name)=>{this.props.handleChange(event,name)}}  
+                                            <input onChange ={(event,name)=>{this.handleChangeRadio(event,name)}}  
                                             type="radio" 
                                             name="currentUser" 
                                             id="user1" 
-                                            checked="checked" 
+                                            // checked={}
                                             value = "1" />
                                         </div>
                                         <div className="user">
                                             <label htmlFor="user2">User 2</label>
-                                            <input onChange={(event,name) => { this.props.handleChange(event,name) }} 
+                                            <input onChange={(event,name) => { this.handleChangeRadio(event,name) }} 
                                             type="radio" 
                                             name="currentUser" 
                                             id="user2" 
