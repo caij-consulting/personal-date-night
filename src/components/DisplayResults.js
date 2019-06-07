@@ -196,31 +196,30 @@ class DisplayResults extends Component {
                             <button
                                 onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>            
                         </form>
+                        <form action="">
+                            <div className="user">
+                                <label htmlFor="user1">User 1</label>
+                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                    type="radio"
+                                    name="currentUser"
+                                    id="user1"
+                                    checked={this.state.currentUser === "1"}
+                                    value="1" />
+                            </div>
+                            <div className="user">
+                                <label htmlFor="user2">User 2</label>
+                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                    type="radio"
+                                    name="currentUser"
+                                    id="user2"
+                                    checked={this.state.currentUser === "2"}
+                                    value="2" />
+                            </div>
+                        </form> 
                         {
                         this.state.filteredEvents.map((eventObject) => {
                             return (
                                 <div>
-                                    <form action="">
-                                        <div className="user">
-                                            <label htmlFor="user1">User 1</label>
-                                            <input onChange ={(event)=>{this.handleChangeRadio(event)}}  
-                                            type="radio" 
-                                            name="currentUser" 
-                                            id="user1" 
-                                            checked={this.state.currentUser === "1"}
-                                            value = "1" />
-                                        </div>
-                                        <div className="user">
-                                            <label htmlFor="user2">User 2</label>
-                                            <input onChange={(event) => { this.handleChangeRadio(event) }} 
-                                            type="radio" 
-                                            name="currentUser" 
-                                            id="user2" 
-                                            checked={this.state.currentUser === "2"}
-                                            value = "2"/>
-                                        </div>
-                                    </form> 
-
                                     <ResultCard
                                         key={eventObject.id}
                                         name={eventObject.name}
