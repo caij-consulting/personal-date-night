@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ResultCard from "./ResultCard.js";
 
-class DisplayResults extends Component{
+class DisplayResults extends Component {
     constructor() {
         super();
         this.state = {
-            data: [],
+            allEvents: [],
+            filteredEvents: [],
             isLoading: true,
         }
     }
@@ -21,7 +22,7 @@ class DisplayResults extends Component{
         if (day < 10) {
             day = '0' + day;
         }
-        let hours = time.substr(0,2);
+        let hours = time.substr(0, 2);
         console.log(hours);
         let minutes = time.substr(3, 5);
         console.log(minutes);
@@ -33,8 +34,8 @@ class DisplayResults extends Component{
     getTicketmasterData = (location, startDate, endDate) => {
         console.log('parameters that go to the API Call')
         console.log("location: ", location)
-        console.log("Start Date: ",startDate);
-        console.log("End Date: ",endDate);
+        console.log("Start Date: ", startDate);
+        console.log("End Date: ", endDate);
         axios({
             method: "GET",
             url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${location}&localStartEndDateTime=${startDate},${endDate}`,
@@ -44,13 +45,28 @@ class DisplayResults extends Component{
             response = response.data._embedded.events;
             console.log(response)
             this.setState({
-                // data: response.data._embedded.events,
-                data: response,
+                allEvents: response,
+                filteredEvents: response,
                 isLoading: false,
             })
         })
     }
-    componentDidMount(){
+    filterEventName = (name) => {
+        if(!name){
+            this.setState({
+                filteredEvents: [...this.state.allEvents],
+            })
+        }
+        let copyOfAllEvents = [...this.state.allEvents];
+        let filteredEvents = copyOfAllEvents.filter((eventObject) => {
+            return eventObject.name.toUpperCase().includes(name.toUpperCase());
+        })
+        this.setState({
+            filteredEvents: [...filteredEvents],
+        })
+        
+    }
+    componentDidMount() {
         let date = this.props.date;
         let timeStart = this.props.timeStart;
         let timeEnd = this.props.timeEnd;
@@ -59,27 +75,36 @@ class DisplayResults extends Component{
         let location = this.props.location;
         this.getTicketmasterData(location, startDateTime, endDateTime);
     }
-    render(){
-        return(
-            this.state.isLoading ? <h1>Getting Your Events...</h1>:
+    render() {
+        return (
+            this.state.isLoading ? <h1>Getting Your Events...</h1> :
 
-            <div className="display-events">
-                <div className="display-content">
-{/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
-                    {this.state.data.map((eventObject) => {
-                        return (
-                            <ResultCard
-                                key={eventObject.id}
-                                name={eventObject.name}
-                                startDate={eventObject.dates.start.localDate}
-                                startTime={eventObject.dates.start.localTime}
-                                image={eventObject.images[1].url}
-                                location={eventObject._embedded.venues[0].city.name}
-                            />
-                        )
-                    })}
+                <div className="display-events">
+                    <div className="display-content">
+                        {/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
+                        <label htmlFor="textFilter">Enter Text to Filter</label>
+                        <input
+                            type="text"
+                            name="textFilter"
+                            onChange={(event) => { this.props.handleChange(event) }}
+                            required={true}
+                            value={this.props.textFilter} />
+                        <button onClick={() => this.filterEventName(this.props.textFilter)}>Filter</button>
+                        {
+                        this.state.filteredEvents.map((eventObject) => {
+                            return (
+                                <ResultCard
+                                    key={eventObject.id}
+                                    name={eventObject.name}
+                                    startDate={eventObject.dates.start.localDate}
+                                    startTime={eventObject.dates.start.localTime}
+                                    image={eventObject.images[1].url}
+                                    location={eventObject._embedded.venues[0].city.name}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
-            </div>
             // Page populated with search result
             // User one makes choice and event handler listening for choice
             // choice contains : event state details
