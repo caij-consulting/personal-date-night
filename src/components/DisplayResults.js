@@ -92,21 +92,7 @@ class DisplayResults extends Component {
             eventVenues: [...eventVenues],
         })
     }
-    filterEventName = (e, name) => {
-        e.preventDefault();
-        if (!name) {
-            this.setState({
-                filteredEvents: [...this.state.allEvents],
-            })
-        }
-        let copyOfAllEvents = [...this.state.allEvents];
-        let filteredEvents = copyOfAllEvents.filter((eventObject) => {
-            return eventObject.name.toUpperCase().includes(name.toUpperCase());
-        })
-        this.setState({
-            filteredEvents: [...filteredEvents],
-        })
-    }
+
     filterEvents = (e, textFilter, categoryDropdown, venueDropdown) => {
         e.preventDefault();
         let copyOfAllEvents = [...this.state.allEvents];
@@ -139,16 +125,6 @@ class DisplayResults extends Component {
         })
     }
 
-
-
-
-    // once get array, map it to show all categories then can work on filter
-
-    // if user choice === api event category name, show api result for that filter
-
-
-
-
     componentDidMount() {
         let date = this.props.date;
         let timeStart = this.props.timeStart;
@@ -156,8 +132,7 @@ class DisplayResults extends Component {
         let startDateTime = this.formatDate(date, timeStart);
         let endDateTime = this.formatDate(date, timeEnd);
         let location = this.props.location;
-        this.getTicketmasterData(location, startDateTime, endDateTime);
-        
+        this.getTicketmasterData(location, startDateTime, endDateTime);  
     }
 
 
@@ -179,7 +154,7 @@ class DisplayResults extends Component {
                                 onChange={(event) => { this.props.handleChange(event) }}
                                 name="textFilter"
                                 value={this.props.textFilter} />
-                            {/* <button onClick={(e) => this.filterEventName(e,this.props.textFilter)}>Filter</button> */}
+
 
                             <label htmlFor="allCategories">Event Categories</label>
                             <select
@@ -193,7 +168,7 @@ class DisplayResults extends Component {
                                     )
                                 })}
                             </select>
-                            {/* <button onClick={(e)=>this.filterByEventCategories(e,this.props.categoryDropdown)}>filter by category</button>  */}
+
                             <select
                                 onChange={(event) => { this.props.handleChange(event) }}
                                 name="venueDropdown"
