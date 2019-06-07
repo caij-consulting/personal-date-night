@@ -11,8 +11,7 @@ class DisplayResults extends Component {
             isLoading: true,
             user1: {},
             user2: {},
-            currentUser: 1,
-            checked:'checked'
+            currentUser: 1
 
             // current user has been selected in App.js
             // App.js passes info to DisplayResults
@@ -81,13 +80,12 @@ class DisplayResults extends Component {
     // current user will = user1
 
 
-    handleChangeRadio = (event, selected) => {
+    handleChangeRadio = (event, name) => {
             this.setState({
                 [event.target.name]: event.target.value
             },
-                (selected) =>{
-                 
-                }
+                // () =>{
+                // }
             )
         }
    
@@ -128,7 +126,7 @@ class DisplayResults extends Component {
                                             type="radio" 
                                             name="currentUser" 
                                             id="user1" 
-                                            // checked={}
+                                            checked="checked" 
                                             value = "1" />
                                         </div>
                                         <div className="user">
