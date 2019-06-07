@@ -13,8 +13,8 @@ class App extends Component {
     super();
     this.state = {
       data: [],
-      timeStart: "00:00",
-      timeEnd: "00:00",
+      timeStart: "12:00",
+      timeEnd: "12:00",
       date: new Date(),
       location: "",
       displayResult: false,
@@ -36,6 +36,7 @@ class App extends Component {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
+      console.log(name, event)
       this.setState({
         [name]: event
       })
@@ -79,7 +80,7 @@ class App extends Component {
             handleChange={this.handleChange}
             textFilter={this.state.textFilter}
             categoryDropdown={this.state.categoryDropdown}
-          venueDropdown={this.state.venueDropdown}
+            venueDropdown={this.state.venueDropdown}
           />
         }
         <EmailForm />
