@@ -9,6 +9,9 @@ class DisplayResults extends Component {
             allEvents: [],
             filteredEvents: [],
             isLoading: true,
+            user1:{},
+            user2:{},
+            currentUser: 1
         }
     }
     // converting time function to string so it can be passed as a number in template literals 
@@ -66,6 +69,21 @@ class DisplayResults extends Component {
         })
         
     }
+    // default is user one
+    // which is the selected
+    // current user will = user1
+
+
+    // switchUser = () =>{
+    //     if (currentUser === 1){
+
+    //         currentUser = user1
+    //     } else if (currentUser === 2) {
+            
+    //         currentUser = user2
+    //     }
+    // }
+
     componentDidMount() {
         let date = this.props.date;
         let timeStart = this.props.timeStart;
@@ -93,14 +111,37 @@ class DisplayResults extends Component {
                         {
                         this.state.filteredEvents.map((eventObject) => {
                             return (
-                                <ResultCard
-                                    key={eventObject.id}
-                                    name={eventObject.name}
-                                    startDate={eventObject.dates.start.localDate}
-                                    startTime={eventObject.dates.start.localTime}
-                                    image={eventObject.images[1].url}
-                                    location={eventObject._embedded.venues[0].city.name}
-                                />
+                                <div>
+                                    <form action="">
+                                        <div className="user">
+                                            <label htmlFor="user1">User 1</label>
+                                            <input onChange ={(event,name)=>{this.props.handleChange(event,name)}}  
+                                            type="radio" 
+                                            name="currentUser" 
+                                            id="user1" 
+                                            checked="checked" 
+                                            value = "1" />
+                                        </div>
+                                        <div className="user">
+                                            <label htmlFor="user2">User 2</label>
+                                            <input onChange={(event,name) => { this.props.handleChange(event,name) }} 
+                                            type="radio" 
+                                            name="currentUser" 
+                                            id="user2" 
+                                            value = "2"/>
+                                        </div>
+                                    </form> 
+
+                                    <ResultCard
+                                        key={eventObject.id}
+                                        name={eventObject.name}
+                                        startDate={eventObject.dates.start.localDate}
+                                        startTime={eventObject.dates.start.localTime}
+                                        image={eventObject.images[1].url}
+                                        location={eventObject._embedded.venues[0].city.name}
+                                    />
+                                </div>
+                               
                             )
                         })}
                     </div>
