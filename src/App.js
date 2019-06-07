@@ -44,8 +44,14 @@ class App extends Component {
       // which is for location...
       this.setState({
         [event.target.name]: event.target.value
-      })
+      },
+        // () =>{
+        // }
+      )
+      console.log(this.state.currentUser)
+
     }
+    console.log(event)
   }
 
 
