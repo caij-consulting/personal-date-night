@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       allEvents: [],
       timeStart: "12:00",
-      timeEnd: "12:00",
+      timeEnd: "13:00",
       date: new Date(),
       filteredEvents: [],
       eventCategories: [],
@@ -176,17 +176,17 @@ class App extends Component {
   render() {
     return ( 
       <div className="App">
-
-        <Header />
-        
-        <SearchForm
-          timeStart={this.state.timeStart}
-          timeEnd={this.state.timeEnd}
-          date={this.state.date}
-          handleChange={this.handleChange}
-          onSubmit={this.onSubmit}
-          location={this.state.location}
-        />
+        <div className="hero">
+          <Header />
+          <SearchForm
+            timeStart={this.state.timeStart}
+            timeEnd={this.state.timeEnd}
+            date={this.state.date}
+            handleChange={this.handleChange}
+            onSubmit={this.onSubmit}
+            location={this.state.location}
+          />
+        </div>
 
         {this.state.displayResult && (
           this.state.isLoading 
