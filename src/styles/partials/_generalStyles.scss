@@ -1,0 +1,22 @@
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+html{
+    font-size: 125%;
+    scroll-behavior: smooth;
+}
+body{
+    font-size: 1rem;
+    background-color: $green;
+}
+.wrapper{
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 80%;
+}
+img{
+    max-width: 100%;
+}

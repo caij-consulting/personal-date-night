@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker'
-import DateTimePicker from 'react-datetime-picker';
+// import DateTimePicker from 'react-datetime-picker';
 
 class SearchForm extends Component{
     //error handling function. if startTime is "10:00", make sure the endTime is atleast "11:00"
@@ -26,58 +26,66 @@ class SearchForm extends Component{
             
             return newTime
         }
-
     }
+<<<<<<< HEAD
 
+    // city Validation - user enters input, user clicks submit for API call. if API call finds city then displayResults is true. else then display "This city input is invalid, please try another city. DOES CITY VALIDATION LIVE IN API OR SEARCHform?
+
+
+=======
+>>>>>>> 7f2ecd3ee2de99954f99c3ee9cab71b66baf4759
     render(){
         return (
             <div>
             <form action="#">
-                <h1>SearchForm</h1>
+                <h2>SearchForm</h2>
                 <div>
-                    <label htmlFor="location">Please Enter a City Name:</label>
+                    <label htmlFor="location">Which city are you searching in?</label>
                     <input 
                     type="text" 
                     name="location"
-
-                    // this onChange will not need name parameter bc it functions like js should
+                    required pattern="[a-zA-Z]*"
                     onChange={(event)=> {this.props.handleChange(event)}}
                     required={true}
-                    value={this.props.location}/>
+                    value={this.props.location}
+                    // cityValidation={this.props.cityValidation}
+                    />
                 </div>
                 <div>
-                    <label htmlFor="">Date</label>
+                    <label htmlFor="">Which date?</label>
                     <DatePicker
-                    onChange={(event, name)=> {this.props.handleChange(event, "date")}}
-                    required={true}
-                    format="y-MM-dd"
-                    name="date"
-                    value={this.props.date}
+                        onChange={(event, name)=> {this.props.handleChange(event, "date")}}
+                        required={true}
+                        format="y-MM-dd"
+                        name="date"
+                        value={this.props.date}
                     />
                 </div>
                 <div>
-                    <label htmlFor="time">Time Range Start</label>
-                    <TimePicker
-                    onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
-                    required={true}
-                    format="HH:mm"
-                    name="timeStart"
-                    value={this.props.timeStart}
-                    />
+                    <legend>What time range?</legend>
+                    <div>
+                        <label htmlFor="time">From</label>
+                        <TimePicker
+                            onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
+                            required={true}
+                            format="h:mm a"
+                            disableClock
+                            name="timeStart"
+                            value={this.props.timeStart}
+                        />
+                        <label htmlFor="time">Until</label>
+                        <TimePicker
+                            onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
+                            required={true}
+                            format="h:mm a"
+                            disableClock
+                            name="timeEnd"
+                            value={this.props.timeEnd}
+                            minTime={this.addOneHourToTime(this.props.timeStart)}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="time">Time Range End</label>
-                    <TimePicker
-                    onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
-                    required={true}
-                    format="HH:mm"
-                    name="timeEnd"
-                    value={this.props.timeEnd}
-                    minTime={this.addOneHourToTime(this.props.timeStart)}
-                    />
-                </div>
-                <button 
-                onClick={this.props.onSubmit}>Submit</button>
+                <button onClick={this.props.onSubmit}>Find Events</button>
             </form>
             </div>
 
