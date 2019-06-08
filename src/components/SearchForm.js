@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker'
-import DateTimePicker from 'react-datetime-picker';
+// import DateTimePicker from 'react-datetime-picker';
 
 class SearchForm extends Component{
     //error handling function. if startTime is "10:00", make sure the endTime is atleast "11:00"
@@ -35,49 +35,48 @@ class SearchForm extends Component{
             <form action="#">
                 <h1>SearchForm</h1>
                 <div>
-                    <label htmlFor="location">Please Enter a City Name:</label>
+                    <label htmlFor="location">Which city are you searching in?</label>
                     <input 
-                    type="text" 
-                    name="location"
-
-                    // this onChange will not need name parameter bc it functions like js should
-                    onChange={(event)=> {this.props.handleChange(event)}}
-                    required={true}
-                    value={this.props.location}/>
+                        type="text" 
+                        name="location"
+                        // this onChange will not need name parameter bc it functions like js should
+                        onChange={(event)=> {this.props.handleChange(event)}}
+                        required={true}
+                        value={this.props.location}/>
                 </div>
                 <div>
-                    <label htmlFor="">Date</label>
+                    <label htmlFor="">Which date?</label>
                     <DatePicker
-                    onChange={(event, name)=> {this.props.handleChange(event, "date")}}
-                    required={true}
-                    format="y-MM-dd"
-                    name="date"
-                    value={this.props.date}
+                        onChange={(event, name)=> {this.props.handleChange(event, "date")}}
+                        required={true}
+                        format="y-MM-dd"
+                        name="date"
+                        value={this.props.date}
                     />
                 </div>
                 <div>
-                    <label htmlFor="time">Time Range Start</label>
-                    <TimePicker
-                    onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
-                    required={true}
-                    format="HH:mm"
-                    name="timeStart"
-                    value={this.props.timeStart}
-                    />
+                    <legend>What time range?</legend>
+                    <div>
+                        <label htmlFor="time">From</label>
+                        <TimePicker
+                            onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
+                            required={true}
+                            format="HH:mm"
+                            name="timeStart"
+                            value={this.props.timeStart}
+                        />
+                        <label htmlFor="time">Until</label>
+                        <TimePicker
+                            onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
+                            required={true}
+                            format="HH:mm"
+                            name="timeEnd"
+                            value={this.props.timeEnd}
+                            minTime={this.addOneHourToTime(this.props.timeStart)}
+                        />
+                    </div>
                 </div>
-                <div>
-                    <label htmlFor="time">Time Range End</label>
-                    <TimePicker
-                    onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
-                    required={true}
-                    format="HH:mm"
-                    name="timeEnd"
-                    value={this.props.timeEnd}
-                    minTime={this.addOneHourToTime(this.props.timeStart)}
-                    />
-                </div>
-                <button 
-                onClick={this.props.onSubmit}>Submit</button>
+                <button onClick={this.props.onSubmit}>Find Events</button>
             </form>
             </div>
 
