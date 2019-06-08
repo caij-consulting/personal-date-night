@@ -104,12 +104,6 @@ class DisplayResults extends Component {
                                     <ResultCard
                                         key={eventObject.id}
                                         event={eventObject}
-                                        name={eventObject.name}
-                                        startDate={eventObject.dates.start.localDate}
-                                        startTime={eventObject.dates.start.localTime}
-                                        image={eventObject.images[1].url}
-                                        location={eventObject._embedded.venues[0].city.name}
-                                        id={eventObject.id}
                                         handleEventSelectRadio={this.handleEventSelectRadio}
                                         user1choice={this.state.user1choice}
                                         user2choice={this.state.user2choice}
