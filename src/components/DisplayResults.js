@@ -5,10 +5,10 @@ class DisplayResults extends Component {
     constructor() {
         super();
         this.state = {
-            // allEvents: [],
+            allEvents: [],
             user1choice: "",
             user2choice: "",
-            // currentUser: "1",
+            currentUser: "1",
         }
     }
 
@@ -18,17 +18,17 @@ class DisplayResults extends Component {
             currentUser: e.target.value
         })
     }
-    handleEventSelectRadio = (e, eventID) =>{
+    handleEventSelectRadio = (e, eventName) =>{
         // e.preventDefault()
         console.log(e)
         if(this.state.currentUser==="1"){
             this.setState({
-                user1choice: eventID,
+                user1choice: eventName,
             })
         }
         if (this.state.currentUser === "2") {
             this.setState({
-                user2choice: eventID,
+                user2choice: eventName,
             })
         }
     }
@@ -83,7 +83,7 @@ class DisplayResults extends Component {
                                     name="currentUser"
                                     id="user1"
                                     value="1"
-                                    // checked={this.state.currentUser === "1"}
+                                    checked={this.state.currentUser === "1"}
                                     />
                             </div>
                             <div className="user">
@@ -94,7 +94,7 @@ class DisplayResults extends Component {
                                     name="currentUser"
                                     id="user2"
                                     value="2"
-                                    // checked={this.state.currentUser === "2"}
+                                    checked={this.state.currentUser === "2"}
                                     />
                             </div>
                         </form>

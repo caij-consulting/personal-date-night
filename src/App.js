@@ -20,7 +20,7 @@ class App extends Component {
       eventVenues: [],
       userVenue: "",
       isLoading: true,
-      location: "garbage",
+      location: "toronto",
       displayResult: false,
       textFilter: "",
       categoryDropdown: "",
