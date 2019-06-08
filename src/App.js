@@ -162,17 +162,15 @@ class App extends Component {
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
-    const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
-    const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
-    const location = this.state.location;
-    this.getTicketmasterData(location, startDateTime, endDateTime); 
-
     if (this.state.timeStart && this.state.timeEnd && this.state.location &&
       Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
       this.setState({
-        displayResult: true,
-        
+        displayResult: true,    
       })
+      const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
+      const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
+      const location = this.state.location;
+      this.getTicketmasterData(location, startDateTime, endDateTime); 
     }
   }
   render() {
