@@ -27,6 +27,13 @@ class SearchForm extends Component{
             return newTime
         }
     }
+<<<<<<< HEAD
+
+    // city Validation - user enters input, user clicks submit for API call. if API call finds city then displayResults is true. else then display "This city input is invalid, please try another city. DOES CITY VALIDATION LIVE IN API OR SEARCHform?
+
+
+=======
+>>>>>>> 7f2ecd3ee2de99954f99c3ee9cab71b66baf4759
     render(){
         return (
             <div>
@@ -35,12 +42,14 @@ class SearchForm extends Component{
                 <div>
                     <label htmlFor="location">Which city are you searching in?</label>
                     <input 
-                        type="text" 
-                        name="location"
-                        // this onChange will not need name parameter bc it functions like js should
-                        onChange={(event)=> {this.props.handleChange(event)}}
-                        required={true}
-                        value={this.props.location}/>
+                    type="text" 
+                    name="location"
+                    required pattern="[a-zA-Z]*"
+                    onChange={(event)=> {this.props.handleChange(event)}}
+                    required={true}
+                    value={this.props.location}
+                    // cityValidation={this.props.cityValidation}
+                    />
                 </div>
                 <div>
                     <label htmlFor="">Which date?</label>
@@ -59,7 +68,8 @@ class SearchForm extends Component{
                         <TimePicker
                             onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
                             required={true}
-                            format="HH:mm"
+                            format="h:mm a"
+                            disableClock
                             name="timeStart"
                             value={this.props.timeStart}
                         />
@@ -67,7 +77,8 @@ class SearchForm extends Component{
                         <TimePicker
                             onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
                             required={true}
-                            format="HH:mm"
+                            format="h:mm a"
+                            disableClock
                             name="timeEnd"
                             value={this.props.timeEnd}
                             minTime={this.addOneHourToTime(this.props.timeStart)}

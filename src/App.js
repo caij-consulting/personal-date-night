@@ -25,6 +25,9 @@ class App extends Component {
       textFilter: "",
       categoryDropdown: "",
       venueDropdown: "",
+
+      cities: [],
+      userCity: "",
       // eventsJSX: "",
       // eventName: "",
       // eventStartTime: "",
@@ -38,6 +41,7 @@ class App extends Component {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
+      console.log(name, e)
       this.setState({
         [name]: e
       })
@@ -47,6 +51,13 @@ class App extends Component {
         [e.target.name]: e.target.value
       })
     }
+    console.log(e)
+  }
+
+  reset= () => {
+    this.setState({
+      displayResult:false,
+    })
   }
 
   // converting time function to string so it can be passed as a number in template literals 
@@ -81,7 +92,7 @@ class App extends Component {
         dataResponse: "jsonp",
     }).then((response) => {
         response = response.data._embedded.events;
-        // console.log(response, allEvents)
+        console.log(response)
         this.setState({
             // allEvents is the good return we never modify
             allEvents: response,
@@ -164,18 +175,70 @@ class App extends Component {
     e.preventDefault();
     if (this.state.timeStart && this.state.timeEnd && this.state.location &&
       Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
+        this.setState({
+          displayResult: true,    
+        })
+        const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
+        const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
+        const location = this.state.location;
+        this.getTicketmasterData(location, startDateTime, endDateTime); 
+      }
+  }
+
+  // cityValidation = (e) => {
+  //   if (location)
+  // }
+
+  cityValidation = () => {
+    // loop through all events 
+    let cities = ["All Cities"];
+    for (let i = 0; i < this.state.allEvents.length; i++) {
+      let city = this.state.allEvents[i]._embedded.venues[0].city.name;
+
+      // let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
+
+      if (!cities.includes(city)) {
+        cities.push(city)
+      }
+    }
+    console.log(cities);
+
+    this.setState({
+      // ... copies the items to the array
+      // user input will be compared to what is in the cities below
+      cities: [...cities],
+    })
+    if (this.state.location == this.state.city) {
       this.setState({
-        displayResult: true,    
+        displayResult:false
       })
-      const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
-      const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
-      const location = this.state.location;
-      this.getTicketmasterData(location, startDateTime, endDateTime); 
+      // add else here for if doesn't match!
     }
   }
+
+    
+
+
+
   render() {
     return ( 
       <div className="App">
+<<<<<<< HEAD
+
+        <Header />
+        
+        <SearchForm
+          timeStart={this.state.timeStart}
+          timeEnd={this.state.timeEnd}
+          date={this.state.date}
+          handleChange={this.handleChange}
+          onSubmit={this.onSubmit}
+          location={this.state.location}
+
+          cityValidation={this.state.cityValidation}
+          
+        />
+=======
         <div className="hero wrapper">
           <Header 
           className="hero-left"/>
@@ -189,6 +252,7 @@ class App extends Component {
             location={this.state.location}
           />
         </div>
+>>>>>>> 7f2ecd3ee2de99954f99c3ee9cab71b66baf4759
 
         {this.state.displayResult && (
           this.state.isLoading 

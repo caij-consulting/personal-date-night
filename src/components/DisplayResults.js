@@ -29,7 +29,6 @@ class DisplayResults extends Component {
                             <label htmlFor="textFilter">Enter Text to Filter</label>
                             <input
                                 type="text"
-                                required={true}
                                 onChange={(e) => { this.props.handleChange(e) }}
                                 name="textFilter"
                                 value={this.props.textFilter} />
@@ -58,7 +57,9 @@ class DisplayResults extends Component {
                                 })}
                             </select>
                             <button
-                                onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>            
+                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
+                            <button
+                                reset={this.reset}>Reset</button>          
                         </form>
                         <form action="">
                             <div className="user">
