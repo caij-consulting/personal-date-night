@@ -1,14 +1,14 @@
 @import "./partials/_setup";
 @import "./partials/_varsMixins";
 @import "./partials/_generalStyles";
-@import "./partials/_hero.scss";
+// @import "./partials/_hero";
+@import "./partials/_headerSearchForm";
 @import "./partials/displayResults";
 @import "./partials/_resultCard";
 
 
 .App {
   text-align: center;
-
 }
 
 
