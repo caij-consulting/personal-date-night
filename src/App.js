@@ -176,9 +176,11 @@ class App extends Component {
   render() {
     return ( 
       <div className="App">
-        <div className="hero">
-          <Header />
+        <div className="hero wrapper">
+          <Header 
+          className="hero-left"/>
           <SearchForm
+            className="hero-right"
             timeStart={this.state.timeStart}
             timeEnd={this.state.timeEnd}
             date={this.state.date}

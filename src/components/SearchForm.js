@@ -26,14 +26,12 @@ class SearchForm extends Component{
             
             return newTime
         }
-
     }
-
     render(){
         return (
             <div>
             <form action="#">
-                <h1>SearchForm</h1>
+                <h2>SearchForm</h2>
                 <div>
                     <label htmlFor="location">Which city are you searching in?</label>
                     <input 
