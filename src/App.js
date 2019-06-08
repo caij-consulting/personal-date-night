@@ -192,6 +192,7 @@ class App extends Component {
   render() {
     return ( 
       <div className="App">
+
         <div className="hero wrapper">
           <Header 
           className="hero-left"/>
@@ -206,36 +207,36 @@ class App extends Component {
           />
         </div>
 
-        {this.state.error && (
+        {this.state.error
+        ? (
           <div className="error">
             <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
           </div>
-          )}
-
-
-        {this.state.displayResult && (
-          this.state.isLoading
-            ? <h1>Getting Your Events...</h1> 
-
-// if loading is true, getting your resuts...else, if city is undefined, h1 Please enter a valid city name...else
-
-            : <DisplayResults
-              className="wrapper"
-              date={this.state.date}
-              timeStart={this.state.timeStart}
-              timeEnd={this.state.timeEnd}
-              location={this.state.location}
-              eventVenues={this.state.eventVenues}
-              handleChange={this.handleChange}
-              textFilter={this.state.textFilter}
-              filteredEvents={this.state.filteredEvents}
-              eventCategories={this.state.eventCategories}
-              categoryDropdown={this.state.categoryDropdown}
-              venueDropdown={this.state.venueDropdown}
-              filterEvents={this.filterEvents}
-            />
-        )}
-        <Footer />
+          )
+        : (
+          (this.state.displayResult && (
+            this.state.isLoading
+              //display loading while api results being returned
+              ? <h1>Getting Your Events...</h1> 
+              : <DisplayResults
+                className="wrapper"
+                date={this.state.date}
+                timeStart={this.state.timeStart}
+                timeEnd={this.state.timeEnd}
+                location={this.state.location}
+                eventVenues={this.state.eventVenues}
+                handleChange={this.handleChange}
+                textFilter={this.state.textFilter}
+                filteredEvents={this.state.filteredEvents}
+                eventCategories={this.state.eventCategories}
+                categoryDropdown={this.state.categoryDropdown}
+                venueDropdown={this.state.venueDropdown}
+                filterEvents={this.filterEvents}
+              />
+            ))     
+          )
+        }
+        <Footer /> 
       </div>
     );
   }
