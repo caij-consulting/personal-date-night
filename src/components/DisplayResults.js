@@ -19,6 +19,8 @@ class DisplayResults extends Component {
         })
     }
     handleEventSelectRadio = (e, eventName) =>{
+        // e.preventDefault()
+        console.log(e)
         if(this.state.currentUser==="1"){
             this.setState({
                 user1choice: eventName,

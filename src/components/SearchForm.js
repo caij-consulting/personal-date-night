@@ -28,14 +28,11 @@ class SearchForm extends Component{
         }
     }
 
-    // city Validation - user enters input, user clicks submit for API call. if API call finds city then displayResults is true. else then display "This city input is invalid, please try another city. DOES CITY VALIDATION LIVE IN API OR SEARCHform?
-
-
     render(){
         return (
             <div>
             <form action="#">
-                <h2>SearchForm</h2>
+                <h2>Search Form</h2>
                 <div>
                     <label htmlFor="location">Which city are you searching in?</label>
                     <input 
@@ -45,7 +42,6 @@ class SearchForm extends Component{
                     onChange={(event)=> {this.props.handleChange(event)}}
                     required={true}
                     value={this.props.location}
-                    // cityValidation={this.props.cityValidation}
                     />
                 </div>
                 <div>
