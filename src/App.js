@@ -34,17 +34,17 @@ class App extends Component {
     }
   }
 
-  handleChange = (event, name) => {
+  handleChange = (e, name) => {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
       this.setState({
-        [name]: event
+        [name]: e
       })
     } else {
       // which is for location...
       this.setState({
-        [event.target.name]: event.target.value
+        [e.target.name]: e.target.value
       })
     }
   }
@@ -111,7 +111,7 @@ class App extends Component {
     })
 }
 
-getEventVenues = () => {
+  getEventVenues = () => {
     // loop through all events 
     let eventVenues = ["All Venues"];
     for (let i = 0; i < this.state.allEvents.length; i++) {
@@ -125,19 +125,48 @@ getEventVenues = () => {
         // ... copies the items to the array
         eventVenues: [...eventVenues],
     })
-}
+  }
 
-  componentDidMount() {
-    console.log('COMPONENT MOUNT');
-    const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
-    const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
-    const location = this.state.location;
-    this.getTicketmasterData(location, startDateTime, endDateTime);  
+  filterEvents = (e, textFilter, categoryDropdown, venueDropdown) => {
+    e.preventDefault();
+    let copyOfAllEvents = [...this.state.allEvents];
+
+    const filteredEvents = copyOfAllEvents.filter((eventObj) => {
+        if (textFilter.trim().length > 0) {
+            return eventObj.name.toUpperCase().includes(textFilter.toUpperCase())
+        } else {
+            return true;
+        }
+    })
+        .filter((eventObj) => {
+            if (categoryDropdown==="All Categories"){
+                return true;
+            }
+            else {
+                return eventObj.classifications[0].segment.name.includes(categoryDropdown);
+            }
+        })
+        .filter((eventObj) => {
+            if (venueDropdown === "All Venues") {
+                return true;
+            }
+            else {
+                return eventObj._embedded.venues[0].name.includes(venueDropdown);
+            }
+        })
+    this.setState({
+        filteredEvents: [...filteredEvents],
+    })
   }
 
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
+    const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
+    const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
+    const location = this.state.location;
+    this.getTicketmasterData(location, startDateTime, endDateTime); 
+
     if (this.state.timeStart && this.state.timeEnd && this.state.location &&
       Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
       this.setState({
@@ -149,7 +178,7 @@ getEventVenues = () => {
   render() {
     return ( 
       <div className="App">
-      <p>PAGE RENDERED</p>
+
         <Header />
         
         <SearchForm
@@ -169,10 +198,14 @@ getEventVenues = () => {
               timeStart={this.state.timeStart}
               timeEnd={this.state.timeEnd}
               location={this.state.location}
+              eventVenues={this.state.eventVenues}
               handleChange={this.handleChange}
               textFilter={this.state.textFilter}
+              filteredEvents={this.state.filteredEvents}
+              eventCategories={this.state.eventCategories}
               categoryDropdown={this.state.categoryDropdown}
               venueDropdown={this.state.venueDropdown}
+              filterEvents={this.filterEvents}
             />
         )}
         <Footer />

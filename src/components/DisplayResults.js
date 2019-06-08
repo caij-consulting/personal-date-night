@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import ResultCard from "./ResultCard.js";
 
 class DisplayResults extends Component {
@@ -10,56 +9,20 @@ class DisplayResults extends Component {
             user1: {},
             user2: {},
             currentUser: "1",
-            // current user has been selected in App.js
-            // App.js passes info to DisplayResults
-            //match value to user1 or 
         }
     }
 
-    filterEvents = (e, textFilter, categoryDropdown, venueDropdown) => {
-        e.preventDefault();
-        let copyOfAllEvents = [...this.state.allEvents];
-
-        const filteredEvents = copyOfAllEvents.filter((eventObj) => {
-            if (textFilter.trim().length > 0) {
-                return eventObj.name.toUpperCase().includes(textFilter.toUpperCase())
-            } else {
-                return true;
-            }
-        })
-            .filter((eventObj) => {
-                if (categoryDropdown==="All Categories"){
-                    return true;
-                }
-                else {
-                    return eventObj.classifications[0].segment.name.includes(categoryDropdown);
-                }
-            })
-            .filter((eventObj) => {
-                if (venueDropdown === "All Venues") {
-                    return true;
-                }
-                else {
-                    return eventObj._embedded.venues[0].name.includes(venueDropdown);
-                }
-            })
-        this.setState({
-            filteredEvents: [...filteredEvents],
-        })
-    }
-
-
-    handleChangeRadio = (event) => {
+    handleChangeRadio = (e) => {
             this.setState({
                 //sets currentUser to be either User1 or User2 on toggle
-                currentUser: event.target.value
+                currentUser: e.target.value
             })
         }
 
     render() {
         return (
-                <div className="display-events">
-                    <div className="display-content">
+                <div className="displayEvents">
+                    <div className="displayContent">
                         {/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
                         <form action="submit">
                         {/*wrote submit bc this attribute usually works with backend*/}
@@ -68,18 +31,18 @@ class DisplayResults extends Component {
                                 type="text"
                                 required={true}
 
-                                onChange={(event) => { this.props.handleChange(event) }}
+                                onChange={(e) => { this.props.handleChange(e) }}
                                 name="textFilter"
                                 value={this.props.textFilter} />
 
 
                             <label htmlFor="allCategories">Event Categories</label>
                             <select
-                                onChange={(event) => { this.props.handleChange(event) }}
+                                onChange={(e) => { this.props.handleChange(e) }}
                                 name="categoryDropdown" 
                                 value={this.props.categoryDropdown}
                                 id="">
-                                {this.state.eventCategories.map((category) => {
+                                {this.props.eventCategories.map((category) => {
                                     return (
                                         <option value={category}> {category} </option>
                                     )
@@ -87,41 +50,43 @@ class DisplayResults extends Component {
                             </select>
 
                             <select
-                                onChange={(event) => { this.props.handleChange(event) }}
+                                onChange={(e) => { this.props.handleChange(e) }}
                                 name="venueDropdown"
                                 value={this.props.venueDropdown}
                                 id="">
-                                {this.state.eventVenues.map((venue) => {
+                                {this.props.eventVenues.map((venue) => {
                                     return (
                                         <option value={venue}> {venue} </option>
                                     )
                                 })}
                             </select>
                             <button
-                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>            
+                                onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>            
                         </form>
                         <form action="">
                             <div className="user">
                                 <label htmlFor="user1">User 1</label>
-                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                <input onChange={(e) => { this.handleChangeRadio(e) }}
                                     type="radio"
                                     name="currentUser"
                                     id="user1"
+                                    value="1"
                                     checked={this.state.currentUser === "1"}
-                                    value="1" />
+                                    />
                             </div>
                             <div className="user">
                                 <label htmlFor="user2">User 2</label>
-                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                <input onChange={(e) => { this.handleChangeRadio(e) }}
                                     type="radio"
                                     name="currentUser"
                                     id="user2"
+                                    value="2"
                                     checked={this.state.currentUser === "2"}
-                                    value="2" />
+                                    />
                             </div>
                         </form> 
                         {
-                        this.state.filteredEvents.map((eventObject) => {
+                        this.props.filteredEvents.map((eventObject) => {
                             return (
                                 <div>
                                     <ResultCard
