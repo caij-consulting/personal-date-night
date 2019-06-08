@@ -36,15 +36,6 @@ class DisplayResults extends Component {
 
     //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
     getTicketmasterData = (location, startDate, endDate) => {
-        this.setState({
-            allEvents: [],
-            filteredEvents: [],
-            isLoading: true,
-            eventCategories: [],
-            userCategory: "",
-            eventVenues: [],
-            userVenue: "",
-        })
         console.log('parameters that go to the API Call')
         console.log("location: ", location)
         console.log("Start Date: ", startDate);
@@ -133,7 +124,14 @@ class DisplayResults extends Component {
             filteredEvents: [...filteredEvents],
         })
     }
-
+    // default is user one
+    // which is the selected
+    // current user will = user1
+    handleChangeRadio = (event) => {
+            this.setState({
+                currentUser: event.target.value
+            })
+        }
     componentDidMount() {
         let date = this.props.date;
         let timeStart = this.props.timeStart;
@@ -143,21 +141,6 @@ class DisplayResults extends Component {
         let location = this.props.location;
         this.getTicketmasterData(location, startDateTime, endDateTime);  
     }
-
-    // trying to clear field
-    // reset = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ 
-    //         allEvents: [],
-    //         filteredEvents: [],
-    //         isLoading: true,
-    //         eventCategories: [],
-    //         userCategory: "",
-    //         eventVenues: [],
-    //         userVenue: "",
-    //     })
-    //     this.getTicketmasterData(location, startDateTime, endDateTime);  
-    // }
 
 
 
@@ -205,22 +188,45 @@ class DisplayResults extends Component {
                                 })}
                             </select>
                             <button
-                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>     
-                                
-                            <button 
-                                reset={this.reset}>Clear</button>
+                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
+                            <button
+                            reset={this.reset}>Clear
+                            </button>          
                         </form>
+                        <form action="">
+                            <div className="user">
+                                <label htmlFor="user1">User 1</label>
+                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                    type="radio"
+                                    name="currentUser"
+                                    id="user1"
+                                    checked={this.state.currentUser === "1"}
+                                    value="1" />
+                            </div>
+                            <div className="user">
+                                <label htmlFor="user2">User 2</label>
+                                <input onChange={(event) => { this.handleChangeRadio(event) }}
+                                    type="radio"
+                                    name="currentUser"
+                                    id="user2"
+                                    checked={this.state.currentUser === "2"}
+                                    value="2" />
+                            </div>
+                        </form> 
                         {
                         this.state.filteredEvents.map((eventObject) => {
                             return (
-                                <ResultCard
-                                    key={eventObject.id}
-                                    name={eventObject.name}
-                                    startDate={eventObject.dates.start.localDate}
-                                    startTime={eventObject.dates.start.localTime}
-                                    image={eventObject.images[1].url}
-                                    location={eventObject._embedded.venues[0].city.name}
-                                />
+                                <div>
+                                    <ResultCard
+                                        key={eventObject.id}
+                                        name={eventObject.name}
+                                        startDate={eventObject.dates.start.localDate}
+                                        startTime={eventObject.dates.start.localTime}
+                                        image={eventObject.images[1].url}
+                                        location={eventObject._embedded.venues[0].city.name}
+                                    />
+                                </div>
+                               
                             )
                         })}
                     </div>
