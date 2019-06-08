@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       allEvents: [],
       timeStart: "12:00",
-      timeEnd: "12:00",
+      timeEnd: "13:00",
       date: new Date(),
       filteredEvents: [],
       eventCategories: [],
@@ -223,6 +223,7 @@ class App extends Component {
   render() {
     return ( 
       <div className="App">
+<<<<<<< HEAD
 
         <Header />
         
@@ -237,6 +238,21 @@ class App extends Component {
           cityValidation={this.state.cityValidation}
           
         />
+=======
+        <div className="hero wrapper">
+          <Header 
+          className="hero-left"/>
+          <SearchForm
+            className="hero-right"
+            timeStart={this.state.timeStart}
+            timeEnd={this.state.timeEnd}
+            date={this.state.date}
+            handleChange={this.handleChange}
+            onSubmit={this.onSubmit}
+            location={this.state.location}
+          />
+        </div>
+>>>>>>> 7f2ecd3ee2de99954f99c3ee9cab71b66baf4759
 
         {this.state.displayResult && (
           this.state.isLoading 
