@@ -101,6 +101,7 @@ class DisplayResults extends Component {
                             return (
                                     <ResultCard
                                         key={eventObject.id}
+                                        event={eventObject}
                                         name={eventObject.name}
                                         startDate={eventObject.dates.start.localDate}
                                         startTime={eventObject.dates.start.localTime}
