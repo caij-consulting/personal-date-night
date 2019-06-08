@@ -27,13 +27,10 @@ class SearchForm extends Component{
             return newTime
         }
     }
-<<<<<<< HEAD
 
     // city Validation - user enters input, user clicks submit for API call. if API call finds city then displayResults is true. else then display "This city input is invalid, please try another city. DOES CITY VALIDATION LIVE IN API OR SEARCHform?
 
 
-=======
->>>>>>> 7f2ecd3ee2de99954f99c3ee9cab71b66baf4759
     render(){
         return (
             <div>
