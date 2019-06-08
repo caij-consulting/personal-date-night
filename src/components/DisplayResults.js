@@ -6,18 +6,32 @@ class DisplayResults extends Component {
         super();
         this.state = {
             allEvents: [],
-            user1: {},
-            user2: {},
+            user1choice: "",
+            user2choice: "",
             currentUser: "1",
         }
     }
 
-    handleChangeRadio = (e) => {
+    handleUserChangeRadio = (e) => {
+        this.setState({
+            //sets currentUser to be either User1 or User2 on toggle
+            currentUser: e.target.value
+        })
+    }
+    handleEventSelectRadio = (e, eventID) =>{
+        e.preventDefault()
+        console.log(e)
+        if(this.state.currentUser==="1"){
             this.setState({
-                //sets currentUser to be either User1 or User2 on toggle
-                currentUser: e.target.value
+                user1choice: eventID,
             })
         }
+        if (this.state.currentUser === "2") {
+            this.setState({
+                user2choice: eventID,
+            })
+        }
+    }
 
     render() {
         return (
@@ -64,7 +78,7 @@ class DisplayResults extends Component {
                         <form action="">
                             <div className="user">
                                 <label htmlFor="user1">User 1</label>
-                                <input onChange={(e) => { this.handleChangeRadio(e) }}
+                                <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                                     type="radio"
                                     name="currentUser"
                                     id="user1"
@@ -74,7 +88,8 @@ class DisplayResults extends Component {
                             </div>
                             <div className="user">
                                 <label htmlFor="user2">User 2</label>
-                                <input onChange={(e) => { this.handleChangeRadio(e) }}
+                                <input 
+                                    onChange={(e) => { this.handleUserChangeRadio(e) }}
                                     type="radio"
                                     name="currentUser"
                                     id="user2"
@@ -93,6 +108,10 @@ class DisplayResults extends Component {
                                         startTime={eventObject.dates.start.localTime}
                                         image={eventObject.images[1].url}
                                         location={eventObject._embedded.venues[0].city.name}
+                                        id={eventObject.id}
+                                        handleEventSelectRadio={this.handleEventSelectRadio}
+                                        user1Choice={this.state.user1Choice}
+                                        user2Choice={this.state.user2Choice}
                                     />
                             )
                         })}

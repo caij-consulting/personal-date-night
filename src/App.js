@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       allEvents: [],
       timeStart: "12:00",
-      timeEnd: "13:00",
+      timeEnd: "23:00",
       date: new Date(),
       filteredEvents: [],
       eventCategories: [],
@@ -20,7 +20,7 @@ class App extends Component {
       eventVenues: [],
       userVenue: "",
       isLoading: true,
-      location: "",
+      location: "Toronto",
       displayResult: false,
       textFilter: "",
       categoryDropdown: "",
@@ -41,7 +41,6 @@ class App extends Component {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
-      console.log(name, e)
       this.setState({
         [name]: e
       })
@@ -51,7 +50,6 @@ class App extends Component {
         [e.target.name]: e.target.value
       })
     }
-    console.log(e)
   }
 
   reset= () => {
@@ -92,7 +90,7 @@ class App extends Component {
         dataResponse: "jsonp",
     }).then((response) => {
         response = response.data._embedded.events;
-        console.log(response)
+        console.log(response[0].id)
         this.setState({
             // allEvents is the good return we never modify
             allEvents: response,
