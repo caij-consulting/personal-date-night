@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class ResultCard extends Component {
+    
     render() {
         return (
             <div>
@@ -9,6 +10,8 @@ class ResultCard extends Component {
                 <p>{this.props.startDate}</p>
                 <p>{this.props.startTime}</p>
                 <img src={this.props.image} alt=""/>
+                <label htmlFor="selectedEvent"></label>
+                <input type="radio" id="selectedEvent" name="selectedEvent" />
             </div>
             
         )
