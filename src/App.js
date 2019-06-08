@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       allEvents: [],
       timeStart: "12:00",
-      timeEnd: "13:00",
+      timeEnd: "23:00",
       date: new Date(),
       filteredEvents: [],
       eventCategories: [],
@@ -20,7 +20,7 @@ class App extends Component {
       eventVenues: [],
       userVenue: "",
       isLoading: true,
-      location: "",
+      location: "garbage",
       displayResult: false,
       textFilter: "",
       categoryDropdown: "",
@@ -41,7 +41,6 @@ class App extends Component {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
-      console.log(name, e)
       this.setState({
         [name]: e
       })
@@ -86,23 +85,46 @@ class App extends Component {
     // console.log("Start Date: ", startDate);
     // console.log("End Date: ", endDate);
 
-    axios({
-        method: "GET",
-        url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${location}&localStartEndDateTime=${startDate},${endDate}`,
-        dataResponse: "jsonp",
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events.json`, {
+      params: {
+        // gets the id and secret from the state
+        
+        apikey: "cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5",
+        city: location,
+        localStartEndDateTime: `${startDate}, ${endDate }`,
+        
+      }
+      // dataResponse: "jsonp",
+    // })
+
+
+    // axios({
+    //     method: "GET",
+    //     url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${location}&localStartEndDateTime=${startDate},${endDate}`,
+    //     dataResponse: "jsonp",
+        
     }).then((response) => {
-        response = response.data._embedded.events;
+        // response = response.data._embedded.events;
+        // console.log(response[0].id)
         console.log(response)
-        this.setState({
-            // allEvents is the good return we never modify
-            allEvents: response,
-            // filteredEvents is the item we want to modify based on user input
-            filteredEvents: response,
-            isLoading: false,     
-        })
-        this.getEventCategories();
-        this.getEventVenues();
-        this.cityValidation();
+        if (response.data.page.totalElements > 0) {
+          console.log ('works')
+        }
+        else {
+          console.log('error')
+        }
+        // this.setState({
+        //     // allEvents is the good return we never modify
+        //     allEvents: response,
+        //     // filteredEvents is the item we want to modify based on user input
+        //     filteredEvents: response,
+        //     isLoading: false,     
+        // })
+        // this.getEventCategories();
+        // this.getEventVenues();
+        // this.cityValidation();
+    }).catch((error) => {
+      console.log(error)
     })
   }
 
