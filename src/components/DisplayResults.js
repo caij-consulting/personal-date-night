@@ -22,19 +22,16 @@ class DisplayResults extends Component {
     render() {
         return (
                 <div className="displayEvents">
-                    <div className="displayContent">
+                    <div className="displayContent wrapper">
                         {/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
                         <form action="submit">
                         {/*wrote submit bc this attribute usually works with backend*/}
                             <label htmlFor="textFilter">Enter Text to Filter</label>
                             <input
                                 type="text"
-
                                 onChange={(e) => { this.props.handleChange(e) }}
                                 name="textFilter"
                                 value={this.props.textFilter} />
-
-
                             <label htmlFor="allCategories">Event Categories</label>
                             <select
                                 onChange={(e) => { this.props.handleChange(e) }}
@@ -89,7 +86,6 @@ class DisplayResults extends Component {
                         {
                         this.props.filteredEvents.map((eventObject) => {
                             return (
-                                <div>
                                     <ResultCard
                                         key={eventObject.id}
                                         name={eventObject.name}
@@ -98,8 +94,6 @@ class DisplayResults extends Component {
                                         image={eventObject.images[1].url}
                                         location={eventObject._embedded.venues[0].city.name}
                                     />
-                                </div>
-                               
                             )
                         })}
                     </div>
