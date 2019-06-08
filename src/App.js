@@ -50,7 +50,6 @@ class App extends Component {
         [e.target.name]: e.target.value
       })
     }
-    // console.log(e)
   }
 
   reset= () => {
@@ -84,47 +83,33 @@ class App extends Component {
     // console.log("location: ", location)
     // console.log("Start Date: ", startDate);
     // console.log("End Date: ", endDate);
-
     axios.get(`https://app.ticketmaster.com/discovery/v2/events.json`, {
       params: {
-        // gets the id and secret from the state
-        
         apikey: "cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5",
         city: location,
         localStartEndDateTime: `${startDate}, ${endDate }`,
-        
       }
+      // in-case CORS error comes back
       // dataResponse: "jsonp",
-    // })
-
-
-    // axios({
-    //     method: "GET",
-    //     url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${location}&localStartEndDateTime=${startDate},${endDate}`,
-    //     dataResponse: "jsonp",
         
     }).then((response) => {
-        // response = response.data._embedded.events;
-        // console.log(response[0].id)
         console.log(response)
         if (response.data.page.totalElements > 0) {
-          console.log ('works')
+          console.log ('the call returns something')
+          response = response.data._embedded.events;
+          this.setState({
+            // allEvents is the good return we never modify
+            allEvents: response,
+            // filteredEvents is the item we want to modify based on user input
+            filteredEvents: response,
+            isLoading: false,
+          })
+          this.getEventCategories();
+          this.getEventVenues();
         }
         else {
-          console.log('error')
+          console.log('the API call returns nothing')
         }
-        // this.setState({
-        //     // allEvents is the good return we never modify
-        //     allEvents: response,
-        //     // filteredEvents is the item we want to modify based on user input
-        //     filteredEvents: response,
-        //     isLoading: false,     
-        // })
-        // this.getEventCategories();
-        // this.getEventVenues();
-        // this.cityValidation();
-    }).catch((error) => {
-      console.log(error)
     })
   }
 
@@ -208,38 +193,6 @@ class App extends Component {
       }
   }
 
-  // cityValidation = (e) => {
-  //   if (location)
-  // }
-
-  cityValidation = () => {
-    // loop through all events 
-    let cities = ["All Cities"];
-    for (let i = 0; i < this.state.allEvents.length; i++) {
-      let city = this.state.allEvents[i].city.name;
-
-      // let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
-
-      if (!cities.includes(city)) {
-        cities.push(city)
-      }
-    }
-    console.log(cities);
-
-    this.setState({
-      // ... copies the items to the array
-      // user input will be compared to what is in the cities below
-      cities: [...cities],
-    })
-    if (this.state.location == this.state.city) {
-      this.setState({
-        displayResult:false
-      })
-      // add else here for if doesn't match!
-    }
-  }
-
-  // logic 2: if response.data._embedded is undefined, 
 
 
 
@@ -257,28 +210,9 @@ class App extends Component {
             handleChange={this.handleChange}
             onSubmit={this.onSubmit}
             location={this.state.location}
-            cityValidation={this.state.cityValidation}
           />
         </div>
-{/*
-        {this.state.displayResult && (
-          this.state.isLoading 
-          ? <h1>Getting Your Events...</h1> 
-          : <DisplayResults
-              className="wrapper"
-              date={this.state.date}
-              timeStart={this.state.timeStart}
-              timeEnd={this.state.timeEnd}
-              location={this.state.location}
-              eventVenues={this.state.eventVenues}
-              handleChange={this.handleChange}
-              textFilter={this.state.textFilter}
-              filteredEvents={this.state.filteredEvents}
-              eventCategories={this.state.eventCategories}
-              categoryDropdown={this.state.categoryDropdown}
-              venueDropdown={this.state.venueDropdown}
-              filterEvents={this.filterEvents}
-        */}
+
 
         {this.state.displayResult && (
           this.state.isLoading
