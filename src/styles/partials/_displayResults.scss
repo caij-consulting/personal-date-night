@@ -1,0 +1,13 @@
+.userSelection{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2% 0;
+}
+.user{
+  border: 1px solid black;
+  padding: 1%;
+}
+.user input{
+  width: 100%;
+  cursor: pointer;
+}

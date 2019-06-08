@@ -75,7 +75,7 @@ class DisplayResults extends Component {
                             <button
                                 reset={this.reset}>Reset</button>          
                         </form>
-                        <form action="">
+                        <form action="" className="userSelection">
                             <div className="user">
                                 <label htmlFor="user1">User 1</label>
                                 <input onChange={(e) => { this.handleUserChangeRadio(e) }}
@@ -97,24 +97,26 @@ class DisplayResults extends Component {
                                     checked={this.state.currentUser === "2"}
                                     />
                             </div>
-                        </form> 
-                        {
-                        this.props.filteredEvents.map((eventObject) => {
-                            return (
-                                    <ResultCard
-                                        key={eventObject.id}
-                                        name={eventObject.name}
-                                        startDate={eventObject.dates.start.localDate}
-                                        startTime={eventObject.dates.start.localTime}
-                                        image={eventObject.images[1].url}
-                                        location={eventObject._embedded.venues[0].city.name}
-                                        id={eventObject.id}
-                                        handleEventSelectRadio={this.handleEventSelectRadio}
-                                        user1Choice={this.state.user1Choice}
-                                        user2Choice={this.state.user2Choice}
-                                    />
-                            )
-                        })}
+                        </form>
+                        <div className="containerResultCard"> 
+                            {
+                            this.props.filteredEvents.map((eventObject) => {
+                                return (
+                                        <ResultCard
+                                            key={eventObject.id}
+                                            name={eventObject.name}
+                                            startDate={eventObject.dates.start.localDate}
+                                            startTime={eventObject.dates.start.localTime}
+                                            image={eventObject.images[1].url}
+                                            location={eventObject._embedded.venues[0].city.name}
+                                            id={eventObject.id}
+                                            handleEventSelectRadio={this.handleEventSelectRadio}
+                                            user1Choice={this.state.user1Choice}
+                                            user2Choice={this.state.user2Choice}
+                                        />
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             // Page populated with search result

@@ -1,10 +1,29 @@
+.containerResultCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 .resultCard{
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 22%;
+    margin: 1% 0;
+    padding: 1%;
 }
 
 .resultCard-imgContainer{
     max-width: 400px;
+}
+.resultCardName{
+    margin:1% 0;
+}
+.resultCard p{
+    margin: 1% 0;
+
+}
+.resultCard input{
+    width: 100%;
+    cursor: pointer;
 }

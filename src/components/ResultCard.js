@@ -26,7 +26,7 @@ class ResultCard extends Component {
     render() {
         return (
             <div className="resultCard">
-                <h3>{this.props.name}</h3>
+                <h3 className="resulCardName">{this.props.name}</h3>
                 <h3>{this.props.location}</h3>
                 <p>{this.props.startDate}</p>
                 <p>{this.props.startTime}</p>
