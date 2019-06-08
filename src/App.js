@@ -216,29 +216,9 @@ class App extends Component {
     }
   }
 
-    
-
-
-
   render() {
     return ( 
       <div className="App">
-<<<<<<< HEAD
-
-        <Header />
-        
-        <SearchForm
-          timeStart={this.state.timeStart}
-          timeEnd={this.state.timeEnd}
-          date={this.state.date}
-          handleChange={this.handleChange}
-          onSubmit={this.onSubmit}
-          location={this.state.location}
-
-          cityValidation={this.state.cityValidation}
-          
-        />
-=======
         <div className="hero wrapper">
           <Header 
           className="hero-left"/>
@@ -250,9 +230,9 @@ class App extends Component {
             handleChange={this.handleChange}
             onSubmit={this.onSubmit}
             location={this.state.location}
+            cityValidation={this.state.cityValidation}
           />
         </div>
->>>>>>> 7f2ecd3ee2de99954f99c3ee9cab71b66baf4759
 
         {this.state.displayResult && (
           this.state.isLoading 
