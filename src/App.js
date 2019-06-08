@@ -194,6 +194,7 @@ class App extends Component {
           this.state.isLoading 
           ? <h1>Getting Your Events...</h1> 
           : <DisplayResults
+              className="wrapper"
               date={this.state.date}
               timeStart={this.state.timeStart}
               timeEnd={this.state.timeEnd}
