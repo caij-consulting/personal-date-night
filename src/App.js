@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       allEvents: [],
       timeStart: "12:00",
-      timeEnd: "13:00",
+      timeEnd: "23:00",
       date: new Date(),
       filteredEvents: [],
       eventCategories: [],
@@ -20,7 +20,7 @@ class App extends Component {
       eventVenues: [],
       userVenue: "",
       isLoading: true,
-      location: "",
+      location: "garbage",
       displayResult: false,
       textFilter: "",
       categoryDropdown: "",
@@ -41,7 +41,6 @@ class App extends Component {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
     if (name) {
-      console.log(name, e)
       this.setState({
         [name]: e
       })
@@ -51,7 +50,6 @@ class App extends Component {
         [e.target.name]: e.target.value
       })
     }
-    console.log(e)
   }
 
   reset= () => {
@@ -85,23 +83,33 @@ class App extends Component {
     // console.log("location: ", location)
     // console.log("Start Date: ", startDate);
     // console.log("End Date: ", endDate);
-
-    axios({
-        method: "GET",
-        url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5&city=${location}&localStartEndDateTime=${startDate},${endDate}`,
-        dataResponse: "jsonp",
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events.json`, {
+      params: {
+        apikey: "cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5",
+        city: location,
+        localStartEndDateTime: `${startDate}, ${endDate }`,
+      }
+      // in-case CORS error comes back
+      // dataResponse: "jsonp",
+        
     }).then((response) => {
-        response = response.data._embedded.events;
         console.log(response)
-        this.setState({
+        if (response.data.page.totalElements > 0) {
+          console.log ('the call returns something')
+          response = response.data._embedded.events;
+          this.setState({
             // allEvents is the good return we never modify
             allEvents: response,
             // filteredEvents is the item we want to modify based on user input
             filteredEvents: response,
-            isLoading: false,     
-        })
-        this.getEventCategories();
-        this.getEventVenues();
+            isLoading: false,
+          })
+          this.getEventCategories();
+          this.getEventVenues();
+        }
+        else {
+          console.log('the API call returns nothing')
+        }
     })
   }
 
@@ -185,36 +193,8 @@ class App extends Component {
       }
   }
 
-  // cityValidation = (e) => {
-  //   if (location)
-  // }
 
-  cityValidation = () => {
-    // loop through all events 
-    let cities = ["All Cities"];
-    for (let i = 0; i < this.state.allEvents.length; i++) {
-      let city = this.state.allEvents[i]._embedded.venues[0].city.name;
 
-      // let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
-
-      if (!cities.includes(city)) {
-        cities.push(city)
-      }
-    }
-    console.log(cities);
-
-    this.setState({
-      // ... copies the items to the array
-      // user input will be compared to what is in the cities below
-      cities: [...cities],
-    })
-    if (this.state.location == this.state.city) {
-      this.setState({
-        displayResult:false
-      })
-      // add else here for if doesn't match!
-    }
-  }
 
   render() {
     return ( 
@@ -230,14 +210,17 @@ class App extends Component {
             handleChange={this.handleChange}
             onSubmit={this.onSubmit}
             location={this.state.location}
-            cityValidation={this.state.cityValidation}
           />
         </div>
 
+
         {this.state.displayResult && (
-          this.state.isLoading 
-          ? <h1>Getting Your Events...</h1> 
-          : <DisplayResults
+          this.state.isLoading
+            ? <h1>Getting Your Events...</h1> 
+
+// if loading is true, getting your resuts...else, if city is undefined, h1 Please enter a valid city name...else
+
+            : <DisplayResults
               className="wrapper"
               date={this.state.date}
               timeStart={this.state.timeStart}
