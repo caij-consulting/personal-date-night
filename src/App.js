@@ -90,7 +90,7 @@ class App extends Component {
         dataResponse: "jsonp",
     }).then((response) => {
         response = response.data._embedded.events;
-        console.log(response[0].id)
+        console.log(response)
         this.setState({
             // allEvents is the good return we never modify
             allEvents: response,

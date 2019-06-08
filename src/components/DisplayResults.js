@@ -18,17 +18,15 @@ class DisplayResults extends Component {
             currentUser: e.target.value
         })
     }
-    handleEventSelectRadio = (e, eventID) =>{
-        e.preventDefault()
-        console.log(e)
+    handleEventSelectRadio = (e, eventName) =>{
         if(this.state.currentUser==="1"){
             this.setState({
-                user1choice: eventID,
+                user1choice: eventName,
             })
         }
         if (this.state.currentUser === "2") {
             this.setState({
-                user2choice: eventID,
+                user2choice: eventName,
             })
         }
     }
@@ -110,8 +108,8 @@ class DisplayResults extends Component {
                                         location={eventObject._embedded.venues[0].city.name}
                                         id={eventObject.id}
                                         handleEventSelectRadio={this.handleEventSelectRadio}
-                                        user1Choice={this.state.user1Choice}
-                                        user2Choice={this.state.user2Choice}
+                                        user1choice={this.state.user1choice}
+                                        user2choice={this.state.user2choice}
                                     />
                             )
                         })}
