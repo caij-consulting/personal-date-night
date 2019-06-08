@@ -35,7 +35,7 @@ class SearchForm extends Component{
         return (
             <div>
             <form action="#">
-                <h2>SearchForm</h2>
+                <h2>Search Form</h2>
                 <div>
                     <label htmlFor="location">Which city are you searching in?</label>
                     <input 
@@ -45,7 +45,7 @@ class SearchForm extends Component{
                     onChange={(event)=> {this.props.handleChange(event)}}
                     required={true}
                     value={this.props.location}
-                    // cityValidation={this.props.cityValidation}
+                    cityValidation={this.props.cityValidation}
                     />
                 </div>
                 <div>

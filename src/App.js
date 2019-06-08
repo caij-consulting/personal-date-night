@@ -51,7 +51,7 @@ class App extends Component {
         [e.target.name]: e.target.value
       })
     }
-    console.log(e)
+    // console.log(e)
   }
 
   reset= () => {
@@ -102,6 +102,7 @@ class App extends Component {
         })
         this.getEventCategories();
         this.getEventVenues();
+        this.cityValidation();
     })
   }
 
@@ -193,7 +194,7 @@ class App extends Component {
     // loop through all events 
     let cities = ["All Cities"];
     for (let i = 0; i < this.state.allEvents.length; i++) {
-      let city = this.state.allEvents[i]._embedded.venues[0].city.name;
+      let city = this.state.allEvents[i].city.name;
 
       // let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
 
@@ -216,6 +217,10 @@ class App extends Component {
     }
   }
 
+  // logic 2: if response.data._embedded is undefined, 
+
+
+
   render() {
     return ( 
       <div className="App">
@@ -233,11 +238,33 @@ class App extends Component {
             cityValidation={this.state.cityValidation}
           />
         </div>
-
+{/*
         {this.state.displayResult && (
           this.state.isLoading 
           ? <h1>Getting Your Events...</h1> 
           : <DisplayResults
+              className="wrapper"
+              date={this.state.date}
+              timeStart={this.state.timeStart}
+              timeEnd={this.state.timeEnd}
+              location={this.state.location}
+              eventVenues={this.state.eventVenues}
+              handleChange={this.handleChange}
+              textFilter={this.state.textFilter}
+              filteredEvents={this.state.filteredEvents}
+              eventCategories={this.state.eventCategories}
+              categoryDropdown={this.state.categoryDropdown}
+              venueDropdown={this.state.venueDropdown}
+              filterEvents={this.filterEvents}
+        */}
+
+        {this.state.displayResult && (
+          this.state.isLoading
+            ? <h1>Getting Your Events...</h1> 
+
+// if loading is true, getting your resuts...else, if city is undefined, h1 Please enter a valid city name...else
+
+            : <DisplayResults
               className="wrapper"
               date={this.state.date}
               timeStart={this.state.timeStart}
