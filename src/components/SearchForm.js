@@ -30,7 +30,7 @@ class SearchForm extends Component{
 
     render(){
         return (
-            <div>
+            <div className="searchForm">
             <form action="#">
                 <h2>Search Form</h2>
                 <div>

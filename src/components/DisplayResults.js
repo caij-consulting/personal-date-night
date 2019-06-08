@@ -101,7 +101,8 @@ class DisplayResults extends Component {
                             </div>
                             <h4>{this.state.user2choice.name}</h4>
                             {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button>:""}
-                        </form> 
+                        </form>
+                        <div className="containerResultCard"> 
                         {
                         this.props.filteredEvents.map((eventObject) => {
                             return (
@@ -114,6 +115,7 @@ class DisplayResults extends Component {
                                     />
                             )
                         })}
+                        </div>
                     </div>
                 </div>
             // Page populated with search result

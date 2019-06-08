@@ -199,6 +199,7 @@ class App extends Component {
   render() {
     return ( 
       <div className="App">
+        <header>
         <div className="hero wrapper">
           <Header 
           className="hero-left"/>
@@ -212,6 +213,7 @@ class App extends Component {
             location={this.state.location}
           />
         </div>
+        </header>
 
 
         {this.state.displayResult && (
