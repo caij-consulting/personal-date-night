@@ -25,15 +25,9 @@ class App extends Component {
       textFilter: "",
       categoryDropdown: "",
       venueDropdown: "",
-
       cities: [],
       userCity: "",
-      // eventsJSX: "",
-      // eventName: "",
-      // eventStartTime: "",
-      // eventStartDate: "",
-      // eventVenue: "",
-      // eventImage: "",
+      error: false,
     }
   }
 
@@ -79,10 +73,6 @@ class App extends Component {
 
 //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   getTicketmasterData = (location, startDate, endDate) => {
-    // console.log('parameters that go to the API Call')
-    // console.log("location: ", location)
-    // console.log("Start Date: ", startDate);
-    // console.log("End Date: ", endDate);
     axios.get(`https://app.ticketmaster.com/discovery/v2/events.json`, {
       params: {
         apikey: "cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5",
@@ -90,8 +80,7 @@ class App extends Component {
         localStartEndDateTime: `${startDate}, ${endDate }`,
       }
       // in-case CORS error comes back
-      // dataResponse: "jsonp",
-        
+      // dataResponse: "jsonp",     
     }).then((response) => {
         console.log(response)
         if (response.data.page.totalElements > 0) {
@@ -108,7 +97,14 @@ class App extends Component {
           this.getEventVenues();
         }
         else {
-          console.log('the API call returns nothing')
+          this.setState ({
+            error: true
+          })
+          console.log('THERE IS AN ERROR', this.state.error)
+          // return (
+          //   <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
+          // );
+          
         }
     })
   }
@@ -193,9 +189,6 @@ class App extends Component {
       }
   }
 
-
-
-
   render() {
     return ( 
       <div className="App">
@@ -212,6 +205,12 @@ class App extends Component {
             location={this.state.location}
           />
         </div>
+
+        {this.state.error && (
+          <div className="error">
+            <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
+          </div>
+          )}
 
 
         {this.state.displayResult && (
