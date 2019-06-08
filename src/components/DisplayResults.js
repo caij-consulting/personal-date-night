@@ -86,6 +86,8 @@ class DisplayResults extends Component {
                                     checked={this.state.currentUser === "1"}
                                     />
                             </div>
+                            <h4>{this.state.user1choice.name}</h4>
+
                             <div className="user">
                                 <label htmlFor="user2">User 2</label>
                                 <input 
@@ -97,6 +99,8 @@ class DisplayResults extends Component {
                                     checked={this.state.currentUser === "2"}
                                     />
                             </div>
+                            <h4>{this.state.user2choice.name}</h4>
+                            {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button>:""}
                         </form> 
                         {
                         this.props.filteredEvents.map((eventObject) => {
