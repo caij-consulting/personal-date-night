@@ -100,6 +100,9 @@ class DisplayResults extends Component {
         const filteredEvents = copyOfAllEvents.filter((eventObj) => {
             if (textFilter.trim().length > 0) {
                 return eventObj.name.toUpperCase().includes(textFilter.toUpperCase())
+                // want to error handle if user puts an invalid input to say Invalid Input
+            // } else if (textFilter.trim().length > 0 && textFilter.trim() !== copyOfAllEvents) {
+            //     return false
             } else {
                 return true;
             }
@@ -156,7 +159,6 @@ class DisplayResults extends Component {
                             <label htmlFor="textFilter">Enter Text to Filter</label>
                             <input
                                 type="text"
-                                required={true}
 
                                 onChange={(event) => { this.props.handleChange(event) }}
                                 name="textFilter"
@@ -190,7 +192,7 @@ class DisplayResults extends Component {
                             <button
                                 onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
                             <button
-                            reset={this.reset}>Clear
+                            reset={this.reset}>Reset
                             </button>          
                         </form>
                         <form action="">

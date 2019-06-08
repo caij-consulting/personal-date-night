@@ -54,7 +54,7 @@ class App extends Component {
     console.log(event)
   }
 
-  reset=() => {
+  reset= () => {
     this.setState({
       displayResult:false,
     })

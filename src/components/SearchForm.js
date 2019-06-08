@@ -26,8 +26,10 @@ class SearchForm extends Component{
             
             return newTime
         }
-
     }
+
+    // function to validate location / city name: if user input != api location city, "This city input is invalid, please try another city." - function needs access to API after refactoring
+
 
     render(){
         return (
@@ -39,8 +41,7 @@ class SearchForm extends Component{
                     <input 
                     type="text" 
                     name="location"
-
-                    // this onChange will not need name parameter bc it functions like js should
+                    required pattern="[a-zA-Z]*"
                     onChange={(event)=> {this.props.handleChange(event)}}
                     required={true}
                     value={this.props.location}/>
@@ -74,7 +75,6 @@ class SearchForm extends Component{
                     onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
                     required={true}
                     // format="HH:mm"
-
                     format="h:mm a"
                     disableClock
                     name="timeEnd"
