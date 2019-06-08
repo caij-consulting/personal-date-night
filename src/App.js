@@ -20,7 +20,7 @@ class App extends Component {
       eventVenues: [],
       userVenue: "",
       isLoading: true,
-      location: "garbage",
+      location: "toronto",
       displayResult: false,
       textFilter: "",
       categoryDropdown: "",
@@ -192,7 +192,7 @@ class App extends Component {
   render() {
     return ( 
       <div className="App">
-
+        <header>
         <div className="hero wrapper">
           <Header 
           className="hero-left"/>
@@ -206,6 +206,7 @@ class App extends Component {
             location={this.state.location}
           />
         </div>
+        </header>
 
         {this.state.error
         ? (

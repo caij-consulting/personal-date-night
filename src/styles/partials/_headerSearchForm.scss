@@ -1,0 +1,23 @@
+header{
+  background: url(../assets/bg-cover.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.hero{
+  display: flex;
+  padding: 10%;
+    h1{
+      font-family: $heading-font;
+    }
+}
+.hero-left,
+.searchForm{
+  width: 50%;
+}
+
+.hero-left{
+    h1,
+    p{
+      text-align: left;
+    }
+}

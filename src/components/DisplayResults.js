@@ -5,10 +5,10 @@ class DisplayResults extends Component {
     constructor() {
         super();
         this.state = {
-            // allEvents: [],
+            allEvents: [],
             user1choice: "",
             user2choice: "",
-            // currentUser: "1",
+            currentUser: "1",
         }
     }
 
@@ -18,17 +18,17 @@ class DisplayResults extends Component {
             currentUser: e.target.value
         })
     }
-    handleEventSelectRadio = (e, eventID) =>{
+    handleEventSelectRadio = (e, eventName) =>{
         // e.preventDefault()
         console.log(e)
         if(this.state.currentUser==="1"){
             this.setState({
-                user1choice: eventID,
+                user1choice: eventName,
             })
         }
         if (this.state.currentUser === "2") {
             this.setState({
-                user2choice: eventID,
+                user2choice: eventName,
             })
         }
     }
@@ -83,9 +83,12 @@ class DisplayResults extends Component {
                                     name="currentUser"
                                     id="user1"
                                     value="1"
-                                    // checked={this.state.currentUser === "1"}
+                                    checked={this.state.currentUser === "1"}
                                     />
+                            <h4>{this.state.user1choice.name}</h4>
                             </div>
+                            
+
                             <div className="user">
                                 <label htmlFor="user2">User 2</label>
                                 <input 
@@ -94,27 +97,27 @@ class DisplayResults extends Component {
                                     name="currentUser"
                                     id="user2"
                                     value="2"
-                                    // checked={this.state.currentUser === "2"}
+                                    checked={this.state.currentUser === "2"}
                                     />
+                            <h4>{this.state.user2choice.name}</h4>
                             </div>
-                        </form> 
+                            
+                            {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button>:""}
+                        </form>
+                        <div className="containerResultCard"> 
                         {
                         this.props.filteredEvents.map((eventObject) => {
                             return (
                                     <ResultCard
                                         key={eventObject.id}
-                                        name={eventObject.name}
-                                        startDate={eventObject.dates.start.localDate}
-                                        startTime={eventObject.dates.start.localTime}
-                                        image={eventObject.images[1].url}
-                                        location={eventObject._embedded.venues[0].city.name}
-                                        id={eventObject.id}
+                                        event={eventObject}
                                         handleEventSelectRadio={this.handleEventSelectRadio}
-                                        user1Choice={this.state.user1Choice}
-                                        user2Choice={this.state.user2Choice}
+                                        user1choice={this.state.user1choice}
+                                        user2choice={this.state.user2choice}
                                     />
                             )
                         })}
+                        </div>
                     </div>
                 </div>
             // Page populated with search result
