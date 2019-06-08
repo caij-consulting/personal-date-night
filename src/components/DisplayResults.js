@@ -85,8 +85,9 @@ class DisplayResults extends Component {
                                     value="1"
                                     checked={this.state.currentUser === "1"}
                                     />
-                            </div>
                             <h4>{this.state.user1choice.name}</h4>
+                            </div>
+                            
 
                             <div className="user">
                                 <label htmlFor="user2">User 2</label>
@@ -98,8 +99,9 @@ class DisplayResults extends Component {
                                     value="2"
                                     checked={this.state.currentUser === "2"}
                                     />
-                            </div>
                             <h4>{this.state.user2choice.name}</h4>
+                            </div>
+                            
                             {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button>:""}
                         </form> 
                         {
