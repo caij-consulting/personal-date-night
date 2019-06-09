@@ -1,11 +1,13 @@
 .hero{
 	display: flex;
-	width: 70%;
+	width: 100%;
+
 	body, input, select, svg{
 		color: $white;
 		fill: $white
 	}
-	.heroLeft{
+
+	.heroIntro{
 		width: 50%;
 		padding: 5%;
 		display: flex;
@@ -24,9 +26,9 @@
 				font-size: 48px;
 				display: block;
 			}
+		}
 	}
-	}
-	.heroRight{
+	.heroForm{
 		width: 50%;
 		padding: 5%;
 	}

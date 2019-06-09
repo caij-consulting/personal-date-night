@@ -31,15 +31,16 @@ class App extends Component {
       error: false,
     }
   }
+
   handleChange = (e, name) => {
-    // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
-    // if the item onChange has (name) tsParameterProperty, do the following
+    // our location gets the object but for dateTimePicker we get the actual value 
+    // if the item onChange has (name) tsParameterProperty, do the following:
     if (name) {
       this.setState({
         [name]: e
       })
     } else {
-      // which is for location...
+      // this is for location...
       this.setState({
         [e.target.name]: e.target.value
       })
@@ -48,11 +49,11 @@ class App extends Component {
 
   reset= () => {
     this.setState({
-      displayResult:false,
+      displayResult: false,
     })
   }
 
-  // converting time function to string so it can be passed as a number in template literals 
+  // convert time function to string so it can be passed as a number in template literals 
   formatDate = (dateObject, time) => {
     let year = dateObject.getFullYear();
     let month = dateObject.getMonth() + 1;
@@ -100,10 +101,6 @@ class App extends Component {
           this.setState ({
             error: true
           })
-          console.log('THERE IS AN ERROR', this.state.error)
-          // return (
-          //   <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
-          // );
           
         }
     })
@@ -130,15 +127,15 @@ class App extends Component {
     // loop through all events 
     let eventVenues = ["All Venues"];
     for (let i = 0; i < this.state.allEvents.length; i++) {
-        let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
-        if (!eventVenues.includes(eventVenue)) {
-            eventVenues.push(eventVenue)
-        }
+      let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
+      if (!eventVenues.includes(eventVenue)) {
+          eventVenues.push(eventVenue)
+      }
     }
     console.log(eventVenues);
     this.setState({
-        // ... copies the items to the array
-        eventVenues: [...eventVenues],
+      // ... copies the items to the array
+      eventVenues: [...eventVenues],
     })
   }
 
@@ -147,28 +144,28 @@ class App extends Component {
     let copyOfAllEvents = [...this.state.allEvents];
 
     const filteredEvents = copyOfAllEvents.filter((eventObj) => {
-        if (textFilter.trim().length > 0) {
-            return eventObj.name.toUpperCase().includes(textFilter.toUpperCase())
-        } else {
-            return true;
-        }
+      if (textFilter.trim().length > 0) {
+        return eventObj.name.toUpperCase().includes(textFilter.toUpperCase())
+      } else {
+        return true;
+      }
     })
-        .filter((eventObj) => {
-            if (categoryDropdown==="All Categories"){
-                return true;
-            }
-            else {
-                return eventObj.classifications[0].segment.name.includes(categoryDropdown);
-            }
-        })
-        .filter((eventObj) => {
-            if (venueDropdown === "All Venues") {
-                return true;
-            }
-            else {
-                return eventObj._embedded.venues[0].name.includes(venueDropdown);
-            }
-        })
+    .filter((eventObj) => {
+      if (categoryDropdown==="All Categories"){
+        return true;
+      }
+      else {
+        return eventObj.classifications[0].segment.name.includes(categoryDropdown);
+      }
+    })
+    .filter((eventObj) => {
+      if (venueDropdown === "All Venues") {
+        return true;
+      }
+      else {
+        return eventObj._embedded.venues[0].name.includes(venueDropdown);
+      }
+    })
     this.setState({
         filteredEvents: [...filteredEvents],
     })
@@ -182,11 +179,12 @@ class App extends Component {
       venueDropdown: "All Venues",
     })
   }
+  
   scrollTo() {
-    scroller.scrollTo('toResults', {
+    scroller.scrollTo("resultsTop", {
       duration: 800,
       delay: 0,
-      smooth: 'easeInOutQuart'
+      smooth: "easeInOutQuart"
     })
   } 
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
@@ -223,7 +221,7 @@ class App extends Component {
             />
           </div>
         </header>
-        <div className="toResults">
+        <div className="resultsTop">
         </div>
         {this.state.error
         ? (

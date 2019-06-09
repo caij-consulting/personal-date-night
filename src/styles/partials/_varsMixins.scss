@@ -9,3 +9,17 @@ $white: #fff;
 $black: #000;
 
 //MIXINS
+@mixin flex($direction, $wrap, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	flex-wrap: $wrap;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+//Thanks to https://thoughtbot.com/blog/sasss-content-directive
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content;
+  }  
+}
