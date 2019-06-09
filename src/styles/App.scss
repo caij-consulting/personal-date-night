@@ -1,16 +1,8 @@
 @import "./partials/_setup";
 @import "./partials/_varsMixins";
-@import "./partials/_generalStyles";
+@import "./partials/_globalStyles";
 @import "./partials/_header";
 @import "./partials/_hero";
 @import "./partials/searchForm";
 @import "./partials/_displayResults";
 @import "./partials/_resultCard";
-
-
-.App {
-  text-align: center;
-
-}
-
-

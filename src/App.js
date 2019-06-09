@@ -100,10 +100,6 @@ class App extends Component {
           this.setState ({
             error: true
           })
-          console.log('THERE IS AN ERROR', this.state.error)
-          // return (
-          //   <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
-          // );
           
         }
     })
