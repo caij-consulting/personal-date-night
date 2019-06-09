@@ -35,15 +35,16 @@ class DisplayResults extends Component {
     }
   }
   scrollLinks() {
-    scroller.scrollLinks('toLinks', {
+    scroller.scrollTo('toLinks', {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart'
     })
   } 
   
-  handleClick = (e)=>{
+  confirmClick = (e)=>{
     e.preventDefault();
+    this.scrollLinks();
   }
 
   render() {
@@ -76,7 +77,7 @@ class DisplayResults extends Component {
             </div>
 
             {this.state.user1choice && this.state.user2choice
-            ? <button onClick={e => this.handleClick(e)}>Confirm Both Events</button>
+            ? <button onClick={e => this.confirmClick(e)}>Confirm Both Events</button>
             : ""} <button reset={this.reset}>New Search</button>                      
           </form>
 
