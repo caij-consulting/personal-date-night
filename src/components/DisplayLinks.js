@@ -4,7 +4,7 @@ class DisplayLinks extends Component {
 
   render() {
     return(
-      <div>
+      <div className="toLinks">
         <button>This button here is to close modal</button>
         <h2>Congratulations! You've successfully chosen your events!</h2>
         <p>You can buy your tickets here:</p>
