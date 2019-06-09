@@ -40,17 +40,48 @@ class DisplayResults extends Component {
     render() {
         return (
                 <div className="displayEvents">
+                <form action="" className="userSelection">
+                    <div className="user">
+                        <label htmlFor="user1">User 1</label>
+                        <input onChange={(e) => { this.handleUserChangeRadio(e) }}
+                            type="radio"
+                            name="currentUser"
+                            id="user1"
+                            value="1"
+                            checked={this.state.currentUser === "1"}
+                        />
+                        <h4>{this.state.user1choice.name}</h4>
+                    </div>
+
+                    <div className="user">
+                        <label htmlFor="user2">User 2</label>
+                        <input
+                            onChange={(e) => { this.handleUserChangeRadio(e) }}
+                            type="radio"
+                            name="currentUser"
+                            id="user2"
+                            value="2"
+                            checked={this.state.currentUser === "2"}
+                        />
+                        <h4>{this.state.user2choice.name}</h4>
+                    </div>
+
+                    {this.state.user1choice && this.state.user2choice ? <button onClick={e => this.handleClick(e)}>Confirm Choice</button> : ""}
+                    <button
+                        reset={this.reset}>Reset</button>   
+                </form>
                 <div className="displayContent wrapper">
                         {/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
                         <form action="submit">
                         {/*wrote submit bc this attribute usually works with backend*/}
-                            <label htmlFor="textFilter">Enter Text to Filter</label>
+                            <label className="visuallyHidden" htmlFor="textFilter">Enter text to filter</label>
                             <input
                                 type="text"
                                 onChange={(e) => { this.props.handleChange(e) }}
                                 name="textFilter"
-                                value={this.props.textFilter} />
-                            <label htmlFor="allCategories">Event Categories</label>
+                                value={this.props.textFilter}
+                            placeholder="Enter text to filter" />
+                            <label className="visuallyHidden" htmlFor="allCategories">Event Categories</label>
                             <select
                                 onChange={(e) => { this.props.handleChange(e) }}
                                 name="categoryDropdown" 
@@ -75,39 +106,10 @@ class DisplayResults extends Component {
                                 })}
                             </select>
                             <button
-                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
-                            <button
-                                reset={this.reset}>Reset</button>          
+                                onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
+                                   
                         </form>
-                        <form action="" className="userSelection">
-                            <div className="user">
-                                <label htmlFor="user1">User 1</label>
-                                <input onChange={(e) => { this.handleUserChangeRadio(e) }}
-                                    type="radio"
-                                    name="currentUser"
-                                    id="user1"
-                                    value="1"
-                                    checked={this.state.currentUser === "1"}
-                                    />
-                            <h4>{this.state.user1choice.name}</h4>
-                            </div>
-                            
 
-                            <div className="user">
-                                <label htmlFor="user2">User 2</label>
-                                <input 
-                                    onChange={(e) => { this.handleUserChangeRadio(e) }}
-                                    type="radio"
-                                    name="currentUser"
-                                    id="user2"
-                                    value="2"
-                                    checked={this.state.currentUser === "2"}
-                                    />
-                            <h4>{this.state.user2choice.name}</h4>
-                            </div>
-                            
-                            {this.state.user1choice&& this.state.user2choice ?<button onClick={e =>this.handleClick(e)}>Confirm Choice</button>:""}
-                        </form>
                         <div className="containerResultCard"> 
                         {
                         this.props.filteredEvents.map((eventObject) => {
