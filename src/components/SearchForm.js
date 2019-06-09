@@ -31,57 +31,61 @@ class SearchForm extends Component{
 
     render(){
         return (
-            <div className="searchForm">
-            <form action="#">
-                <h2>Search Form</h2>
-                <div>
-                    <label htmlFor="location">Which city are you searching in?</label>
-                    <input 
-                    type="text" 
-                    name="location"
-                    required pattern="[a-zA-Z]*"
-                    onChange={(event)=> {this.props.handleChange(event)}}
-                    required={true}
-                    value={this.props.location}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="">Which date?</label>
-                    <DatePicker
-                        onChange={(event, name)=> {this.props.handleChange(event, "date")}}
+            <div className="heroRight">
+                <form action="#" className="heroRightForm">
+                    <div className="heroRightFormComponent">
+                        <label htmlFor="location">Which city are you searching in?</label>
+                        <input 
+                        type="text" 
+                        name="location"
+                        required pattern="[a-zA-Z]*"
+                        onChange={(event)=> {this.props.handleChange(event)}}
                         required={true}
-                        format="y-MM-dd"
-                        name="date"
-                        value={this.props.date}
-                    />
-                </div>
-                <div>
-                    <legend>What time range?</legend>
-                    <div>
-                        <label htmlFor="time">From</label>
-                        <TimePicker
-                            onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
-                            required={true}
-                            format="h:mm a"
-                            disableClock
-                            name="timeStart"
-                            value={this.props.timeStart}
-                        />
-                        <label htmlFor="time">Until</label>
-                        <TimePicker
-                            onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
-                            required={true}
-                            format="h:mm a"
-                            disableClock
-                            name="timeEnd"
-                            value={this.props.timeEnd}
-                            minTime={this.addOneHourToTime(this.props.timeStart)}
+                        value={this.props.location}
                         />
                     </div>
-                </div>
-                    <button onClick={this.props.onSubmit}
-                        className="toResults" to="toResults">Find Events</button>
-            </form>
+                    <div className="heroRightFormComponent">
+                        <label htmlFor="">Which date?</label>
+                        <DatePicker
+                            onChange={(event, name)=> {this.props.handleChange(event, "date")}}
+                            required={true}
+                            format="y-MM-dd"
+                            name="date"
+                            value={this.props.date}
+                        />
+                    </div>
+                    <div className="heroRightFormComponent">
+                        <label>What time range?</label>
+                        <div class="times">
+                            <div className="time">
+                                <label htmlFor="time">From</label>
+                                <TimePicker
+                                    onChange={(event, name)=> {this.props.handleChange(event, "timeStart")}}
+                                    required={true}
+                                    format="h:mm a"
+                                    disableClock
+                                    name="timeStart"
+                                    value={this.props.timeStart}
+                                />
+                            </div>
+                            <div className="time">
+                                <label htmlFor="time">Until</label>
+                                <TimePicker
+                                    onChange={(event, name)=> {this.props.handleChange(event, "timeEnd")}}
+                                    required={true}
+                                    format="h:mm a"
+                                    disableClock
+                                    name="timeEnd"
+                                    value={this.props.timeEnd}
+                                    minTime={this.addOneHourToTime(this.props.timeStart)}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="heroRightFormComponent">
+                        <button onClick={this.props.onSubmit} className="toResults" to="toResults">Find Events</button>
+                    </div>
+                </form>
             </div>
 
         )
