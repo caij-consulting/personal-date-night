@@ -6,12 +6,17 @@ body{
     font-size: 1rem;
     background-color: $green;
 }
+body, input, select, svg{
+		color: $white;
+        fill: $white
+}
+
 .wrapper{
     margin: 0 10%;
     max-width: 1600px;
 }
 img{
     max-width: 100%;
-    display: inline-block;
-    width: 250px;
+    display: block;
+    width: 100%;
 }

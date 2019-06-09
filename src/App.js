@@ -212,19 +212,17 @@ class App extends Component {
     return ( 
       <div className="App">
         <header>
-        <div className="hero wrapper">
-          <Header 
-          className="hero-left"/>
-          <SearchForm
-            className="hero-right"
-            timeStart={this.state.timeStart}
-            timeEnd={this.state.timeEnd}
-            date={this.state.date}
-            handleChange={this.handleChange}
-            onSubmit={this.onSubmit}
-            location={this.state.location}
-          />
-        </div>
+          <div className="hero wrapper">
+            <Header/>
+            <SearchForm
+              timeStart={this.state.timeStart}
+              timeEnd={this.state.timeEnd}
+              date={this.state.date}
+              handleChange={this.handleChange}
+              onSubmit={this.onSubmit}
+              location={this.state.location}
+            />
+          </div>
         </header>
         <div className="toResults"></div>
         {this.state.error
