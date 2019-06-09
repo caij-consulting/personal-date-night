@@ -25,12 +25,12 @@ class DisplayResults extends Component {
     console.log(e)
     if(this.state.currentUser==="1"){
       this.setState({
-          user1choice: eventName,
+        user1choice: eventName,
       })
     }
     if (this.state.currentUser === "2") {
       this.setState({
-          user2choice: eventName,
+        user2choice: eventName,
       })
     }
   }
@@ -126,11 +126,11 @@ class DisplayResults extends Component {
           this.props.filteredEvents.map((eventObject) => {
             return (
               <ResultCard
-                  key={eventObject.id}
-                  event={eventObject}
-                  handleEventSelectRadio={this.handleEventSelectRadio}
-                  user1choice={this.state.user1choice}
-                  user2choice={this.state.user2choice}
+                key={eventObject.id}
+                event={eventObject}
+                handleEventSelectRadio={this.handleEventSelectRadio}
+                user1choice={this.state.user1choice}
+                user2choice={this.state.user2choice}
               />
             )
           })}

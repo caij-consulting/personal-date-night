@@ -190,8 +190,8 @@ body {
 }
 
 body, input, select, svg {
-  color: #fff;
-  fill: #fff;
+  color: #000;
+  fill: #000;
 }
 
 img {
@@ -233,7 +233,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70%;
+  width: 100%;
 }
 
 .hero body, .hero input, .hero select, .hero svg {
@@ -241,7 +241,7 @@ header {
   fill: #fff;
 }
 
-.hero .heroLeft {
+.hero .heroIntro {
   width: 50%;
   padding: 5%;
   display: -webkit-box;
@@ -256,11 +256,11 @@ header {
           justify-content: space-between;
 }
 
-.hero .heroLeft p {
+.hero .heroIntro p {
   text-align: left;
 }
 
-.hero .heroLeft h1 {
+.hero .heroIntro h1 {
   font-family: "Merienda One", cursive;
   text-align: left;
   font-size: 55px;
@@ -268,12 +268,12 @@ header {
   margin-top: 0;
 }
 
-.hero .heroLeft h1 span {
+.hero .heroIntro h1 span {
   font-size: 48px;
   display: block;
 }
 
-.hero .heroRight {
+.hero .heroForm {
   width: 50%;
   padding: 5%;
 }
