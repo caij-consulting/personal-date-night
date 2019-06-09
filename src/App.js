@@ -5,7 +5,7 @@ import SearchForm from "./components/SearchForm.js";
 import DisplayResults from "./components/DisplayResults.js";
 import Footer from "./components/Footer.js"
 import "./styles/App.scss";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { animateScroll as scroll, scroller } from 'react-scroll';
 
 class App extends Component {
   constructor() {
@@ -15,14 +15,13 @@ class App extends Component {
       timeStart: "12:00",
       timeEnd: "23:00",
       date: new Date(),
-      location: "toronto",
+      location: "Toronto",
       filteredEvents: [],
       eventCategories: [],
       userCategory: "",
       eventVenues: [],
       userVenue: "",
       isLoading: true,
-      location: "toronto",
       displayResult: false,
       textFilter: "",
       categoryDropdown: "",
@@ -226,7 +225,8 @@ class App extends Component {
           />
         </div>
         </header>
-        <div className="toResults"></div>
+        <div className="toResults">
+        </div>
         {this.state.error
         ? (
           <div className="error">
