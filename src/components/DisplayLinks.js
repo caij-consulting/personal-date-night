@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const DisplayLinks = (props) => {
+class DisplayLinks extends Component {
 
+  render() {
     return(
-        <div>
-            <h1>Display Links</h1>
-            <h2>You can buy your tickets here:</h2>
-            <p>User One: <a href="{`eventObject.id.url`}">{eventObject.id.title}</a></p>
-            <p>User Two: <a href="{`eventObject.id.url`}">{eventObject.id.title}</a></p>
-            <button>Email me the links to buy my tickets later</button> 
-            <button type="reset">Start Again</button>
-        </div>
+      <div>
+        <button>This button here is to close modal</button>
+        <h2>Congratulations! You've successfully chosen your events!</h2>
+        <p>You can buy your tickets here:</p>
+        <p>User One: <a href={this.props.user1choice.url}>{this.props.user1choice.name}</a></p>
+        <p>User Two: <a href={this.props.user2choice.url}>{this.props.user2choice.name}</a></p>
+      </div>
     );
+  }
 }
+
 export default DisplayLinks;
