@@ -5,6 +5,7 @@ import SearchForm from "./components/SearchForm.js";
 import DisplayResults from "./components/DisplayResults.js";
 import Footer from "./components/Footer.js"
 import "./styles/App.scss";
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 class App extends Component {
   constructor() {
@@ -30,7 +31,6 @@ class App extends Component {
       error: false,
     }
   }
-
   handleChange = (e, name) => {
     // when console.log event, our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following
@@ -173,10 +173,18 @@ class App extends Component {
         filteredEvents: [...filteredEvents],
     })
   }
-
+  scrollTo() {
+    scroller.scrollTo('toResults', {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  } 
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
+    this.scrollTo();
+    
     if (this.state.timeStart && this.state.timeEnd && this.state.location &&
       Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
         this.setState({
@@ -187,6 +195,8 @@ class App extends Component {
         const location = this.state.location;
         this.getTicketmasterData(location, startDateTime, endDateTime); 
       }
+   
+
   }
 
   render() {
@@ -207,7 +217,7 @@ class App extends Component {
           />
         </div>
         </header>
-
+        <div className="toResults"></div>
         {this.state.error
         ? (
           <div className="error">

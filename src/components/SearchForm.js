@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
-import TimePicker from 'react-time-picker'
+import TimePicker from 'react-time-picker';
+
 // import DateTimePicker from 'react-datetime-picker';
 
 class SearchForm extends Component{
@@ -78,7 +79,8 @@ class SearchForm extends Component{
                         />
                     </div>
                 </div>
-                <button onClick={this.props.onSubmit}>Find Events</button>
+                    <button onClick={this.props.onSubmit}
+                        className="toResults" to="toResults">Find Events</button>
             </form>
             </div>
 

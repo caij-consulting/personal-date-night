@@ -32,11 +32,15 @@ class DisplayResults extends Component {
             })
         }
     }
+    
+    handleClick = (e)=>{
+        e.preventDefault();
+    }
 
     render() {
         return (
                 <div className="displayEvents">
-                    <div className="displayContent wrapper">
+                <div className="displayContent wrapper">
                         {/* errorhandling here : write a condition if city name is found in API, do below. else "Please enter a valid city name and date/time range*/}
                         <form action="submit">
                         {/*wrote submit bc this attribute usually works with backend*/}
@@ -75,7 +79,7 @@ class DisplayResults extends Component {
                             <button
                                 reset={this.reset}>Reset</button>          
                         </form>
-                        <form action="">
+                        <form action="" className="userSelection">
                             <div className="user">
                                 <label htmlFor="user1">User 1</label>
                                 <input onChange={(e) => { this.handleUserChangeRadio(e) }}
@@ -102,7 +106,7 @@ class DisplayResults extends Component {
                             <h4>{this.state.user2choice.name}</h4>
                             </div>
                             
-                            {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button>:""}
+                            {this.state.user1choice&& this.state.user2choice ?<button onClick={e =>this.handleClick(e)}>Confirm Choice</button>:""}
                         </form>
                         <div className="containerResultCard"> 
                         {
