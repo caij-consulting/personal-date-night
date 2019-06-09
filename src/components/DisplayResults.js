@@ -36,7 +36,6 @@ class DisplayResults extends Component {
     handleClick = (e)=>{
         e.preventDefault();
     }
-
     render() {
         return (
                 <div className="displayEvents">
@@ -75,9 +74,8 @@ class DisplayResults extends Component {
                                 })}
                             </select>
                             <button
-                                onClick={(e) => this.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
-                            <button
-                                reset={this.reset}>Reset</button>          
+                                onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
+                            <button onClick={(e)=>this.props.resetFilters(e)}>Reset</button>          
                         </form>
                         <form action="" className="userSelection">
                             <div className="user">

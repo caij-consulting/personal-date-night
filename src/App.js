@@ -15,6 +15,7 @@ class App extends Component {
       timeStart: "12:00",
       timeEnd: "23:00",
       date: new Date(),
+      location: "toronto",
       filteredEvents: [],
       eventCategories: [],
       userCategory: "",
@@ -173,6 +174,15 @@ class App extends Component {
         filteredEvents: [...filteredEvents],
     })
   }
+  resetFilters = (e) => {
+    e.preventDefault();
+    this.filterEvents(e, "", "All Categories", "All Venues")
+    this.setState({
+      textFilter: "",
+      categoryDropdown: "All Categories",
+      venueDropdown: "All Venues",
+    })
+  }
   scrollTo() {
     scroller.scrollTo('toResults', {
       duration: 800,
@@ -195,7 +205,6 @@ class App extends Component {
         const location = this.state.location;
         this.getTicketmasterData(location, startDateTime, endDateTime); 
       }
-   
 
   }
 
@@ -238,11 +247,13 @@ class App extends Component {
                 eventVenues={this.state.eventVenues}
                 handleChange={this.handleChange}
                 textFilter={this.state.textFilter}
+                allEvents={this.state.allEvents}
                 filteredEvents={this.state.filteredEvents}
                 eventCategories={this.state.eventCategories}
                 categoryDropdown={this.state.categoryDropdown}
                 venueDropdown={this.state.venueDropdown}
                 filterEvents={this.filterEvents}
+                resetFilters={this.resetFilters}
               />
             ))     
           )
