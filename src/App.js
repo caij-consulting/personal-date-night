@@ -238,7 +238,6 @@ class App extends Component {
                   //display loading while api results being returned
                   ? <h1>Getting Your Events...</h1> 
                   : <DisplayResults
-                    className="wrapper"
                     date={this.state.date}
                     timeStart={this.state.timeStart}
                     timeEnd={this.state.timeEnd}
