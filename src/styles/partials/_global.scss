@@ -4,13 +4,15 @@ html{
 }
 
 body{
+    margin: 0;
     font-size: 1rem;
+    font-family: $body-font;
     background-color: $green;
 }
 
 body, input, select, svg{
-		color: $black;
-        fill: $black;
+    color: $black;
+    fill: $black;
 }
 
 img{

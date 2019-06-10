@@ -185,7 +185,9 @@ html {
 }
 
 body {
+  margin: 0;
   font-size: 1rem;
+  font-family: "Lato", sans-serif;
   background-color: #ace8cd;
 }
 
@@ -207,26 +209,6 @@ img {
 
 .App {
   text-align: left;
-}
-
-header {
-  background: url(../assets/bg-cover.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 95vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .hero {
@@ -257,7 +239,7 @@ header {
 }
 
 .hero .heroIntro h1 {
-  font-family: "Merienda One", cursive;
+  font-family: "Merienda One'", cursive;
   font-size: 55px;
   margin-top: 0;
 }
@@ -270,6 +252,28 @@ header {
 .hero .heroForm {
   width: 50%;
   padding: 3%;
+}
+
+header {
+  background: url(../assets/bg-cover.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 94vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .heroRightForm {
@@ -356,5 +360,15 @@ header {
 .resultCard input {
   width: 100%;
   cursor: pointer;
+}
+
+footer {
+  background-color: #ace8cd;
+  text-align: center;
+  font-size: .75rem;
+}
+
+footer p {
+  padding: .2rem 0;
 }
 /*# sourceMappingURL=App.css.map */
