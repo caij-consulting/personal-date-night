@@ -212,8 +212,37 @@ img {
   text-align: left;
 }
 
-.hero {
+button {
   width: 100%;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  font-weight: 900;
+}
+
+button.white {
+  background-color: #fff;
+  color: #261870;
+}
+
+button.green {
+  background-color: #ace8cd;
+  color: #261870;
+}
+
+button.navy {
+  background-color: #261870;
+  color: #5da9c2;
+}
+
+a {
+  font-weight: 900;
+  color: #261870;
+}
+
+.heroInnerContainer {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -229,9 +258,10 @@ img {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  border-radius: 10px;
 }
 
-.hero body, .hero input, .hero select, .hero svg {
+.heroInnerContainer body, .heroInnerContainer input, .heroInnerContainer select, .heroInnerContainer svg {
   color: #fff;
   fill: #fff;
 }
@@ -239,6 +269,7 @@ img {
 .heroIntro {
   width: 50%;
   padding: 3% 5%;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -274,7 +305,7 @@ img {
 
 .heroForm .heroFormBlock {
   padding-bottom: 8px;
-  margin: 0 0 30px;
+  margin: 0 0 35px;
   border-bottom: 2px solid #fff;
 }
 
@@ -286,6 +317,10 @@ img {
   display: block;
   color: #fff;
   font-weight: 900;
+}
+
+.heroForm .heroFormBlock label.heroFormLabelMain {
+  margin-bottom: 15px;
 }
 
 .heroForm .heroFormBlock input,
@@ -426,5 +461,6 @@ footer {
 
 footer p {
   padding: .2rem 0;
+  color: #261870;
 }
 /*# sourceMappingURL=App.css.map */

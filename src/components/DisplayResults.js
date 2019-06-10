@@ -116,9 +116,9 @@ class DisplayResults extends Component {
                   )
                 })}
               </select>
-              <button
+              <button className="green"
                 onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
-              <button onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>          
+              <button className="white" onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>          
           </form>
 
           <div className="containerResultCard"> 

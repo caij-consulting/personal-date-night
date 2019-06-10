@@ -1,0 +1,27 @@
+button {
+  width: 100%;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  font-weight: 900;
+}
+
+button.white {
+  background-color: $white; 
+  color: $navy;
+}
+
+button.green {
+  background-color: $green; 
+  color: $navy;
+}
+
+button.navy {
+  background-color: $navy;
+  color: $blue;
+}
+
+a {
+  font-weight: 900;
+  color: $navy;
+}

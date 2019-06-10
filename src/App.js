@@ -210,15 +210,17 @@ class App extends Component {
       <div className="App">
         <header>
           <div className="hero wrapper">
-            <Intro/>
-            <SearchForm
-              timeStart={this.state.timeStart}
-              timeEnd={this.state.timeEnd}
-              date={this.state.date}
-              handleChange={this.handleChange}
-              onSubmit={this.onSubmit}
-              location={this.state.location}
-            />
+            <div className="heroInnerContainer">
+              <Intro/>
+              <SearchForm
+                timeStart={this.state.timeStart}
+                timeEnd={this.state.timeEnd}
+                date={this.state.date}
+                handleChange={this.handleChange}
+                onSubmit={this.onSubmit}
+                location={this.state.location}
+              />
+            </div>
           </div>
         </header>
         <div className="resultsTop">

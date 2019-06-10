@@ -35,7 +35,7 @@ class SearchForm extends Component{
 
         <form action="#">
           <div className="heroFormBlock">
-            <label htmlFor="location">Which city are you searching in?</label>
+            <label className="heroFormLabelMain" htmlFor="location">Which city are you searching in?</label>
             <div className="HeroFormInputContainer">
               <input 
               type="text" 
@@ -49,7 +49,7 @@ class SearchForm extends Component{
           </div>
 
           <div className="heroFormBlock">
-            <label htmlFor="">Which date?</label>
+            <label className="heroFormLabelMain">Which date?</label>
             <div className="HeroFormInputContainer">
               <DatePicker
                 onChange={(e, name)=> {this.props.handleChange(e, "date")}}
@@ -62,7 +62,7 @@ class SearchForm extends Component{
           </div>
 
           <div className="heroFormBlock">
-            <label>What time range?</label>
+            <label className="heroFormLabelMain">What time range?</label>
             <div>
               <div className="HeroFormInputContainer">
                 <div className="heroFormBlockTime">
@@ -95,7 +95,7 @@ class SearchForm extends Component{
           </div>
 
           <div className="heroFormBlock">
-            <button onClick={this.props.onSubmit} className="resultsTop btn" to="resultsTop">find events</button>
+            <button className="green" onClick={this.props.onSubmit} className="resultsTop btn" to="resultsTop">find events</button>
           </div>
         </form>
         
