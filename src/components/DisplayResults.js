@@ -155,7 +155,7 @@ class DisplayResults extends Component {
                     user1choice={this.state.user1choice}
                     user2choice={this.state.user2choice}
                     modalIsOpen={this.state.modalIsOpen}
-                    closeModal={(e) => this.setState({ modalIsOpen: false})}
+                    closeModal={(e) => this.closeModal(e)}
                   >
                   </Modal>
                 
