@@ -35,6 +35,8 @@ button {
     background-color: $navy;
     border: 1px solid $navy;
     color: $blue;
+    @include flex (row, null, null, null);
+    margin-right:3px;
   }
 }
 
