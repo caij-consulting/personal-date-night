@@ -1,0 +1,7 @@
+header{
+  background: url(../assets/bg-cover.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 94vh;
+  @include flex(column, nowrap, center, center);
+}

@@ -1,3 +1,75 @@
-// .hero h1{
-//     font-family: $heading-font;
-// }
+.heroInnerContainer{
+	width: 100%;
+	background-color: rgba($white, 0.1);
+	@include flex(row, nowrap, center, flex-start);
+	border-radius: 10px;
+
+	body, input, select, svg{
+		color: $white;
+		fill: $white
+	}
+}
+
+.heroIntro,
+.heroForm {
+	width: 50%;
+	padding: 5% 5%;
+	color: $white;
+}
+
+.heroIntro{
+	@include flex(column, nowrap, flex-start, flex-start);
+
+	h1{
+		font-family: $heading-font;
+		font-size: 55px;
+		margin-top: 0;
+		span{
+			font-size: 48px;
+			display: block;
+		}
+	}
+}
+
+.heroForm{
+	.heroFormBlock {
+		padding-bottom: 8px;
+		margin: 0 0 35px;
+		border-bottom: 2px solid $white;
+	
+	&:last-of-type {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+		label{
+			display: block;
+			color: $white;
+			font-weight: 900;
+		}
+
+		label.heroFormLabelMain {
+			margin-bottom: 15px;
+		}
+
+		input,
+		.react-date-picker {
+		width: 100%;
+		border: none;
+		background-color: rgba($white, 0);	
+		}
+
+		.react-date-picker__wrapper,
+		.react-time-picker__wrapper {
+			border: none;
+			@include flex(row, nowrap, center, center);
+		}
+
+		.heroFormBlockTime {
+			@include flex(row, nowrap, flex-start, flex-start)
+		}
+	}
+
+	.times{
+		display: flex;
+	}
+}
