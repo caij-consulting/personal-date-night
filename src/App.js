@@ -10,7 +10,7 @@ import { animateScroll as scroll, scroller } from 'react-scroll';
 // font awesome library
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckDouble, faCheck, faUser, faTimesCircle, faCopy, faSortDown } from '@fortawesome/free-solid-svg-icons'
+import { faCheckDouble, faCheck, faUser, faTimesCircle, faCopy } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faCheckDouble, faCheck, faUser, faTimesCircle, faCopy)
 
@@ -217,6 +217,7 @@ class App extends Component {
         <header>
           <div className="hero wrapper">
             <div className="heroInnerContainer">
+              <div className="heroBorderMiddle">
               <Intro/>
               <SearchForm
                 timeStart={this.state.timeStart}
@@ -226,17 +227,16 @@ class App extends Component {
                 onSubmit={this.onSubmit}
                 location={this.state.location}
               />
+                </div>
             </div>
           </div>
         </header>
 
         <main className="resultsTop">
-        {/*  <div className="wrapper">*/}
-            <div>
-
+          <div className="wrapper">
             {this.state.error
             ? (
-              <div className="error wrapper">
+              <div className="error">
                 <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
               </div>
               )
