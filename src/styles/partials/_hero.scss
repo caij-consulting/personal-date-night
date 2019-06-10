@@ -23,7 +23,7 @@
 	h1{
 		font-family: $heading-font;
 		font-size: 55px;
-		margin-top: 0;
+		margin:0;
 		background: -webkit-linear-gradient(right, #ace8cd, #5da9c2);
 		background-clip: border-box;
     -webkit-background-clip: text;
@@ -34,12 +34,12 @@
 			font-size: 48px;
 			display: block;
 		}
+	}	
 		p{
 			padding-left: 5px;
+			line-height: 2;
 		}
-	}
 }
-
 .heroForm{
 	.heroFormBlock {
 		padding-bottom: 8px;
@@ -51,6 +51,9 @@
 		border-bottom: none;
 		margin-bottom: 0;
 	}
+		.HeroFormInputContainer{
+			padding-left: 5px;
+		}
 		label{
 			display: block;
 			color: $white;
