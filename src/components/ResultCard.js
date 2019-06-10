@@ -19,6 +19,25 @@ class ResultCard extends Component {
     }
     else return null;
   }
+  priceInfo = (event) => {
+    let priceString = "";
+    if (event.priceRanges){
+      let minPrice = event.priceRanges[0].min;
+      console.log(minPrice)
+      let maxPrice = event.priceRanges[0].max;
+      let currency = event.priceRanges[0].currency;
+      if (minPrice === maxPrice){
+        priceString = `Price: ${minPrice} ${currency}`
+      }
+      else{
+        priceString = `Price Range: ${minPrice} - ${maxPrice} ${currency}`
+      }
+    }
+    else{
+      priceString = `Price: N/A`
+    }
+    return priceString
+  }
 
   render() {
     return (
@@ -29,6 +48,7 @@ class ResultCard extends Component {
           <h3>{this.props.event.name}</h3>
           <p>{this.props.event.dates.start.localDate}, {this.props.event.dates.start.localTime}</p>
           <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
+          <p className="priceString">{this.priceInfo(this.props.event)}</p>
           <form action="">
             <label htmlFor="selectedEvent"></label>
             <input 
