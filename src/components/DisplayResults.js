@@ -59,7 +59,7 @@ class DisplayResults extends Component {
   closeModal = (e) => {
     e.preventDefault();
     this.setState({
-      modalisOpen:false
+      modalIsOpen:false
     })
   }
 

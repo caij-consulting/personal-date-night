@@ -89,7 +89,7 @@ class ResultCard extends Component {
         />
         <div>
           <div className="resultCard-imgContainer">
-            <img src={this.props.event.images[1].url} alt="" />
+            <img src={this.props.event.images[1].url} alt={`image for ${this.props.event.name}`}/>
           </div>
           <div className="eventDetails">
             <h3>{this.props.event.name}</h3>
