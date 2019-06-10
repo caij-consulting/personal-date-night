@@ -78,27 +78,28 @@ class ResultCard extends Component {
   render() {
     this.displayDate(this.props.event)
     return (
-        <div className="resultCard">
+      <form action="" className="resultCard">
+        <label htmlFor="selectedEvent"></label>
+        <input 
+          type="radio" 
+          id={this.props.event.id} 
+          name={this.props.name}
+          onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
+          checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
+        />
+        <div>
           <div className="resultCard-imgContainer">
-            <img src={this.props.event.images[1].url} alt=""/>
+            <img src={this.props.event.images[1].url} alt="" />
           </div>
-          <div className="eventDetails">
+        <div className="eventDetails">
           <h3>{this.props.event.name}</h3>
-            <p>{this.displayDate(this.props.event)}</p>
-            <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
-            <p className="priceString">{this.priceInfo(this.props.event)}</p>
-          </div>
-          <form action="">
-            <label htmlFor="selectedEvent"></label>
-            <input 
-              type="radio" 
-              id={this.props.event.id} 
-              name={this.props.name}
-              onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
-              checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
-            />
-          </form>
+          <p>{this.displayDate(this.props.event)}</p>
+          <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
+          <p className="priceString">{this.priceInfo(this.props.event)}</p>
         </div>
+        </div>
+      </form>
+
         
     )
   }
