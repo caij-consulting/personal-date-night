@@ -59,7 +59,8 @@ class DisplayResults extends Component {
       modalisOpen:false
     })
   }
-gggyph
+
+  render() {
     return (
       <div className="displayEvents">
         <form action="" className="containerUserSelection">

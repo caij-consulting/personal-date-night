@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import DisplayLinks from './DisplayLinks.js';
-import DisplayResults from './DisplayResults.js';
-import { isAbsolute } from 'path';
 
 
 // need an overlay to have opacity and not allow clicking outside
