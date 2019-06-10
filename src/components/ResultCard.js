@@ -4,8 +4,8 @@ class ResultCard extends Component {
   constructor() {
     super();
     this.state = {
-        eventName1: "",
-        eventName2: ""
+        eventId1: "",
+        eventId2: ""
     }
   }
   priceInfo = (event) => {
@@ -66,39 +66,40 @@ class ResultCard extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.user1choice.name !== prevState.eventName1) {
-      return { eventName1: nextProps.user1choice.name };
+    if (nextProps.user1choice.id !== prevState.eventId1) {
+      return { eventId1: nextProps.user1choice.id };
 
     }
     else if (nextProps.user2choice.name !== prevState.eventName2) {
-      return { eventName2: nextProps.user2choice.name };
+      return { eventId2: nextProps.user2choice.id };
     }
     else return null;
   }
   render() {
     this.displayDate(this.props.event)
     return (
-        <div className="resultCard">
+      <form action="" className="resultCard">
+        <label htmlFor="selectedEvent"></label>
+        <input 
+          type="radio" 
+          id={this.props.event.id} 
+          name={this.props.name}
+          onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
+          checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
+        />
+        <div>
           <div className="resultCard-imgContainer">
-            <img src={this.props.event.images[1].url} alt=""/>
+            <img src={this.props.event.images[1].url} alt="" />
           </div>
-          <div className="eventDetails">
+        <div className="eventDetails">
           <h3>{this.props.event.name}</h3>
-            <p>{this.displayDate(this.props.event)}</p>
-            <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
-            <p className="priceString">{this.priceInfo(this.props.event)}</p>
-          </div>
-          <form action="">
-            <label htmlFor="selectedEvent"></label>
-            <input 
-              type="radio" 
-              id={this.props.event.id} 
-              name={this.props.name}
-              onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
-              checked={this.props.event.name === this.state.eventName1 || this.props.event.name === this.state.eventName2}
-            />
-          </form>
+          <p>{this.displayDate(this.props.event)}</p>
+          <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
+          <p className="priceString">{this.priceInfo(this.props.event)}</p>
         </div>
+        </div>
+      </form>
+
         
     )
   }

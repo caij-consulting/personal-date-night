@@ -1,7 +1,6 @@
 .heroInnerContainer{
 	width: 100%;
 	background-color: rgba($white, 0.1);
-	@include flex(row, nowrap, center, flex-start);
 	border-radius: 10px;
 
 	body, input, select, svg{
@@ -9,21 +8,25 @@
 		fill: $white
 	}
 }
+.heroBorderMiddle{
+		@include flex(row, nowrap, center, flex-start);
+		padding: 3% 3%;
+}
 
 .heroIntro,
 .heroForm {
 	width: 50%;
-	padding: 5% 5%;
 	color: $white;
 }
 
 .heroIntro{
 	@include flex(column, nowrap, flex-start, flex-start);
+	padding-right: 3%;
 
 	h1{
 		font-family: $heading-font;
 		font-size: 55px;
-		margin-top: 0;
+		margin:0;
 		background: -webkit-linear-gradient(right, #ace8cd, #5da9c2);
 		background-clip: border-box;
     -webkit-background-clip: text;
@@ -34,23 +37,27 @@
 			font-size: 48px;
 			display: block;
 		}
+	}	
 		p{
 			padding-left: 5px;
+			line-height: 2;
 		}
-	}
 }
-
 .heroForm{
+	border-left: 1px solid rgba(255,255,255,.5);
+	padding-left: 3%;
 	.heroFormBlock {
 		padding-bottom: 8px;
 		margin: 0 0 35px;
 		border-bottom: 2px solid $white;
-		padding-left: 5px;
 	
 	&:last-of-type {
 		border-bottom: none;
 		margin-bottom: 0;
 	}
+		.HeroFormInputContainer{
+			padding-left: 5px;
+		}
 		label{
 			display: block;
 			color: $white;

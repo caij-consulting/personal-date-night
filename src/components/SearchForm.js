@@ -64,7 +64,7 @@ class SearchForm extends Component{
           <div className="heroFormBlock">
             <label className="heroFormLabelMain">What time range?</label>
             <div>
-              <div className="HeroFormInputContainer">
+              <div>
                 <div className="heroFormBlockTime">
                   <div>
                     <label htmlFor="time">From</label>

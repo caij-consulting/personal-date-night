@@ -26,17 +26,17 @@ class DisplayResults extends Component {
       currentUser: e.target.value
     })
   }
-  handleEventSelectRadio = (e, eventName) =>{
+  handleEventSelectRadio = (e, event) =>{
     // e.preventDefault()
     console.log(e)
     if(this.state.currentUser==="1"){
       this.setState({
-        user1choice: eventName,
+        user1choice: event,
       })
     }
     if (this.state.currentUser === "2") {
       this.setState({
-        user2choice: eventName,
+        user2choice: event,
       })
     }
   }
@@ -186,9 +186,9 @@ class DisplayResults extends Component {
                 name="categoryDropdown" 
                 value={this.props.categoryDropdown}
                 id="">
-                {this.props.eventCategories.map((category) => {
+                {this.props.eventCategories.map((category, i) => {
                   return (
-                      <option value={category}> {category} </option>
+                      <option value={category} key={i}> {category} </option>
                   )
                   }
                 )}
@@ -199,9 +199,9 @@ class DisplayResults extends Component {
                 name="venueDropdown"
                 value={this.props.venueDropdown}
                 id="">
-                {this.props.eventVenues.map((venue) => {
+                {this.props.eventVenues.map((venue, i) => {
                   return (
-                      <option value={venue}> {venue} </option>
+										<option value={venue} key={i}> {venue} </option>
                   )
                 })}
               </select>

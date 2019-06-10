@@ -53,7 +53,7 @@ class App extends Component {
     }
   }
 
-  reset= () => {
+  reset = () => {
     this.setState({
       displayResult: false,
     })
@@ -64,11 +64,11 @@ class App extends Component {
     let year = dateObject.getFullYear();
     let month = dateObject.getMonth() + 1;
     if (month < 10) {
-        month = '0' + month;
+      month = '0' + month;
     }
     let day = dateObject.getDate();
     if (day < 10) {
-        day = '0' + day;
+      day = '0' + day;
     }
     let hours = time.substr(0, 2);
     // console.log(hours);
@@ -76,58 +76,58 @@ class App extends Component {
     // console.log(minutes);
     let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
     return dateString
-}
+  }
 
-//time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
+  //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   getTicketmasterData = (location, startDate, endDate) => {
     axios.get(`https://app.ticketmaster.com/discovery/v2/events.json`, {
       params: {
         apikey: "cpqJuV2A3YqkXOJylkTrDzVGLRKZ5hp5",
         city: location,
-        localStartEndDateTime: `${startDate}, ${endDate }`,
+        localStartEndDateTime: `${startDate}, ${endDate}`,
       }
       // in-case CORS error comes back
       // dataResponse: "jsonp",     
     }).then((response) => {
-        console.log(response)
-        if (response.data.page.totalElements > 0) {
-          console.log ('the call returns something')
-          response = response.data._embedded.events;
-          this.setState({
-            // allEvents is the good return we never modify
-            allEvents: response,
-            // filteredEvents is the item we want to modify based on user input
-            filteredEvents: response,
-            isLoading: false,
-          })
-          this.getEventCategories();
-          this.getEventVenues();
-        }
-        else {
-          this.setState ({
-            error: true
-          })
-          
-        }
+      console.log(response)
+      if (response.data.page.totalElements > 0) {
+        console.log('the call returns something')
+        response = response.data._embedded.events;
+        this.setState({
+          // allEvents is the good return we never modify
+          allEvents: response,
+          // filteredEvents is the item we want to modify based on user input
+          filteredEvents: response,
+          isLoading: false,
+        })
+        this.getEventCategories();
+        this.getEventVenues();
+      }
+      else {
+        this.setState({
+          error: true
+        })
+
+      }
     })
   }
 
   getEventCategories = () => {
     // loop through all events 
     let eventCategories = ["All Categories"];
-    for (let i = 0; i < this.state.allEvents.length; i ++) {
-        let eventCategory = this.state.allEvents[i].classifications[0].segment.name;
-        console.log(eventCategory);
-        if (!eventCategories.includes(eventCategory)) {
-            eventCategories.push(eventCategory)
-        }
+    for (let i = 0; i < this.state.allEvents.length; i++) {
+      let eventCategory = this.state.allEvents[i].classifications[0].segment.name;
+      console.log(eventCategory);
+      if (!eventCategories.includes(eventCategory)) {
+        eventCategories.push(eventCategory)
+      }
     }
     console.log(eventCategories);
     this.setState({
-        // ... copies the items to the array
-        eventCategories: [...eventCategories],
+      // ... copies the items to the array
+      eventCategories: [...eventCategories],
     })
-}
+  }
 
   getEventVenues = () => {
     // loop through all events 
@@ -135,7 +135,7 @@ class App extends Component {
     for (let i = 0; i < this.state.allEvents.length; i++) {
       let eventVenue = this.state.allEvents[i]._embedded.venues[0].name;
       if (!eventVenues.includes(eventVenue)) {
-          eventVenues.push(eventVenue)
+        eventVenues.push(eventVenue)
       }
     }
     console.log(eventVenues);
@@ -156,24 +156,24 @@ class App extends Component {
         return true;
       }
     })
-    .filter((eventObj) => {
-      if (categoryDropdown==="All Categories"){
-        return true;
-      }
-      else {
-        return eventObj.classifications[0].segment.name.includes(categoryDropdown);
-      }
-    })
-    .filter((eventObj) => {
-      if (venueDropdown === "All Venues") {
-        return true;
-      }
-      else {
-        return eventObj._embedded.venues[0].name.includes(venueDropdown);
-      }
-    })
+      .filter((eventObj) => {
+        if (categoryDropdown === "All Categories") {
+          return true;
+        }
+        else {
+          return eventObj.classifications[0].segment.name.includes(categoryDropdown);
+        }
+      })
+      .filter((eventObj) => {
+        if (venueDropdown === "All Venues") {
+          return true;
+        }
+        else {
+          return eventObj._embedded.venues[0].name.includes(venueDropdown);
+        }
+      })
     this.setState({
-        filteredEvents: [...filteredEvents],
+      filteredEvents: [...filteredEvents],
     })
   }
   resetFilters = (e) => {
@@ -185,89 +185,91 @@ class App extends Component {
       venueDropdown: "All Venues",
     })
   }
-  
+
   scrollTo() {
     scroller.scrollTo("resultsTop", {
       duration: 800,
       delay: 0,
       smooth: "easeInOutQuart"
     })
-  } 
+  }
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
     this.scrollTo();
-    
+
     if (this.state.timeStart && this.state.timeEnd && this.state.location &&
       Date.parse(`01/01/2011 ${this.state.timeEnd}:00`) > Date.parse(`01/01/2011 ${this.state.timeStart}:00`)) {
-        this.setState({
-          displayResult: true,    
-        })
-        const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
-        const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
-        const location = this.state.location;
-        this.getTicketmasterData(location, startDateTime, endDateTime); 
-      }
+      this.setState({
+        displayResult: true,
+      })
+      const startDateTime = this.formatDate(this.state.date, this.state.timeStart);
+      const endDateTime = this.formatDate(this.state.date, this.state.timeEnd);
+      const location = this.state.location;
+      this.getTicketmasterData(location, startDateTime, endDateTime);
+    }
 
   }
 
   render() {
-    return ( 
+    return (
       <div className="App">
         <header>
           <div className="hero wrapper">
             <div className="heroInnerContainer">
-              <Intro/>
-              <SearchForm
-                timeStart={this.state.timeStart}
-                timeEnd={this.state.timeEnd}
-                date={this.state.date}
-                handleChange={this.handleChange}
-                onSubmit={this.onSubmit}
-                location={this.state.location}
-              />
+              <div className="heroBorderMiddle">
+                <Intro />
+                <SearchForm
+                  timeStart={this.state.timeStart}
+                  timeEnd={this.state.timeEnd}
+                  date={this.state.date}
+                  handleChange={this.handleChange}
+                  onSubmit={this.onSubmit}
+                  location={this.state.location}
+                />
+              </div>
             </div>
           </div>
         </header>
 
         <main className="resultsTop">
-        {/*  <div className="wrapper">*/}
-            <div>
+
+          <div>
 
             {this.state.error
-            ? (
-              <div className="error wrapper">
-                <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
-              </div>
+              ? (
+                <div className="error wrapper">
+                  <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
+                </div>
               )
-            : (
-              (this.state.displayResult && (
-                this.state.isLoading
-                  //display loading while api results being returned
-                  ? <h1>Getting Your Events...</h1> 
-                  : <DisplayResults
-                    date={this.state.date}
-                    timeStart={this.state.timeStart}
-                    timeEnd={this.state.timeEnd}
-                    location={this.state.location}
-                    eventVenues={this.state.eventVenues}
-                    handleChange={this.handleChange}
-                    textFilter={this.state.textFilter}
-                    allEvents={this.state.allEvents}
-                    filteredEvents={this.state.filteredEvents}
-                    eventCategories={this.state.eventCategories}
-                    categoryDropdown={this.state.categoryDropdown}
-                    venueDropdown={this.state.venueDropdown}
-                    filterEvents={this.filterEvents}
-                    resetFilters={this.resetFilters}
-                  />
-                ))     
+              : (
+                (this.state.displayResult && (
+                  this.state.isLoading
+                    //display loading while api results being returned
+                    ? <h1>Getting Your Events...</h1>
+                    : <DisplayResults
+                      date={this.state.date}
+                      timeStart={this.state.timeStart}
+                      timeEnd={this.state.timeEnd}
+                      location={this.state.location}
+                      eventVenues={this.state.eventVenues}
+                      handleChange={this.handleChange}
+                      textFilter={this.state.textFilter}
+                      allEvents={this.state.allEvents}
+                      filteredEvents={this.state.filteredEvents}
+                      eventCategories={this.state.eventCategories}
+                      categoryDropdown={this.state.categoryDropdown}
+                      venueDropdown={this.state.venueDropdown}
+                      filterEvents={this.filterEvents}
+                      resetFilters={this.resetFilters}
+                    />
+                ))
               )
             }
           </div>
         </main>
-        
-        <Footer /> 
+
+        <Footer />
       </div>
     );
   }
