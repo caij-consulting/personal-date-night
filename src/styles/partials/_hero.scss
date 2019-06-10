@@ -1,6 +1,6 @@
 .hero{
-	display: flex;
 	width: 100%;
+	@include flex(row, nowrap, center, flex-start);
 
 	body, input, select, svg{
 		color: $white;
@@ -9,10 +9,8 @@
 
 	.heroIntro{
 		width: 50%;
-		padding: 5%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		padding: 3% 5%;
+		@include flex(column, nowrap, flex-start, flex-start);
 
 		h1{
 			font-family: $heading-font;
@@ -26,6 +24,18 @@
 	}
 	.heroForm{
 		width: 50%;
-		padding: 3%;
+		padding: 3% 5%;
+
+		.heroFormBlock{
+			padding: 25px 0;
+			label{
+					display: block;
+			}
+		}
+		.times{
+			display: flex;
+		}
 	}
+
+
 }

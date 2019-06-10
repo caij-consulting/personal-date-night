@@ -212,10 +212,22 @@ img {
 }
 
 .hero {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .hero body, .hero input, .hero select, .hero svg {
@@ -225,7 +237,7 @@ img {
 
 .hero .heroIntro {
   width: 50%;
-  padding: 5%;
+  padding: 3% 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -233,9 +245,14 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .hero .heroIntro h1 {
@@ -251,7 +268,21 @@ img {
 
 .hero .heroForm {
   width: 50%;
-  padding: 3%;
+  padding: 3% 5%;
+}
+
+.hero .heroForm .heroFormBlock {
+  padding: 25px 0;
+}
+
+.hero .heroForm .heroFormBlock label {
+  display: block;
+}
+
+.hero .heroForm .times {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 header {
@@ -274,35 +305,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.heroRightForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  text-align: center;
-}
-
-.heroRightForm .heroRightFormComponent {
-  padding: 25px 0;
-  text-align: left;
-}
-
-.heroRightForm .heroRightFormComponent label {
-  display: block;
-}
-
-.heroRightForm .times {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .userSelection {
