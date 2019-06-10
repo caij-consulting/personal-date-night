@@ -9,7 +9,6 @@
   @include flex(column, wrap, flex-start, center);
   width: calc(25% - 2%);
   margin: 1%;
-  padding: 1%;
 
   p{
     margin: 0;
@@ -22,5 +21,14 @@
   input{
     width: 100%;
     cursor: pointer;
+  }
+  .resultCard-imgContainer{
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 200px;
+  }
+  .eventDetails{
+    padding: 1%;
   }
 }
