@@ -35,62 +35,67 @@ class SearchForm extends Component{
 
         <form action="#">
           <div className="heroFormBlock">
-            <label htmlFor="location">Which city are you searching in?</label>
-            <input 
-            type="text" 
-            name="location"
-            required pattern="[a-zA-Z]*"
-            onChange={(e)=> {this.props.handleChange(e)}}
-            value={this.props.location}
-            required
-            />
-          </div>
-
-          <div className="heroFormBlock">
-            <label htmlFor="">Which date?</label>
-            <DatePicker
-              onChange={(e, name)=> {this.props.handleChange(e, "date")}}
-              format="y-MM-dd"
-              name="date"
-              value={this.props.date}
+            <label className="heroFormLabelMain" htmlFor="location">Which city are you searching in?</label>
+            <div className="HeroFormInputContainer">
+              <input 
+              type="text" 
+              name="location"
+              required pattern="[a-zA-Z]*"
+              onChange={(e)=> {this.props.handleChange(e)}}
+              value={this.props.location}
               required
-            />
-        </div>
-
-        <div className="heroFormBlock">
-          <label>What time range?</label>
-          <div>
-
-              <div className="heroFormBlockTime">
-                <label htmlFor="time">From</label>
-                <TimePicker
-                  format="h:mm a"
-                  name="timeStart"
-                  onChange={(e, name)=> {this.props.handleChange(e, "timeStart")}}
-                  value={this.props.timeStart}
-                  disableClock
-                  required
-                />
-              </div>
-              
-              <div className="heroFormBlockTime">
-                <label htmlFor="time">Until</label>
-                <TimePicker
-                  format="h:mm a"
-                  name="timeEnd"
-                  minTime={this.addOneHourToTime(this.props.timeStart)}
-                  onChange={(e, name)=> {this.props.handleChange(e, "timeEnd")}}
-                  value={this.props.timeEnd}
-                  disableClock
-                  required
-                />
-              </div>
-
+              />
             </div>
           </div>
 
           <div className="heroFormBlock">
-            <button onClick={this.props.onSubmit} className="resultsTop btn" to="resultsTop">find events</button>
+            <label className="heroFormLabelMain">Which date?</label>
+            <div className="HeroFormInputContainer">
+              <DatePicker
+                onChange={(e, name)=> {this.props.handleChange(e, "date")}}
+                format="y-MM-dd"
+                name="date"
+                value={this.props.date}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="heroFormBlock">
+            <label className="heroFormLabelMain">What time range?</label>
+            <div>
+              <div className="HeroFormInputContainer">
+                <div className="heroFormBlockTime">
+                  <div>
+                    <label htmlFor="time">From</label>
+                    <TimePicker
+                      format="h:mm a"
+                      name="timeStart"
+                      onChange={(e, name)=> {this.props.handleChange(e, "timeStart")}}
+                      value={this.props.timeStart}
+                      disableClock
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="time">Until</label>
+                    <TimePicker
+                      format="h:mm a"
+                      name="timeEnd"
+                      minTime={this.addOneHourToTime(this.props.timeStart)}
+                      onChange={(e, name)=> {this.props.handleChange(e, "timeEnd")}}
+                      value={this.props.timeEnd}
+                      disableClock
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="heroFormBlock">
+            <button onClick={this.props.onSubmit} className="resultsTop green large" to="resultsTop">find events</button>
           </div>
         </form>
         

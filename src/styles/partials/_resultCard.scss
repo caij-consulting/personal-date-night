@@ -1,24 +1,26 @@
 .containerResultCard{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.resultCard{
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 22%;
-    margin: 1% 0;
-    padding: 1%;
+  @include flex(row, wrap, flex-start, null)
 }
 
-.resultCard {
-    p{
-        margin: 1% 0;
+.resultCard{
+  border: 1px solid $grey;
+  border-radius: 5px;
+  text-align: center;
+  @include flex(column, wrap, flex-start, center);
+  width: calc(25% - 2%);
+  margin: 1%;
+  padding: 1%;
+
+  p{
+    margin: 0;
+    
+    &.location {
+      font-style: italic;
     }
-    input{
-        width: 100%;
-        cursor: pointer;
-    }
+  }
+
+  input{
+    width: 100%;
+    cursor: pointer;
+  }
 }

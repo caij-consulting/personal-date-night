@@ -2,9 +2,6 @@ header{
   background: url(../assets/bg-cover.jpg);
   background-size: cover;
   background-position: center;
-  height: 95vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 94vh;
+  @include flex(column, nowrap, center, center);
 }

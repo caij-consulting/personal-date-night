@@ -1,0 +1,32 @@
+html{
+  font-size: 125%;
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  font-size: .8rem;
+  line-height: 1.5;
+  font-family: $body-font;
+  background-color: $white;
+}
+
+body, input, select, svg{
+  color: $black;
+  fill: $black;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+  width: 100%;
+}
+
+.wrapper{
+  margin: 0 10%;
+  max-width: 1400px;
+}
+
+.App {
+  text-align: left;
+}

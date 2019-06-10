@@ -185,13 +185,16 @@ html {
 }
 
 body {
-  font-size: 1rem;
-  background-color: #ace8cd;
+  margin: 0;
+  font-size: .8rem;
+  line-height: 1.5;
+  font-family: "Lato", sans-serif;
+  background-color: #fff;
 }
 
 body, input, select, svg {
-  color: #000;
-  fill: #000;
+  color: #222;
+  fill: #222;
 }
 
 img {
@@ -202,18 +205,63 @@ img {
 
 .wrapper {
   margin: 0 10%;
-  max-width: 1600px;
+  max-width: 1400px;
 }
 
 .App {
   text-align: left;
 }
 
+button {
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  font-weight: 700;
+  font-size: .65rem;
+}
+
+button.large {
+  padding: 15px;
+  width: 100%;
+}
+
+button.med {
+  padding: 10px;
+  height: 50px;
+}
+
+button.small {
+  padding: 5px;
+}
+
+button.white {
+  background-color: #fff;
+  border: 1px solid #b3b3b3;
+  color: #261870;
+}
+
+button.green {
+  background-color: #ace8cd;
+  border: 1px solid #ace8cd;
+  color: #261870;
+}
+
+button.navy {
+  background-color: #261870;
+  border: 1px solid #261870;
+  color: #5da9c2;
+}
+
+a {
+  font-weight: 900;
+  color: #261870;
+}
+
 header {
   background: url(../assets/bg-cover.jpg);
   background-size: cover;
   background-position: center;
-  height: 95vh;
+  height: 94vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,29 +269,50 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.hero {
+.heroInnerContainer {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 10px;
 }
 
-.hero body, .hero input, .hero select, .hero svg {
+.heroInnerContainer body, .heroInnerContainer input, .heroInnerContainer select, .heroInnerContainer svg {
   color: #fff;
   fill: #fff;
 }
 
-.hero .heroIntro {
+.heroIntro,
+.heroForm {
   width: 50%;
-  padding: 5%;
+  padding: 5% 5%;
+  color: #fff;
+}
+
+.heroIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,95 +320,190 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.hero .heroIntro p {
-  text-align: left;
-}
-
-.hero .heroIntro h1 {
-  font-family: "Merienda One", cursive;
-  text-align: left;
+.heroIntro h1 {
+  font-family: "Merienda One'", cursive;
   font-size: 55px;
-  text-transform: uppercase;
   margin-top: 0;
 }
 
-.hero .heroIntro h1 span {
+.heroIntro h1 span {
   font-size: 48px;
   display: block;
 }
 
-.hero .heroForm {
-  width: 50%;
-  padding: 5%;
+.heroForm .heroFormBlock {
+  padding-bottom: 8px;
+  margin: 0 0 35px;
+  border-bottom: 2px solid #fff;
 }
 
-.heroRightForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  text-align: center;
+.heroForm .heroFormBlock:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
-.heroRightForm .heroRightFormComponent {
-  padding: 25px 0;
-  text-align: left;
-}
-
-.heroRightForm .heroRightFormComponent label {
+.heroForm .heroFormBlock label {
   display: block;
+  color: #fff;
+  font-weight: 900;
 }
 
-.heroRightForm .times {
+.heroForm .heroFormBlock label.heroFormLabelMain {
+  margin-bottom: 15px;
+}
+
+.heroForm .heroFormBlock input,
+.heroForm .heroFormBlock .react-date-picker {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.heroForm .heroFormBlock .react-date-picker__wrapper,
+.heroForm .heroFormBlock .react-time-picker__wrapper {
+  border: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.heroForm .heroFormBlock .heroFormBlockTime {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.heroForm .times {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.error {
+  text-align: center;
+  font-weight: 700;
 }
 
 .userSelection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin: 2% 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#5da9c2));
+  background-image: linear-gradient(to right, #ace8cd, #5da9c2);
+  margin: 0;
 }
 
-.user {
+.userSelection .user {
   border: 1px solid black;
   padding: 1%;
+  width: 200px;
+  position: relative;
 }
 
-.user input {
-  width: 100%;
+.userSelection .user label {
+  color: #261870;
+  text-transform: uppercase;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.userSelection .user input[type="radio"] {
   cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.userSelection .user p {
+  font-size: .7rem;
+}
+
+.containerFilterEvents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
 }
 
 .containerResultCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .resultCard {
-  border: 1px solid black;
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -347,20 +511,41 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 22%;
-  margin: 1% 0;
+  width: calc(25% - 2%);
+  margin: 1%;
   padding: 1%;
 }
 
 .resultCard p {
-  margin: 1% 0;
+  margin: 0;
+}
+
+.resultCard p.location {
+  font-style: italic;
 }
 
 .resultCard input {
   width: 100%;
   cursor: pointer;
+}
+
+footer {
+  background-color: #ace8cd;
+  text-align: center;
+  font-size: .75rem;
+}
+
+footer p {
+  margin: 0;
+  padding: .8rem;
+  color: #261870;
 }
 /*# sourceMappingURL=App.css.map */
