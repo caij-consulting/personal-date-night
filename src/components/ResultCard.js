@@ -4,8 +4,8 @@ class ResultCard extends Component {
   constructor() {
     super();
     this.state = {
-        eventName1: "",
-        eventName2: ""
+        eventId1: "",
+        eventId2: ""
     }
   }
   priceInfo = (event) => {
@@ -66,12 +66,12 @@ class ResultCard extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.user1choice.name !== prevState.eventName1) {
-      return { eventName1: nextProps.user1choice.name };
+    if (nextProps.user1choice.id !== prevState.eventId1) {
+      return { eventId1: nextProps.user1choice.id };
 
     }
     else if (nextProps.user2choice.name !== prevState.eventName2) {
-      return { eventName2: nextProps.user2choice.name };
+      return { eventId2: nextProps.user2choice.id };
     }
     else return null;
   }
@@ -95,7 +95,7 @@ class ResultCard extends Component {
               id={this.props.event.id} 
               name={this.props.name}
               onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
-              checked={this.props.event.name === this.state.eventName1 || this.props.event.name === this.state.eventName2}
+              checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
             />
           </form>
         </div>
