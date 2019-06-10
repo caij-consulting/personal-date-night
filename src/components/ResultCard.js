@@ -8,22 +8,10 @@ class ResultCard extends Component {
         eventName2: ""
     }
   }
-
-  static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.user1choice.name !==prevState.eventName1){
-        return {eventName1 : nextProps.user1choice.name};
-        
-    }
-    else if (nextProps.user2choice.name !== prevState.eventName2){
-        return { eventName2: nextProps.user2choice.name };
-    }
-    else return null;
-  }
   priceInfo = (event) => {
     let priceString = "";
     if (event.priceRanges){
       let minPrice = event.priceRanges[0].min;
-      console.log(minPrice)
       let maxPrice = event.priceRanges[0].max;
       let currency = event.priceRanges[0].currency;
       if (minPrice === maxPrice){
@@ -38,15 +26,64 @@ class ResultCard extends Component {
     }
     return priceString
   }
+  displayDate = (event) =>{
+    let daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    let monthsOfYear =['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    if (event.dates.start.localTime){
+      let dateObj = new Date(`${event.dates.start.localDate}T${event.dates.start.localTime}`)
+      let day = dateObj.getDay();
+      let date = dateObj.getDate();
+      let month = dateObj.getMonth();
+      let hour = dateObj.getHours();
+      let minute = dateObj.getMinutes();
+      if (minute < 10){
+        minute = '0' + minute;
+      }
+      let ampm = "";
+      if (hour < 12){
+        ampm = "AM";
+      }
+      if(hour = 12){
+        ampm = "PM";
+        hour = 12
+      }
+      else{
+        ampm = "PM";
+        hour = hour - 12
+      }
+      let dateToDisplay = `${daysOfWeek[day]}, ${monthsOfYear[month]} ${date}, ${hour}:${minute} ${ampm}`
+      return dateToDisplay;
 
+    }
+    else{
+      let dateObj = new Date(`${event.dates.start.localDate}T00:00:00`);
+      let day = dateObj.getDay();
+      let date = dateObj.getDate();
+      let month = dateObj.getMonth();
+      let dateToDisplay = `${daysOfWeek[day]}, ${monthsOfYear[month]} ${date}`
+      return dateToDisplay;
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.user1choice.name !== prevState.eventName1) {
+      return { eventName1: nextProps.user1choice.name };
+
+    }
+    else if (nextProps.user2choice.name !== prevState.eventName2) {
+      return { eventName2: nextProps.user2choice.name };
+    }
+    else return null;
+  }
   render() {
+    this.displayDate(this.props.event)
     return (
         <div className="resultCard">
           <div className="resultCard-imgContainer">
             <img src={this.props.event.images[1].url} alt=""/>
           </div>
           <h3>{this.props.event.name}</h3>
-          <p>{this.props.event.dates.start.localDate}, {this.props.event.dates.start.localTime}</p>
+        <p>{this.displayDate(this.props.event)}</p>
           <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
           <p className="priceString">{this.priceInfo(this.props.event)}</p>
           <form action="">
