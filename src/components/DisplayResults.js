@@ -1,5 +1,39 @@
 import React, { Component } from 'react';
+// import {Switch, Route, Link} from "react-router-dom";
+// import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import ResultCard from "./ResultCard.js";
+import Modal from "./Modal";
+
+// const Home = () => <div>Home Tab</div>
+// const ModalPopUp = () => {
+//     return (
+//         <div className={modal ? "modal" : undefined}>
+//             {modal && <Link to="/" Close</Link>}
+//             <div>
+//                 Display the links hereeeee
+//             </div>
+//         </div>
+//     )
+// };
+
+// const ModalPopUp = ({ location }) => {
+//     const { state = {} } = location;
+//     const { modal } = state;
+//     return (
+//         <div className={modal ? "modal" : undefined}>
+//             {modal && <Link to="/"> Close</Link>}
+//             <div>
+//                 Display the links hereeeee
+//             </div>
+//         </div>
+//     )
+// };
+
+// const Links = (props) => {
+//     return(
+//         <h2>GET YOUR TICKETS THROUGH THESE LINKS:</h2>
+//     )
+// }
 
 class DisplayResults extends Component {
     constructor() {
@@ -9,6 +43,7 @@ class DisplayResults extends Component {
             user1choice: "",
             user2choice: "",
             currentUser: "1",
+            modalIsOpen: false
         }
     }
 
@@ -31,6 +66,7 @@ class DisplayResults extends Component {
                 user2choice: eventName,
             })
         }
+        console.log(eventName)
     }
 
     render() {
@@ -102,7 +138,21 @@ class DisplayResults extends Component {
                             <h4>{this.state.user2choice.name}</h4>
                             </div>
                             
-                            {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button>:""}
+                            
+                            {this.state.user1choice&& this.state.user2choice ?<button>Confirm Choice</button> :""}
+
+                            <button
+                            onClick={(e) => this.setState({ modalIsOpen: true})}>
+                                Get Your Links!
+                            </button>
+                            <Modal
+                                modalIsOpen={this.state.modalIsOpen}
+                                // modalIsOpen={(e) => this.setState({ modalIsOpen: false})}
+                                >
+                                fluffy bunny
+                            </Modal>
+                           
+
                         </form>
                         <div className="containerResultCard"> 
                         {

@@ -26,8 +26,8 @@ class App extends Component {
       categoryDropdown: "",
       venueDropdown: "",
 
-      cities: [],
-      userCity: "",
+      // cities: [],
+      // userCity: "",
       // eventsJSX: "",
       // eventName: "",
       // eventStartTime: "",
