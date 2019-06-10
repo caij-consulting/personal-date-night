@@ -425,8 +425,8 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-image: -webkit-gradient(linear, to-right, from(#ace8cd), to(#5da9c2));
-  background-image: linear-gradient(to-right, #ace8cd, #5da9c2);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#5da9c2));
+  background-image: linear-gradient(to right, #ace8cd, #5da9c2);
   margin: 2% 0;
 }
 
