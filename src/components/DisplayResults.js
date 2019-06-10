@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ResultCard from "./ResultCard.js";
 import { animateScroll as scroll, scroller } from 'react-scroll';
-import DisplayLinks from './DisplayLinks.js';
+import Modal from "./Modal.js";
+
+
 
 class DisplayResults extends Component {
   constructor() {
@@ -11,6 +13,7 @@ class DisplayResults extends Component {
       user1choice: "",
       user2choice: "",
       currentUser: "1",
+      modalIsOpen: false
     }
   }
 
@@ -45,6 +48,16 @@ class DisplayResults extends Component {
   confirmClick = (e)=>{
     e.preventDefault();
     this.scrollLinks();
+    this.setState({
+      modalIsOpen: true
+    })
+  }
+
+  closeModal = (e) => {
+    e.preventDefault();
+    this.setState({
+      modalisOpen:false
+    })
   }
 
   render() {
@@ -77,8 +90,29 @@ class DisplayResults extends Component {
             </div>
 
             {this.state.user1choice && this.state.user2choice
-            ? <button className="navy med" onClick={e => this.confirmClick(e)}>Confirm Both Events</button>
-            : ""} <button className="white med" reset={this.reset}>New Search</button>           
+            ? 
+            
+            <div>
+              <button className="navy med"
+                onClick={(e) => {
+                  this.confirmClick(e)
+                }}
+              >Confirm Both Events</button>
+        
+              <Modal
+                user1choice={this.state.user1choice}
+                user2choice={this.state.user2choice}
+                modalIsOpen={this.state.modalIsOpen}
+                closeModal={(e) => this.setState({ modalIsOpen: false})}
+              >
+              </Modal>
+            
+            </div>
+
+
+            : ""} 
+
+            <button className="white med" reset={this.reset}>New Search</button>           
           </form>
 
         <div className="displayContent">
@@ -137,10 +171,6 @@ class DisplayResults extends Component {
           })}
 
           </div>
-          <DisplayLinks 
-            user1choice={this.state.user1choice}
-            user2choice={this.state.user2choice}
-          />
 
         </div>
       </div>
