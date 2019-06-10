@@ -52,7 +52,7 @@ class DisplayResults extends Component {
         <div className="displayEvents">
           <form action="" className="userSelection">
             <div className="user">
-              <label htmlFor="user1">User 1</label>
+              <label htmlFor="user1">user one</label>
               <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                 type="radio"
                 name="currentUser"
@@ -60,11 +60,11 @@ class DisplayResults extends Component {
                 value="1"
                 checked={this.state.currentUser === "1"}
               />
-              <h4>{this.state.user1choice.name}</h4>
+              <p>{this.state.user1choice.name}</p>
             </div>
 
             <div className="user">
-              <label htmlFor="user2">User 2</label>
+              <label htmlFor="user2">user two</label>
               <input
                 onChange={(e) => { this.handleUserChangeRadio(e) }}
                 type="radio"
@@ -73,7 +73,7 @@ class DisplayResults extends Component {
                 value="2"
                 checked={this.state.currentUser === "2"}
               />
-              <h4>{this.state.user2choice.name}</h4>
+              <p>{this.state.user2choice.name}</p>
             </div>
 
             {this.state.user1choice && this.state.user2choice

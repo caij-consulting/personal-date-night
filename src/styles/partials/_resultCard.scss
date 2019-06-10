@@ -5,7 +5,7 @@
     border: 1px solid $grey;
     border-radius: 5px;
     text-align: center;
-    @include flex(column, wrap, flex-start, center)
+    @include flex(column, wrap, flex-start, center);
     width: calc(25% - 2%);
     margin: 1%;
     padding: 1%;

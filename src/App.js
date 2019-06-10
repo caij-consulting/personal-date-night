@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Intro from "./components/Intro.js";
+import Intro from "./components/Header.js/index.js";
 import SearchForm from "./components/SearchForm.js";
 import DisplayResults from "./components/DisplayResults.js";
 import Footer from "./components/Footer.js"

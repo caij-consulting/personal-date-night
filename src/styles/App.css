@@ -186,15 +186,15 @@ html {
 
 body {
   margin: 0;
-  font-size: .9rem;
+  font-size: .8rem;
   line-height: 1.5;
   font-family: "Lato", sans-serif;
   background-color: #fff;
 }
 
 body, input, select, svg {
-  color: #000;
-  fill: #000;
+  color: #222;
+  fill: #222;
 }
 
 img {
@@ -215,9 +215,9 @@ img {
 button {
   border-radius: 6px;
   text-transform: uppercase;
-  letter-spacing: .2rem;
+  letter-spacing: .15rem;
   font-weight: 700;
-  font-size: .8rem;
+  font-size: .6rem;
 }
 
 button.large {
@@ -227,6 +227,7 @@ button.large {
 
 button.med {
   padding: 10px;
+  height: 50px;
 }
 
 button.small {
@@ -304,10 +305,14 @@ header {
   fill: #fff;
 }
 
-.heroIntro {
+.heroIntro,
+.heroForm {
   width: 50%;
-  padding: 3% 5%;
+  padding: 5% 5%;
   color: #fff;
+}
+
+.heroIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -336,11 +341,6 @@ header {
   display: block;
 }
 
-.heroForm {
-  width: 50%;
-  padding: 3% 5%;
-}
-
 .heroForm .heroFormBlock {
   padding-bottom: 8px;
   margin: 0 0 35px;
@@ -349,6 +349,7 @@ header {
 
 .heroForm .heroFormBlock:last-of-type {
   border-bottom: none;
+  margin-bottom: 0;
 }
 
 .heroForm .heroFormBlock label {
@@ -412,6 +413,11 @@ header {
   display: flex;
 }
 
+.error {
+  text-align: center;
+  font-weight: 700;
+}
+
 .userSelection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -425,17 +431,33 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#5da9c2));
   background-image: linear-gradient(to right, #ace8cd, #5da9c2);
-  margin: 2% 0;
+  margin: 0;
 }
 
-.user {
+.userSelection .user {
   border: 1px solid black;
   padding: 1%;
+  width: 200px;
 }
 
-.user input {
+.userSelection .user label {
+  color: #261870;
+  text-transform: uppercase;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.userSelection .user p {
+  font-size: .6rem;
+}
+
+.userSelection .user input {
   width: 100%;
   cursor: pointer;
 }

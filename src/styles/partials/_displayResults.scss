@@ -1,17 +1,39 @@
-.userSelection{
-  @include flex(row, nowrap, space-between, null);
-  background-image: linear-gradient(to right, $green, $blue);
-  margin: 2% 0;
-}
-.user{
-  border: 1px solid black;
-  padding: 1%;
-}
-.user input{
-  width: 100%;
-  cursor: pointer;
+.error {
+  text-align: center;
+  font-weight: 700;
 }
 
+// USER SELECTION
+.userSelection{
+  @include flex(row, nowrap, space-between, center);
+  background-image: linear-gradient(to right, $green, $blue);
+  margin: 0;
+
+  .user{
+    border: 1px solid black;
+    padding: 1%;
+    width:200px;
+
+    label {
+      color: $navy;
+      text-transform: uppercase;
+      font-size: .65rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: .6rem;
+    }
+
+    input {
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+}
+
+// FILTER EVENTS
 .containerFilterEvents {
   @include flex(row, nowrap, center, space-between)
 }

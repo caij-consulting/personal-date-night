@@ -10,10 +10,14 @@
 	}
 }
 
-.heroIntro{
+.heroIntro,
+.heroForm {
 	width: 50%;
-	padding: 3% 5%;
+	padding: 5% 5%;
 	color: $white;
+}
+
+.heroIntro{
 	@include flex(column, nowrap, flex-start, flex-start);
 
 	h1{
@@ -28,9 +32,6 @@
 }
 
 .heroForm{
-	width: 50%;
-	padding: 3% 5%;
-
 	.heroFormBlock {
 		padding-bottom: 8px;
 		margin: 0 0 35px;
@@ -38,6 +39,7 @@
 	
 	&:last-of-type {
 		border-bottom: none;
+		margin-bottom: 0;
 	}
 		label{
 			display: block;
