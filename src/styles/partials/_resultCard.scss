@@ -9,6 +9,7 @@
   @include flex(column, wrap, flex-start, center);
   width: calc(25% - 2%);
   margin: 1%;
+  position: relative;
 
   p{
     margin: 0;
@@ -21,6 +22,18 @@
   input{
     width: 100%;
     cursor: pointer;
+    &[type="radio"]{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      &:checked + div{
+        opacity: 0.5;
+        opacity: 0.3;
+      }
+    }
   }
   .resultCard-imgContainer{
     width: 100%;
