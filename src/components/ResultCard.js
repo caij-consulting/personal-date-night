@@ -82,10 +82,12 @@ class ResultCard extends Component {
           <div className="resultCard-imgContainer">
             <img src={this.props.event.images[1].url} alt=""/>
           </div>
+          <div className="eventDetails">
           <h3>{this.props.event.name}</h3>
-        <p>{this.displayDate(this.props.event)}</p>
-          <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
-          <p className="priceString">{this.priceInfo(this.props.event)}</p>
+            <p>{this.displayDate(this.props.event)}</p>
+            <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
+            <p className="priceString">{this.priceInfo(this.props.event)}</p>
+          </div>
           <form action="">
             <label htmlFor="selectedEvent"></label>
             <input 
