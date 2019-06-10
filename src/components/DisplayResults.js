@@ -3,6 +3,8 @@ import ResultCard from "./ResultCard.js";
 import { animateScroll as scroll, scroller } from 'react-scroll';
 import Modal from "./Modal.js";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 class DisplayResults extends Component {
@@ -66,6 +68,7 @@ class DisplayResults extends Component {
         <form action="" className="containerUserSelection">
           <div className="containerUsers">
             <div className="user">
+                <FontAwesomeIcon icon="user" aria-hidden="true"/>
                 <label htmlFor="user1">user one</label>
                 <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                   type="radio"
@@ -78,6 +81,7 @@ class DisplayResults extends Component {
               </div>
 
               <div className="user">
+                <FontAwesomeIcon icon="user" aria-hidden="true" />
                 <label htmlFor="user2">user two</label>
                 <input
                   onChange={(e) => { this.handleUserChangeRadio(e) }}
@@ -100,7 +104,9 @@ class DisplayResults extends Component {
                 onClick={(e) => {
                   this.confirmClick(e)
                 }}
-              >Confirm Both Events</button>
+                >Confirm Both Events <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
+              </button>
+              
         
               <Modal
                 user1choice={this.state.user1choice}
