@@ -65,67 +65,76 @@ class DisplayResults extends Component {
   render() {
     return (
       <div className="displayEvents">
-        <form action="" className="containerUserSelection">
-          <div className="containerUsers">
-            <div className="user">
-                <FontAwesomeIcon icon="user" aria-hidden="true"/>
-                <label htmlFor="user1">user one</label>
-                <input onChange={(e) => { this.handleUserChangeRadio(e) }}
-                  type="radio"
-                  name="currentUser"
-                  id="user1"
-                  value="1"
-                  checked={this.state.currentUser === "1"}
-                />
-                <p>{this.state.user1choice.name}</p>
-              </div>
-
-              <div className="user">
-                <FontAwesomeIcon icon="user" aria-hidden="true" />
-                <label htmlFor="user2">user two</label>
-                <input
-                  onChange={(e) => { this.handleUserChangeRadio(e) }}
-                  type="radio"
-                  name="currentUser"
-                  id="user2"
-                  value="2"
-                  checked={this.state.currentUser === "2"}
-                />
-                <p>{this.state.user2choice.name}</p>
-              </div>
-          </div>
+        <div className="containerUserSelectionBackground">
+          <div className="wrapper">
+            <form action="" className="containerUserSelection">
           
-          <div className="containerUsersButtons">
-            {this.state.user1choice && this.state.user2choice
-            ? 
-            
-            <div>
-              <button className="navy med"
-                onClick={(e) => {
-                  this.confirmClick(e)
-                }}
-                >Confirm Both Events <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
-              </button>
+              <div className="containerUsers">
+                <div className="user">
+                    <FontAwesomeIcon icon="user" aria-hidden="true"/>
+                    <div>
+                      <label htmlFor="user1">user one</label>
+                      <input onChange={(e) => { this.handleUserChangeRadio(e) }}
+                        type="radio"
+                        name="currentUser"
+                        id="user1"
+                        value="1"
+                        checked={this.state.currentUser === "1"}
+                      />
+                      <p>{this.state.user1choice.name}</p>
+                    </div>
+                  </div>
+
+                  <div className="user">
+                    <FontAwesomeIcon icon="user" aria-hidden="true" />
+                    <div>
+                      <label htmlFor="user2">user two</label>
+                      <input
+                        onChange={(e) => { this.handleUserChangeRadio(e) }}
+                        type="radio"
+                        name="currentUser"
+                        id="user2"
+                        value="2"
+                        checked={this.state.currentUser === "2"}
+                      />
+                      <p>{this.state.user2choice.name}</p>
+                    </div>
+                  </div>
+              </div>
               
-        
-              <Modal
-                user1choice={this.state.user1choice}
-                user2choice={this.state.user2choice}
-                modalIsOpen={this.state.modalIsOpen}
-                closeModal={(e) => this.setState({ modalIsOpen: false})}
-              >
-              </Modal>
+              <div className="containerUsersButtons">
+                {this.state.user1choice && this.state.user2choice
+                ? 
+                
+                <div>
+                  <button className="navy med"
+                    onClick={(e) => {
+                      this.confirmClick(e)
+                    }}
+                    >Confirm Both Events <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
+                  </button>
+                  
             
-            </div>
+                  <Modal
+                    user1choice={this.state.user1choice}
+                    user2choice={this.state.user2choice}
+                    modalIsOpen={this.state.modalIsOpen}
+                    closeModal={(e) => this.setState({ modalIsOpen: false})}
+                  >
+                  </Modal>
+                
+                </div>
 
 
-            : ""} 
+                : ""} 
 
-           <button className="white med" reset={this.reset}>New Search</button>           
+              <button className="white med" reset={this.reset}>New Search</button>           
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
 
-        <div className="displayContent">
+        <div className="displayContent wrapper">
           <div className="containerFilterEvents">
             <form action="submit">
               <label className="visuallyHidden" htmlFor="textFilter">Enter text to filter</label>
