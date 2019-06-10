@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from "./components/Header.js";
+import Intro from "./components/Intro.js";
 import SearchForm from "./components/SearchForm.js";
 import DisplayResults from "./components/DisplayResults.js";
 import Footer from "./components/Footer.js"
@@ -210,7 +210,7 @@ class App extends Component {
       <div className="App">
         <header>
           <div className="hero wrapper">
-            <Header/>
+            <Intro/>
             <SearchForm
               timeStart={this.state.timeStart}
               timeEnd={this.state.timeEnd}
