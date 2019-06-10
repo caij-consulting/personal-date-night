@@ -15,7 +15,8 @@ class DisplayResults extends Component {
       user1choice: "",
       user2choice: "",
       currentUser: "1",
-      modalIsOpen: false
+      modalIsOpen: false,
+      activeUser: false
     }
   }
 
@@ -71,35 +72,70 @@ class DisplayResults extends Component {
           
               <div className="containerUsers">
                 <div className="user">
-                    <FontAwesomeIcon icon="user" aria-hidden="true"/>
-                    <div>
-                      <label htmlFor="user1">user one</label>
-                      <input onChange={(e) => { this.handleUserChangeRadio(e) }}
-                        type="radio"
-                        name="currentUser"
-                        id="user1"
-                        value="1"
-                        checked={this.state.currentUser === "1"}
-                      />
-                      <p>{this.state.user1choice.name}</p>
+                  <div>
+                    <input onChange={(e) => { this.handleUserChangeRadio(e) }}
+                      type="radio"
+                      className="selectedUser"
+                      name="currentUser"
+                      id="user1"
+                      value="1"
+                      checked={this.state.currentUser === "1"}
+                    />
+                    <div className="perUserContents">
+                      <FontAwesomeIcon icon="user" aria-hidden="true" />
+                      <div>
+                        <label htmlFor="user1">user one</label>
+                        <p>{this.state.user1choice.name}</p>
+                      </div>
                     </div>
+                    
                   </div>
+                </div>
+                
 
-                  <div className="user">
-                    <FontAwesomeIcon icon="user" aria-hidden="true" />
-                    <div>
-                      <label htmlFor="user2">user two</label>
-                      <input
-                        onChange={(e) => { this.handleUserChangeRadio(e) }}
-                        type="radio"
-                        name="currentUser"
-                        id="user2"
-                        value="2"
-                        checked={this.state.currentUser === "2"}
-                      />
-                      <p>{this.state.user2choice.name}</p>
+
+                <div className="user">
+                  <div>
+                    
+                    <input
+                      onChange={(e) => { this.handleUserChangeRadio(e) }}
+                      type="radio"
+                      className="selectedUser"
+                      name="currentUser"
+                      id="user2"
+                      value="2"
+                      checked={this.state.currentUser === "2"}
+                    />
+                    <div className="perUserContents">
+                      <FontAwesomeIcon icon="user" aria-hidden="true" />
+                      <div>
+                        <label htmlFor="user2">user two</label>
+                        <p>{this.state.user2choice.name}</p>
+                      </div>
                     </div>
+                    
                   </div>
+                </div>
+
+                {/* 
+
+                <div className="user">
+                  <FontAwesomeIcon icon="user" aria-hidden="true" />
+                  <div>
+                    <label htmlFor="user2">user two</label>
+                    <input
+                      onChange={(e) => { this.handleUserChangeRadio(e) }}
+                      type="radio"
+                      className="selectedUser"
+                      name="currentUser"
+                      id="user2"
+                      value="2"
+                      checked={this.state.currentUser === "2"}
+                    />
+                    <p>{this.state.user2choice.name}</p>
+                  </div>
+                </div>
+                */}
               </div>
               
               <div className="containerUsersButtons">
