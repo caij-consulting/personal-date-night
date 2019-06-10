@@ -7,6 +7,14 @@ import Footer from "./components/Footer.js"
 import "./styles/App.scss";
 import { animateScroll as scroll, scroller } from 'react-scroll';
 
+// font awesome library
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckDouble, faCheck, faUser, faTimesCircle, faCopy } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faCheckDouble, faCheck, faUser, faTimesCircle, faCopy)
+
+
 class App extends Component {
   constructor() {
     super();
