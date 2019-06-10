@@ -26,8 +26,6 @@ class App extends Component {
       textFilter: "",
       categoryDropdown: "",
       venueDropdown: "",
-      cities: [],
-      userCity: "",
       error: false,
     }
   }
