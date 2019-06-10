@@ -1,7 +1,6 @@
 .heroInnerContainer{
 	width: 100%;
 	background-color: rgba($white, 0.1);
-	@include flex(row, nowrap, center, flex-start);
 	border-radius: 10px;
 
 	body, input, select, svg{
@@ -9,16 +8,20 @@
 		fill: $white
 	}
 }
+.heroBorderMiddle{
+		@include flex(row, nowrap, center, flex-start);
+		padding: 3% 3%;
+}
 
 .heroIntro,
 .heroForm {
 	width: 50%;
-	padding: 5% 5%;
 	color: $white;
 }
 
 .heroIntro{
 	@include flex(column, nowrap, flex-start, flex-start);
+	padding-right: 3%;
 
 	h1{
 		font-family: $heading-font;
@@ -41,11 +44,12 @@
 		}
 }
 .heroForm{
+	border-left: 1px solid rgba(255,255,255,.5);
+	padding-left: 3%;
 	.heroFormBlock {
 		padding-bottom: 8px;
 		margin: 0 0 35px;
 		border-bottom: 2px solid $white;
-		padding-left: 5px;
 	
 	&:last-of-type {
 		border-bottom: none;
