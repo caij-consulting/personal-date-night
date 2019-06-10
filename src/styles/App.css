@@ -202,7 +202,7 @@ img {
 
 .wrapper {
   margin: 0 10%;
-  max-width: 1600px;
+  max-width: 1400px;
 }
 
 .App {
@@ -256,15 +256,9 @@ header {
           justify-content: space-between;
 }
 
-.hero .heroIntro p {
-  text-align: left;
-}
-
 .hero .heroIntro h1 {
   font-family: "Merienda One", cursive;
-  text-align: left;
   font-size: 55px;
-  text-transform: uppercase;
   margin-top: 0;
 }
 
@@ -275,7 +269,7 @@ header {
 
 .hero .heroForm {
   width: 50%;
-  padding: 5%;
+  padding: 3%;
 }
 
 .heroRightForm {
