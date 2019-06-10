@@ -23,6 +23,7 @@ class Modal extends Component {
         <DisplayLinks 
           user1choice={this.props.user1choice}
           user2choice={this.props.user2choice}
+          closeModal={this.props.closeModal}
         />
       </div>
     );
