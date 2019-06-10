@@ -29,6 +29,12 @@ button {
     background-color: $green;
     border: 1px solid $green;
     color: $navy;
+    // haven't got sweep to work yet
+    // position:relative;
+    // transition: all 1s linear;
+    // &:hover {
+    //   background-color: linear-gradient(to right, #ace8cd, #5da9c2);
+    // }
   }
 
   &.navy {
