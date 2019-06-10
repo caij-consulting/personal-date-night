@@ -4,15 +4,21 @@
 }
 
 // USER SELECTION
-.userSelection{
+
+.containerUserSelection{
   @include flex(row, nowrap, space-between, center);
   background-image: linear-gradient(to right, $green, $blue);
   margin: 0;
+
+  .containerUsers {
+    @include flex(row, nowrap, flex-start, flex-start);
+  }
 
   .user{
     border: 1px solid black;
     padding: 1%;
     width:200px;
+    height: 100%;
     position: relative;
 
     label {

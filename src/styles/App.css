@@ -237,24 +237,24 @@ button.small {
 button.white {
   background-color: #fff;
   border: 1px solid #b3b3b3;
-  color: #261870;
+  color: #330095;
 }
 
 button.green {
   background-color: #ace8cd;
   border: 1px solid #ace8cd;
-  color: #261870;
+  color: #330095;
 }
 
 button.navy {
-  background-color: #261870;
-  border: 1px solid #261870;
+  background-color: #330095;
+  border: 1px solid #330095;
   color: #5da9c2;
 }
 
 a {
   font-weight: 900;
-  color: #261870;
+  color: #330095;
 }
 
 header {
@@ -331,7 +331,7 @@ header {
 }
 
 .heroIntro h1 {
-  font-family: "Merienda One'", cursive;
+  font-family: "Shrikhand", cursive;
   font-size: 55px;
   margin-top: 0;
 }
@@ -418,7 +418,7 @@ header {
   font-weight: 700;
 }
 
-.userSelection {
+.containerUserSelection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -439,22 +439,41 @@ header {
   margin: 0;
 }
 
-.userSelection .user {
+.containerUserSelection .containerUsers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.containerUserSelection .user {
   border: 1px solid black;
   padding: 1%;
   width: 200px;
+  height: 100%;
   position: relative;
 }
 
-.userSelection .user label {
-  color: #261870;
+.containerUserSelection .user label {
+  color: #330095;
   text-transform: uppercase;
   font-size: .65rem;
   font-weight: 900;
   letter-spacing: 1px;
 }
 
-.userSelection .user input[type="radio"] {
+.containerUserSelection .user input[type="radio"] {
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -463,7 +482,7 @@ header {
   height: 100%;
 }
 
-.userSelection .user p {
+.containerUserSelection .user p {
   font-size: .7rem;
 }
 
@@ -546,6 +565,6 @@ footer {
 footer p {
   margin: 0;
   padding: .8rem;
-  color: #261870;
+  color: #330095;
 }
 /*# sourceMappingURL=App.css.map */
