@@ -95,7 +95,7 @@ class SearchForm extends Component{
           </div>
 
           <div className="heroFormBlock">
-            <button className="green" onClick={this.props.onSubmit} className="resultsTop btn" to="resultsTop">find events</button>
+            <button onClick={this.props.onSubmit} className="resultsTop green large" to="resultsTop">find events</button>
           </div>
         </form>
         

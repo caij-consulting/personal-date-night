@@ -11,3 +11,7 @@
   width: 100%;
   cursor: pointer;
 }
+
+.containerFilterEvents {
+  @include flex(row, nowrap, center, space-between)
+}

@@ -223,39 +223,43 @@ class App extends Component {
             </div>
           </div>
         </header>
-        <div className="resultsTop">
-        </div>
-        {this.state.error
-        ? (
-          <div className="error">
-            <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
+
+        <main className="resultsTop">
+          <div className="wrapper">
+            {this.state.error
+            ? (
+              <div className="error">
+                <p>Sorry, your search didn't return any events. Please adjust your search and try again.</p>
+              </div>
+              )
+            : (
+              (this.state.displayResult && (
+                this.state.isLoading
+                  //display loading while api results being returned
+                  ? <h1>Getting Your Events...</h1> 
+                  : <DisplayResults
+                    className="wrapper"
+                    date={this.state.date}
+                    timeStart={this.state.timeStart}
+                    timeEnd={this.state.timeEnd}
+                    location={this.state.location}
+                    eventVenues={this.state.eventVenues}
+                    handleChange={this.handleChange}
+                    textFilter={this.state.textFilter}
+                    allEvents={this.state.allEvents}
+                    filteredEvents={this.state.filteredEvents}
+                    eventCategories={this.state.eventCategories}
+                    categoryDropdown={this.state.categoryDropdown}
+                    venueDropdown={this.state.venueDropdown}
+                    filterEvents={this.filterEvents}
+                    resetFilters={this.resetFilters}
+                  />
+                ))     
+              )
+            }
           </div>
-          )
-        : (
-          (this.state.displayResult && (
-            this.state.isLoading
-              //display loading while api results being returned
-              ? <h1>Getting Your Events...</h1> 
-              : <DisplayResults
-                className="wrapper"
-                date={this.state.date}
-                timeStart={this.state.timeStart}
-                timeEnd={this.state.timeEnd}
-                location={this.state.location}
-                eventVenues={this.state.eventVenues}
-                handleChange={this.handleChange}
-                textFilter={this.state.textFilter}
-                allEvents={this.state.allEvents}
-                filteredEvents={this.state.filteredEvents}
-                eventCategories={this.state.eventCategories}
-                categoryDropdown={this.state.categoryDropdown}
-                venueDropdown={this.state.venueDropdown}
-                filterEvents={this.filterEvents}
-                resetFilters={this.resetFilters}
-              />
-            ))     
-          )
-        }
+        </main>
+        
         <Footer /> 
       </div>
     );

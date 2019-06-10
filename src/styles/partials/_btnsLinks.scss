@@ -1,24 +1,40 @@
 button {
-  width: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: .2rem;
-  font-weight: 900;
-}
+  font-weight: 700;
+  font-size: .8rem;
 
-button.white {
-  background-color: $white; 
-  color: $navy;
-}
+  &.large {
+    padding: 15px;
+    width: 100%;
+  }
 
-button.green {
-  background-color: $green; 
-  color: $navy;
-}
+  &.med {
+    padding: 10px;
+  }
 
-button.navy {
-  background-color: $navy;
-  color: $blue;
+  &.small {
+    padding: 5px;
+  }
+
+  &.white {
+    background-color: $white;
+    border: 1px solid $grey;
+    color: $navy;
+  }
+
+  &.green {
+    background-color: $green;
+    border: 1px solid $green;
+    color: $navy;
+  }
+
+  &.navy {
+    background-color: $navy;
+    border: 1px solid $navy;
+    color: $blue;
+  }
 }
 
 a {
