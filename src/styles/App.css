@@ -217,7 +217,7 @@ button {
   text-transform: uppercase;
   letter-spacing: .15rem;
   font-weight: 700;
-  font-size: .6rem;
+  font-size: .65rem;
 }
 
 button.large {
@@ -236,7 +236,7 @@ button.small {
 
 button.white {
   background-color: #fff;
-  border: 1px solid #999;
+  border: 1px solid #b3b3b3;
   color: #261870;
 }
 
@@ -443,6 +443,7 @@ header {
   border: 1px solid black;
   padding: 1%;
   width: 200px;
+  position: relative;
 }
 
 .userSelection .user label {
@@ -453,13 +454,17 @@ header {
   letter-spacing: 1px;
 }
 
-.userSelection .user p {
-  font-size: .6rem;
+.userSelection .user input[type="radio"] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.userSelection .user input {
-  width: 100%;
-  cursor: pointer;
+.userSelection .user p {
+  font-size: .7rem;
 }
 
 .containerFilterEvents {
@@ -496,7 +501,7 @@ header {
 }
 
 .resultCard {
-  border: 1px solid #999;
+  border: 1px solid #b3b3b3;
   border-radius: 5px;
   text-align: center;
   display: -webkit-box;
@@ -520,7 +525,11 @@ header {
 }
 
 .resultCard p {
-  margin: 1% 0;
+  margin: 0;
+}
+
+.resultCard p.location {
+  font-style: italic;
 }
 
 .resultCard input {

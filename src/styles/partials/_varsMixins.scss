@@ -7,7 +7,7 @@ $navy: #261870;
 $green: #ace8cd;
 $white: #fff;
 $black: #222;
-$grey: #999;
+$grey: #b3b3b3;
 
 //MIXINS
 @mixin flex($direction, $wrap, $justify, $align) {
@@ -16,6 +16,14 @@ $grey: #999;
 	flex-wrap: $wrap;
 	justify-content: $justify;
 	align-items: $align;
+}
+
+@mixin position($top, $right, $bottom, $left, $pos: absolute) {
+	position: $pos;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
 }
 
 //Thanks to https://thoughtbot.com/blog/sasss-content-directive

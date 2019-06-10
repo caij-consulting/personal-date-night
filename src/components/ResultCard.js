@@ -28,7 +28,7 @@ class ResultCard extends Component {
           </div>
           <h3>{this.props.event.name}</h3>
           <p>{this.props.event.dates.start.localDate}, {this.props.event.dates.start.localTime}</p>
-          <h3>{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</h3>
+          <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
           <form action="">
             <label htmlFor="selectedEvent"></label>
             <input 
