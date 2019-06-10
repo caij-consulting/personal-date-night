@@ -95,10 +95,19 @@
 }
 
 // FILTER EVENTS
-.containerFilterEvents {
-  @include flex(row, nowrap, center, space-between);
+.containerFilterEvents form {
+  @include flex(row, nowrap, space-between, null);
+  padding: 20px 0;
+  margin: 10px 0;
+  border-top: 1px solid #ace8cd;
+  border-bottom: 1px solid #ace8cd;
+
+
   input,
   button {
     margin:2px;
+  }
+  select {
+  
   }
 }
