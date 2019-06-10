@@ -78,7 +78,7 @@ class DisplayResults extends Component {
 
             {this.state.user1choice && this.state.user2choice
             ? <button className="navy med" onClick={e => this.confirmClick(e)}>Confirm Both Events</button>
-            : ""} <button className="white med" reset={this.reset}>New Search</button>                      
+            : ""} <button className="white med" reset={this.reset}>New Search</button>           
           </form>
 
         <div className="displayContent">

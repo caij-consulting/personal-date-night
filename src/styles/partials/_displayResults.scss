@@ -1,6 +1,6 @@
 .userSelection{
-  display: flex;
-  justify-content: space-evenly;
+  @include flex(row, nowrap, space-between, null);
+  background-image: linear-gradient(to-right, $green, $blue);
   margin: 2% 0;
 }
 .user{
