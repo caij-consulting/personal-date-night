@@ -6,36 +6,61 @@
 		color: $white;
 		fill: $white
 	}
+}
 
-	.heroIntro{
-		width: 50%;
-		padding: 3% 5%;
-		@include flex(column, nowrap, flex-start, flex-start);
+.heroIntro{
+	width: 50%;
+	padding: 3% 5%;
+	@include flex(column, nowrap, flex-start, flex-start);
 
-		h1{
-			font-family: $heading-font;
-			font-size: 55px;
-			margin-top: 0;
-			span{
-				font-size: 48px;
-				display: block;
-			}
+	h1{
+		font-family: $heading-font;
+		font-size: 55px;
+		margin-top: 0;
+		span{
+			font-size: 48px;
+			display: block;
 		}
 	}
-	.heroForm{
-		width: 50%;
-		padding: 3% 5%;
+}
 
-		.heroFormBlock{
-			padding: 25px 0;
-			label{
-					display: block;
-			}
+.heroForm{
+	width: 50%;
+	padding: 3% 5%;
+
+	.heroFormBlock {
+		padding-bottom: 8px;
+		margin: 0 0 30px;
+		border-bottom: 2px solid $white;
+	
+	&:last-of-type {
+		border-bottom: none;
+	}
+		label{
+			display: block;
+			color: $white;
+			font-weight: 900;
 		}
-		.times{
-			display: flex;
+
+		input,
+		.react-date-picker {
+		width: 100%;
+		border: none;
+		background-color: rgba($white, 0);	
+		}
+
+		.react-date-picker__wrapper,
+		.react-time-picker__wrapper {
+			border: none;
+			@include flex(row, nowrap, center, center);
+		}
+
+		.heroFormBlockTime {
+			@include flex(row, nowrap, flex-start, flex-start)
 		}
 	}
 
-
+	.times{
+		display: flex;
+	}
 }

@@ -1,31 +1,32 @@
 html{
-    font-size: 125%;
-    scroll-behavior: smooth;
+  font-size: 125%;
+  scroll-behavior: smooth;
 }
 
 body{
-    margin: 0;
-    font-size: 1rem;
-    font-family: $body-font;
-    background-color: $green;
+  margin: 0;
+  font-size: .9rem;
+  line-height: 1.5;
+  font-family: $body-font;
+  background-color: $green;
 }
 
 body, input, select, svg{
-    color: $black;
-    fill: $black;
+  color: $black;
+  fill: $black;
 }
 
 img{
-    max-width: 100%;
-    display: block;
-    width: 100%;
+  max-width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .wrapper{
-    margin: 0 10%;
-    max-width: 1400px;
+  margin: 0 10%;
+  max-width: 1400px;
 }
 
 .App {
-    text-align: left;
-  }
+  text-align: left;
+}
