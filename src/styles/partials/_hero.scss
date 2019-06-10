@@ -24,9 +24,18 @@
 		font-family: $heading-font;
 		font-size: 55px;
 		margin-top: 0;
+		background: -webkit-linear-gradient(right, #ace8cd, #5da9c2);
+		background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 6px transparent;
+		width: 100%;
+		padding-left: 5px;
 		span{
 			font-size: 48px;
 			display: block;
+		}
+		p{
+			padding-left: 5px;
 		}
 	}
 }
@@ -36,6 +45,7 @@
 		padding-bottom: 8px;
 		margin: 0 0 35px;
 		border-bottom: 2px solid $white;
+		padding-left: 5px;
 	
 	&:last-of-type {
 		border-bottom: none;
