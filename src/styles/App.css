@@ -186,8 +186,7 @@ html {
 
 body {
   margin: 0;
-  font-size: .8rem;
-  line-height: 1.5;
+  font-size: .85rem;
   font-family: "Lato", sans-serif;
   background-color: #fff;
 }
@@ -218,11 +217,11 @@ button {
   text-transform: uppercase;
   letter-spacing: .15rem;
   font-weight: 700;
-  font-size: .65rem;
+  font-size: .7rem;
 }
 
 button.large {
-  padding: 20px 15px;
+  padding: 22px 15px;
   width: 100%;
 }
 
@@ -298,7 +297,7 @@ header {
 
 .heroInnerContainer {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(93, 169, 194, 0.2);
   border-radius: 10px;
 }
 
@@ -347,13 +346,13 @@ header {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding-right: 4%;
-  width: 55%;
+  padding-right: 5%;
+  width: 60%;
 }
 
 .heroIntro h1 {
   font-family: "Shrikhand", cursive;
-  font-size: 4.2rem;
+  font-size: 4.4rem;
   letter-spacing: .2rem;
   line-height: 1.2;
   margin: 0 0 10px;
@@ -362,23 +361,24 @@ header {
   -webkit-background-clip: text;
   -webkit-text-stroke: 8px transparent;
   width: 100%;
-  padding-left: 5px;
+  padding-left: 7px;
 }
 
 .heroIntro h1 span {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
   display: block;
 }
 
 .heroIntro p {
-  padding-left: 5px;
-  line-height: 2;
+  padding-left: 7px;
+  line-height: 2.1;
 }
 
 .heroForm {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
-  padding-left: 4%;
-  width: 45%;
+  padding-left: 5%;
+  width: 40%;
+  padding-right: 7px;
 }
 
 .heroForm .heroFormBlock {
@@ -404,7 +404,7 @@ header {
 }
 
 .heroForm .heroFormBlock label.heroFormLabelMain {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .heroForm .heroFormBlock input,
@@ -456,7 +456,7 @@ header {
 .heroForm .heroFormBlock .heroFormBlockTime label {
   text-transform: uppercase;
   font-size: .7rem;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .heroForm .time {
