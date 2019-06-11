@@ -51,6 +51,6 @@
 }
 
 
-.containerResultCard form input:focus{
-  outline: 3px solid blue;
+.containerResultCard form input:-moz-focusring{
+  border:1px solid rgba(0 ,0,0,1)
 }
