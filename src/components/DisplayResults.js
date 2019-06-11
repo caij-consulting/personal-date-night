@@ -16,11 +16,14 @@ class DisplayResults extends Component {
       modalIsOpen: false,
       activeUser: false,
     }
+    
     this.handleScroll = this.handleScroll.bind(this);
   }
   //function to fix the userSelection tab
   handleScroll() {
-    this.setState({ scroll: window.scrollY })
+    this.setState({ scroll:
+      window.scrollY 
+      })
   }
 
   handleUserChangeRadio = (e) => {
@@ -64,11 +67,13 @@ class DisplayResults extends Component {
       modalIsOpen:false
     })
   }
+  //code taken from https://mattgaskey.com/blog/sticky-nav-in-react/ to achieve scroll than fix
   componentDidMount(){
     const barToFix = document.querySelector('.containerUserSelectionBackground');
     this.setState({ top: barToFix.offsetTop, height: barToFix.offsetHeight });
     window.addEventListener('scroll', this.handleScroll);
   }
+  //code taken from https://mattgaskey.com/blog/sticky-nav-in-react/ to achieve scroll than fix
   componentDidUpdate() {
     this.state.scroll > this.state.top ?
       document.body.style.paddingTop = `${this.state.height}px` :
