@@ -24,7 +24,7 @@
   }
   .testModal{
     color: red;
-    transition: color .01s;
+    transition: color .001s;
     &:not(:focus-within){
       color:blue;
       

@@ -18,9 +18,9 @@ class DisplayLinks extends Component {
 
   render() {
     return(
-
+      // keep empty anchor tags for keeping tab within modal
       <div className="toLinks modalContent" tabIndex="-1" >
-        <a href="#" className="testModal" onTransitionEnd={this.loopFocus}></a>
+        <a href="#" className="testModal" onTransitionEnd={this.loopFocus} aria-hidden="true"></a>
 
       <button
           ref={this.modalRef}
@@ -35,7 +35,7 @@ class DisplayLinks extends Component {
         <p>User One: <a href={this.props.user1choice.url} target="_blank" aria-label="Click to get your tickets here!">{this.props.user1choice.name}</a> </p>
       
         <p>User Two: <a href={this.props.user2choice.url} target="_blank" aria-label="Click to get your tickets here!">{this.props.user2choice.name}</a></p>
-        <a href="#" className="testModal" onTransitionEnd={this.loopFocus}></a>
+        <a href="#" className="testModal" onTransitionEnd={this.loopFocus} aria-hidden="true"></a>
       </div>
     );
   }
