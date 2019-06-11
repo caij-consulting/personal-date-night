@@ -139,8 +139,10 @@ class DisplayResults extends Component {
                       closeModal={(e) => this.closeModal(e)}
                     ></Modal>
                   </div>
-                : ""} 
-                <button className="white med" aria-label="Reloads the page to start a new search" reset={this.reset}>New Search</button>           
+                : ""}
+                <div className="containerButton">
+                  <button className="white med" aria-label="Reloads the page to start a new search" reset={this.reset}>New Search</button>
+                </div>
               </div>
             </form>
           </div>
