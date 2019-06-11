@@ -109,5 +109,13 @@
   input {
     height: 38px;
     margin: 4px;
+    // background: url(../assets/pink-tri.png) no-repeat 96% 50%, rgba(0,0,0,0.4);
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -o-appearance:none;
+    appearance:none;
+  }
+  &::-ms-expand {
+    display:none;
   }
 }

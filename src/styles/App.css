@@ -630,6 +630,14 @@ header {
 .containerFilterEvents input {
   height: 38px;
   margin: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+.containerFilterEvents::-ms-expand {
+  display: none;
 }
 
 .containerResultCard {
