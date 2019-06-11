@@ -26,7 +26,6 @@ $darkgrey: #444;
 	bottom: $bottom;
 	left: $left;
 }
-
 @mixin for1200 {
   @media (max-width: 1200px) {
     @content;
