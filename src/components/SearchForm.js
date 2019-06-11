@@ -64,7 +64,7 @@ class SearchForm extends Component{
             <div>
               <div>
                 <div className="heroFormBlockTime">
-                  <div>
+                  <div className="perTimeContainer">
                     <label htmlFor="time">From</label>
                     <TimePicker
                       format="h:mm a"
@@ -75,7 +75,7 @@ class SearchForm extends Component{
                       required
                     />
                   </div>
-                  <div>
+                  <div className="perTimeContainer">
                     <label htmlFor="time">Until</label>
                     <TimePicker
                       format="h:mm a"
