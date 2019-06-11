@@ -10,7 +10,6 @@
 
 .containerUserSelection{
   @include flex(row, nowrap, space-between, center);
-  // background-image: linear-gradient(to right, $green, $blue);
   margin: 0;
   padding-top: 20px;
   @include for1200{
@@ -28,6 +27,9 @@
       width: 100%;
       justify-content: center;
     }
+    @include for576{
+      flex-direction: column;
+    }
   }
 
   .user{
@@ -40,6 +42,9 @@
     &:active,
     &:focus {
       background:white;
+    }
+    @include for576{
+      width: 100%;
     }
 
     .perUserContents {
@@ -90,6 +95,7 @@
 }
 
 .containerUsersButtons {
+  justify-content: flex-end;
   @include flex(row, nowrap, null, null);
   width: 50%;
   margin-top: -20px;
@@ -101,10 +107,15 @@
   @include for1200{
   margin-top: 0;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   }
   @include for576{
-    flex-direction: column;
+  flex-direction: column;
+  }
+  .containerButton{
+  @include for576{
+      margin: 1% 0;
+    }
   }
 }
 
@@ -122,13 +133,12 @@
   }
   select,
   input {
-    height: 38px;
     margin: 4px;
-    // background: url(../assets/pink-tri.png) no-repeat 96% 50%, rgba(0,0,0,0.4);
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    -o-appearance:none;
+    background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px $white;
     appearance:none;
+    border: 1px solid $grey;
+    border-radius: 5px;
+    padding: 10px 12px;
   }
   &::-ms-expand {
     display:none;
