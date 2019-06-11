@@ -25,6 +25,7 @@
   .testModal{
     color: red;
     transition: color .001s;
+    font-size: 0;
     &:not(:focus-within){
       color:blue;
       
