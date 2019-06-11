@@ -80,7 +80,8 @@
 		.react-date-picker {
 		width: 100%;
 		border: none;
-		background-color: rgba($white, 0);	
+		background-color: rgba($white, 0);
+		z-index:10;	
 		}
 
 		.react-date-picker__wrapper,

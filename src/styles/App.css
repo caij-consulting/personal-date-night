@@ -452,6 +452,7 @@ header {
   width: 100%;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  z-index: 10;
 }
 
 .heroForm .heroFormBlock .react-date-picker__wrapper,

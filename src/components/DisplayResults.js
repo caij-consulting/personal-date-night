@@ -9,12 +9,12 @@ class DisplayResults extends Component {
     super();
     this.state = {
       allEvents: [],
-      // You haven't chosen your event yet!
+      // add in error handling for "you have not chosen your event yet"
       user1choice: "",
       user2choice: "",
       currentUser: "1",
       modalIsOpen: false,
-      activeUser: false
+      activeUser: false,
     }
   }
 
@@ -80,6 +80,7 @@ class DisplayResults extends Component {
                       aria-label="select for user one"
                       aria-required="true"
                       checked={this.state.currentUser === "1"}
+
                     />
                     <div className="perUserContents">
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
@@ -104,6 +105,8 @@ class DisplayResults extends Component {
                       aria-label="select for user two"
                       aria-required="true"
                       checked={this.state.currentUser === "2"}
+
+
                     />
                     <div className="perUserContents">
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
@@ -124,7 +127,11 @@ class DisplayResults extends Component {
                         this.confirmBothUsersChoices(e)
                       }}
                       aria-label="Confirm choices of user one and user two"
-                      >Confirm Both Events<FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
+                      >
+                      
+                      Confirm Both Events
+                      
+                      <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
                     </button>
 
                     <Modal
