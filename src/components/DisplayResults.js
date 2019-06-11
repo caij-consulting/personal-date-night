@@ -91,7 +91,7 @@ class DisplayResults extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>     
 
                 <div className="user">
                   <div>

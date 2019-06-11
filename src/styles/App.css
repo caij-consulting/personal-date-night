@@ -245,6 +245,35 @@ button.green {
   background-color: #ace8cd;
   border: 1px solid #ace8cd;
   color: #330095;
+  position: relative;
+  z-index: 5;
+  -webkit-transition: color 0.25 ease;
+  transition: color 0.25 ease;
+}
+
+button.green:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #3f00b9;
+  color: white;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+}
+
+button.green:hover:before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 button.navy {
@@ -259,6 +288,12 @@ button.navy {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-right: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+button.navy:hover {
+  background-color: #ace8cd;
 }
 
 a {
@@ -642,6 +677,68 @@ header {
 
 .containerFilterEvents::-ms-expand {
   display: none;
+}
+
+.modalStyles {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: #330095;
+  color: #ace8cd;
+  padding: 10px 20px 40px;
+  border-radius: 8px;
+  border: 3px solid #ace8cd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modalStyles a {
+  color: #64c6e1;
+}
+
+.modalCloseButtonStyles {
+  margin-bottom: 15px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modalCloseButtonStyles svg {
+  color: #330095;
+}
+
+.modalOverlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .containerResultCard {
