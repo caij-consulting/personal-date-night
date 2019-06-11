@@ -15,9 +15,13 @@
 
   }
   @include for768{
-      width: 50%;
-      margin: 0;
+    width: 50%;
+    margin: 0;
     }
+  @include for576{
+    width: 100%;
+    margin:1% 0;
+  }  
 
   .innerResultCard {
     border: 1px solid $grey;
