@@ -1,9 +1,23 @@
+.containerButton {
+  width: 350px;
+  
+}
+
 button {
+  margin: 0 auto;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: .15rem;
+  border: 3px solid $green;
   font-weight: 700;
   font-size: .75rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    border-radius: 50px;
+    letter-spacing: .2rem;
+    font-weight: 900;
+  }
 
   &.large {
     padding: 22px;
@@ -25,68 +39,26 @@ button {
 
   &.white {
     background-color: $white;
-    border: 1px solid $grey;
+    border-color: $grey;
     color: $navy;
   }
 
   &.green {
-    background-color: $green;
-    border: 1px solid $green;
+    background: $green;
     color: $navy;
-    // haven't got sweep to work yet
-    position:relative;
-    z-index:5;
-    transition:color 0.25 ease;
 
-    // &:hover {
-    //   color:white;
-    // }
-    // &::after {
-    //   position:absolute;
-    //   content: "";
-    //   top:0;
-    //   left:0;
-    //   width:0;
-    //   height:100%;
-    //   background:$navy;
-    //   transform-origin:left;
-    //   transition:width 0.25 ease;
-    //   z-index:-1;
-    // }
-    // &:hover::after {
-    //   width:100%;
-    // }
-
-    &:before {
-      content: "";
-      position:absolute;
-      z-index:0;
-      top:0;
-      left:0;
-      right:0;
-      bottom:0;
-      background: scale-color($navy, $lightness: 10%);
-      color: white;
-      transform:scaleX(0);
-      transform-origin:0 50%;
-      transition: transform 0.5s ease-out;
-    }
-    &:hover:before {
-      transform: scaleX(1);
+    &:hover {
+      background: $white;
+      border-color: $green;  
     }
   }
 
   &.navy {
     background-color: $navy;
-    border: 1px solid $navy;
+    border-color: $navy;
     color: $white;
     @include flex (row, null, null, null);
     margin-right: 10px;
-    transition: all 0.3s ease-in-out;
-    
-    &:hover {
-      background-color: $green;
-    }
   }
 }
 
