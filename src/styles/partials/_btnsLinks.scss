@@ -3,7 +3,7 @@ button {
   text-transform: uppercase;
   letter-spacing: .15rem;
   font-weight: 700;
-  font-size: .7rem;
+  font-size: .75rem;
 
   &.large {
     padding: 22px;
@@ -11,12 +11,13 @@ button {
   }
 
   &.med {
-    padding: 16px 22px;
+    padding: 16px 26px;
     height: 56px;
+    line-height: 1.2rem;
   }
 
   &.small {
-    padding: 5px;
+    padding: 10px 18px;
   }
 
   &.white {

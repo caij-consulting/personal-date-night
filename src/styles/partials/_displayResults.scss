@@ -27,7 +27,7 @@
     // border: 1px solid black;
     position: relative;
     border-radius: 8px 8px 0 0;
-    height: 97px;
+    height: 96px;
     margin-right: 3px;
     width: 300px;
     &:active,
@@ -41,17 +41,17 @@
     }
 
     input[type="radio"] + div {
-      height: 97px;
+      height: 96px;
     }
     
     input[type="radio"]:checked + div {
-      background: $white;
       // border: 1px solid black;
+      background: $white;
       border-radius: 8px 8px 0 0;
     }
 
     svg {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-right: 18px;
     }
 
@@ -76,7 +76,7 @@
     }
 
     p {
-      margin-top: 5px;
+      margin-top: 6px;
       font-size: .75rem;
     }
   }
@@ -88,6 +88,8 @@
   margin-top: -20px;
   svg {
     color: $green;
+    margin-left: 5px;
+    font-size: 1.2rem;
   }
 }
 
@@ -95,14 +97,14 @@
 .containerFilterEvents form {
   @include flex(row, nowrap, space-between, null);
   padding: 20px 0;
-  margin: 10px 0;
-  border-top: 1px solid #ace8cd;
-  border-bottom: 1px solid #ace8cd;
+  margin: 28px 0 12px;
+  border-top: 1px solid $green;
+  border-bottom: 1px solid $green;
 
 
   input,
   button {
-    margin:2px;
+    margin: 2px;
   }
   select {
   

@@ -140,30 +140,23 @@ class DisplayResults extends Component {
               
               <div className="containerUsersButtons">
                 {this.state.user1choice && this.state.user2choice
-                ? 
-                
-                <div>
-                  <button className="navy med"
-                    onClick={(e) => {
-                      this.confirmClick(e)
-                    }}
-                    >Confirm Both Events <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
-                  </button>
-                  
-            
-                  <Modal
-                    user1choice={this.state.user1choice}
-                    user2choice={this.state.user2choice}
-                    modalIsOpen={this.state.modalIsOpen}
-                    closeModal={(e) => this.closeModal(e)}
-                  >
-                  </Modal>
-                
-                </div>
+                ? <div>
+                    <button className="navy med"
+                      onClick={(e) => {
+                        this.confirmClick(e)
+                      }}
+                      >Confirm Both Events<FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
+                    </button>
 
-
+                    <Modal
+                      user1choice={this.state.user1choice}
+                      user2choice={this.state.user2choice}
+                      modalIsOpen={this.state.modalIsOpen}
+                      closeModal={(e) => this.closeModal(e)}
+                    ></Modal>
+                  </div>
                 : ""} 
-
+                      
               <button className="white med" reset={this.reset}>New Search</button>           
               </div>
             </form>
