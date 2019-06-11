@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "%20//caij-consulting.github.io/personal-date-night/static/css/main.b8fb8e66.chunk.css",
-    "main.js": "%20//caij-consulting.github.io/personal-date-night/static/js/main.c444dfe3.chunk.js",
-    "main.js.map": "%20//caij-consulting.github.io/personal-date-night/static/js/main.c444dfe3.chunk.js.map",
-    "runtime~main.js": "%20//caij-consulting.github.io/personal-date-night/static/js/runtime~main.9cf3d2ba.js",
-    "runtime~main.js.map": "%20//caij-consulting.github.io/personal-date-night/static/js/runtime~main.9cf3d2ba.js.map",
-    "static/css/2.d24c78e9.chunk.css": "%20//caij-consulting.github.io/personal-date-night/static/css/2.d24c78e9.chunk.css",
-    "static/js/2.44b4b8c8.chunk.js": "%20//caij-consulting.github.io/personal-date-night/static/js/2.44b4b8c8.chunk.js",
-    "static/js/2.44b4b8c8.chunk.js.map": "%20//caij-consulting.github.io/personal-date-night/static/js/2.44b4b8c8.chunk.js.map",
-    "index.html": "%20//caij-consulting.github.io/personal-date-night/index.html",
-    "precache-manifest.4ebbf1f0e1682cda26788ad60afe56c1.js": "%20//caij-consulting.github.io/personal-date-night/precache-manifest.4ebbf1f0e1682cda26788ad60afe56c1.js",
-    "service-worker.js": "%20//caij-consulting.github.io/personal-date-night/service-worker.js",
-    "static/css/2.d24c78e9.chunk.css.map": "%20//caij-consulting.github.io/personal-date-night/static/css/2.d24c78e9.chunk.css.map",
-    "static/css/main.b8fb8e66.chunk.css.map": "%20//caij-consulting.github.io/personal-date-night/static/css/main.b8fb8e66.chunk.css.map",
-    "static/media/App.scss": "%20//caij-consulting.github.io/personal-date-night/static/media/check-solid.8fc30597.svg"
+    "main.css": "/personal-date-night/static/css/main.d8e8d05b.chunk.css",
+    "main.js": "/personal-date-night/static/js/main.6a6a0525.chunk.js",
+    "main.js.map": "/personal-date-night/static/js/main.6a6a0525.chunk.js.map",
+    "runtime~main.js": "/personal-date-night/static/js/runtime~main.3d82df65.js",
+    "runtime~main.js.map": "/personal-date-night/static/js/runtime~main.3d82df65.js.map",
+    "static/css/2.d24c78e9.chunk.css": "/personal-date-night/static/css/2.d24c78e9.chunk.css",
+    "static/js/2.44b4b8c8.chunk.js": "/personal-date-night/static/js/2.44b4b8c8.chunk.js",
+    "static/js/2.44b4b8c8.chunk.js.map": "/personal-date-night/static/js/2.44b4b8c8.chunk.js.map",
+    "index.html": "/personal-date-night/index.html",
+    "precache-manifest.4bca591a66c315e9e27197e72d231dea.js": "/personal-date-night/precache-manifest.4bca591a66c315e9e27197e72d231dea.js",
+    "service-worker.js": "/personal-date-night/service-worker.js",
+    "static/css/2.d24c78e9.chunk.css.map": "/personal-date-night/static/css/2.d24c78e9.chunk.css.map",
+    "static/css/main.d8e8d05b.chunk.css.map": "/personal-date-night/static/css/main.d8e8d05b.chunk.css.map",
+    "static/media/App.scss": "/personal-date-night/static/media/check-solid.8fc30597.svg"
   }
 }
