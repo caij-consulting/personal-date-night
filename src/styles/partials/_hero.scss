@@ -3,14 +3,17 @@
 	background-color: rgba($blue, 0.2);
 	border-radius: 10px;
 
-	body, input, select, svg{
+	body, 
+	input, 
+	select, 
+	svg{
 		color: $white;
 		fill: $white
 	}
 }
 .heroBorderMiddle{
-		@include flex(row, nowrap, center, flex-start);
-		padding: 4%;
+	@include flex(row, nowrap, center, flex-start);
+	padding: 4%;
 }
 
 .heroIntro,
@@ -35,16 +38,16 @@
     -webkit-text-stroke: 8px transparent;
 		width: 100%;
 		padding-left: 7px;
-
-		span{
-			font-size: 3.8rem;
-			display: block;
-		}
 	}	
-		p{
-			padding-left: 7px;
-			line-height: 2.1;
-		}
+	span{
+		font-size: 3.8rem;
+		display: block;
+	}
+
+	p{
+		padding-left: 7px;
+		line-height: 2.1;
+	}
 }
 .heroForm{
 	border-left: 1px solid rgba(255,255,255,.5);
@@ -105,5 +108,18 @@
 	.time{
 		display: flex;
 		text-transform: uppercase;
+	}
+}
+
+
+// Media queries
+@media (max-width:1185px) {
+    .heroIntro {
+		h1 {
+			font-size:3rem;
+		}
+		span {
+			font-size:2.5rem;
+		}	
 	}
 }
