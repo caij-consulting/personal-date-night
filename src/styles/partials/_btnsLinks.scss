@@ -3,20 +3,21 @@ button {
   text-transform: uppercase;
   letter-spacing: .15rem;
   font-weight: 700;
-  font-size: .65rem;
+  font-size: .75rem;
 
   &.large {
-    padding: 15px;
+    padding: 22px;
     width: 100%;
   }
 
   &.med {
-    padding: 10px;
-    height: 50px;
+    padding: 16px 26px;
+    height: 56px;
+    line-height: 1.2rem;
   }
 
   &.small {
-    padding: 5px;
+    padding: 10px 18px;
   }
 
   &.white {
@@ -75,9 +76,9 @@ button {
   &.navy {
     background-color: $navy;
     border: 1px solid $navy;
-    color: $blue;
+    color: $white;
     @include flex (row, null, null, null);
-    margin-right:3px;
+    margin-right: 10px;
     transition: all 0.3s ease-in-out;
     
     &:hover {
@@ -92,7 +93,12 @@ a {
 }
 
 svg g{
-  stroke:white;
+  stroke: $white;
+
+  //this hover not working...
+  &:hover{
+    stroke: $green;
+  }
 }
 
 button:focus{

@@ -22,7 +22,7 @@ class ResultCard extends Component {
       }
     }
     else{
-      priceString = `Price: N/A`
+      priceString = "Price Unavailable"
     }
     return priceString
   }

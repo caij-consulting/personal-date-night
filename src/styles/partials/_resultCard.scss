@@ -11,9 +11,14 @@
   margin: 1%;
   position: relative;
 
+  h3{
+    font-size: .9rem;
+  }
+
   p{
     margin: 0;
-    
+    line-height: 1.4rem;
+    color: $darkgrey;
     &.location {
       font-style: italic;
     }
@@ -35,18 +40,24 @@
       }
     }
   }
+
   .resultCard-imgContainer{
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    height: 200px;
+    height: 175px;
     display:flex;
+    overflow: hidden;
     img{
       object-fit: cover;
     }
   }
   .eventDetails{
-    padding: 1%;
+    padding: 1% 4%;
+    margin-bottom: 16px;
+  }
+  .priceString {
+    font-size: .8rem;
   }
 }
 

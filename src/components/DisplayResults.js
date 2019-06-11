@@ -12,8 +12,8 @@ class DisplayResults extends Component {
     super();
     this.state = {
       allEvents: [],
-      user1choice: "",
-      user2choice: "",
+      user1choice: "You haven't chosen your event yet!",
+      user2choice: "You haven't chosen your event yet!",
       currentUser: "1",
       modalIsOpen: false,
       activeUser: false
@@ -48,9 +48,8 @@ class DisplayResults extends Component {
     })
   } 
   
-  confirmClick = (e)=>{
+  confirmBothUsersChoices = (e)=>{
     e.preventDefault();
-    this.scrollLinks();
     this.setState({
       modalIsOpen: true
     })
@@ -91,10 +90,8 @@ class DisplayResults extends Component {
                         <p>{this.state.user1choice.name}</p>
                       </div>
                     </div>
-                    
                   </div>
-                </div>
-                
+                </div>     
 
                 <div className="user">
                   <div>
@@ -123,81 +120,76 @@ class DisplayResults extends Component {
               
               <div className="containerUsersButtons">
                 {this.state.user1choice && this.state.user2choice
-                ? 
-                
-                <div>
-                  <button className="navy med"
-                    onClick={(e) => {
-                      this.confirmClick(e)
-                    }}
-                    aria-label="Confirm choices of user one and user two"
-                    >Confirm Both Events <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
-                  </button>
-                  
-            
-                  <Modal
-                    user1choice={this.state.user1choice}
-                    user2choice={this.state.user2choice}
-                    modalIsOpen={this.state.modalIsOpen}
-                    closeModal={(e) => this.closeModal(e)}
-                  >
-                  </Modal>
-                
-                </div>
+                ? <div>
+                    <button className="navy med"
+                      onClick={(e) => {
+                        this.confirmBothUsersChoices(e)
+                      }}
+                      aria-label="Confirm choices of user one and user two"
+                      >Confirm Both Events<FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
+                    </button>
 
-
+                    <Modal
+                      user1choice={this.state.user1choice}
+                      user2choice={this.state.user2choice}
+                      modalIsOpen={this.state.modalIsOpen}
+                      closeModal={(e) => this.closeModal(e)}
+                    ></Modal>
+                  </div>
                 : ""} 
-
-              <button className="white med" aria-label="Reloads the page to start a new search" reset={this.reset}>New Search</button>           
+                <button className="white med" aria-label="Reloads the page to start a new search" reset={this.reset}>New Search</button>           
               </div>
             </form>
           </div>
         </div>
 
         <div className="displayContent wrapper">
-          <div className="containerFilterEvents">
-            <form action="submit">
-              <label className="visuallyHidden" htmlFor="textFilter">Enter text to filter</label>
-              <input
-                type="text"
-                onChange={(e) => { this.props.handleChange(e) }}
-                name="textFilter"
-                value={this.props.textFilter}
-                placeholder="Enter text to filter"
-                aria-label='enter text to filter events'
-                aria-required="true" />
-
-              <label className="visuallyHidden" htmlFor="allCategories">Event Categories</label>
-              <select
-                onChange={(e) => { this.props.handleChange(e) }}
-                name="categoryDropdown" 
-                value={this.props.categoryDropdown}
-                id="allCategories">
-                {this.props.eventCategories.map((category, i) => {
-                  return (
-                      <option tab index="0" value={category} key={i}> {category} </option>
-                  )
-                  }
-                )}
-              </select>
-
-              <label className="visuallyHidden" htmlFor="allVenues">All Venues</label>                  
-              <select
-                onChange={(e) => { this.props.handleChange(e) }}
-                name="venueDropdown"
-                value={this.props.venueDropdown}
-                id="allVenues">
-                {this.props.eventVenues.map((venue, i) => {
-                  return (
-                    <option tabIndex="0" value={venue} key={i}> {venue} </option>
-                  )
-                })}
-              </select>
-              <button className="green small" 
-                onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
-              <button className="white small" onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>          
-            </form>
-          </div>
+          <form action="submit">
+            <div className="containerFilterEvents">
+              <div className="filterFields">
+                <label className="visuallyHidden" htmlFor="textFilter">Enter text to filter</label>
+                <input
+                  type="text"
+                  onChange={(e) => { this.props.handleChange(e) }}
+                  name="textFilter"
+                  value={this.props.textFilter}
+                  placeholder="Enter text to filter"
+                  aria-label="Enter text to filter events"
+                  />
+                <label className="visuallyHidden" htmlFor="allCategories">Event Categories</label>
+                <select
+                  onChange={(e) => { this.props.handleChange(e) }}
+                  name="categoryDropdown" 
+                  value={this.props.categoryDropdown}
+                  id="allCategories">
+                  {this.props.eventCategories.map((category, i) => {
+                    return (
+                        <option value={category} key={i}> {category} </option>
+                    )
+                    }
+                  )}
+                </select>
+                
+                <label className="visuallyHidden" htmlFor="allVenues">All Venues</label>
+                <select
+                  onChange={(e) => { this.props.handleChange(e) }}
+                  name="venueDropdown"
+                  value={this.props.venueDropdown}
+                  id="allVenues">
+                  {this.props.eventVenues.map((venue, i) => {
+                    return (
+                      <option value={venue} key={i}> {venue} </option>
+                    )
+                  })}
+                </select>
+              </div>
+              <div className="filterButtons">
+                <button className="green small"
+                  onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
+                <button className="white small" onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>
+              </div>
+            </div>
+          </form>
         
           <div className="containerResultCard"> 
           {
