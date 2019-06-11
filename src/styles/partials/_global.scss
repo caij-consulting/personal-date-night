@@ -24,6 +24,9 @@ img{
 .wrapper{
   margin: 0 10%;
   max-width: 1400px;
+    @include for768{
+      margin: 0 5%;
+    }
 }
 
 .App {

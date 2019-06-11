@@ -9,6 +9,21 @@
   width: calc(25% - 2%);
   margin: 1%;
   position: relative;
+  
+  @include for1200{
+    width: calc(33% - 2%);
+  }
+  @include for992{
+    width: 50%;
+    margin: 0;
+  }
+  @include for768{
+    width: 50%;
+  }
+  @include for576{
+    width: 100%;
+    margin: 1% 0;
+  }  
 
   .innerResultCard {
     border: 1px solid $grey;
