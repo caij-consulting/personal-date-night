@@ -79,6 +79,7 @@
 
 .activeEvent {
   border: 5px solid $green;
+  background: rgba($green, 0.10);
   &:after{
     content:url('./../assets/check-solid.svg');
     font-size: 15px;
@@ -97,4 +98,7 @@
 
 .disabledEvent {
   opacity: 0.3;
+  input{
+    cursor: not-allowed;
+  }
 }

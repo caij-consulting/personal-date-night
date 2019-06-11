@@ -5,3 +5,9 @@ header{
   height: 94vh;
   @include flex(column, nowrap, center, center);
 }
+
+@media (max-width:768px) {
+  header{
+    height: auto;
+  }
+}

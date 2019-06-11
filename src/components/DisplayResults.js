@@ -85,7 +85,7 @@ class DisplayResults extends Component {
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
                         <label htmlFor="user1">user one</label>
-                        <p>{this.state.user1choice.name}</p>
+                        {this.state.user1choice ? <p>{this.state.user1choice.name} </p>: <p>You haven't chosen your event yet</p>}
                       </div>
                     </div>
                   </div>
@@ -111,7 +111,7 @@ class DisplayResults extends Component {
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
                         <label htmlFor="user2">user two</label>
-                        <p>{this.state.user2choice.name}</p>
+                        {this.state.user2choice ? <p>{this.state.user2choice.name} </p> : <p>You haven't chosen your event yet</p>}
                       </div>
                     </div>
                   </div>
