@@ -220,10 +220,6 @@ img {
   -webkit-font-smoothing: antialiased;
 }
 
-.containerButton {
-  width: 350px;
-}
-
 button {
   margin: 0 auto;
   border-radius: 6px;
@@ -238,8 +234,6 @@ button {
 
 button:hover {
   border-radius: 50px;
-  letter-spacing: .2rem;
-  font-weight: 900;
 }
 
 button.large {
@@ -276,6 +270,7 @@ button.green:hover {
 button.navy {
   background-color: #330095;
   border-color: #330095;
+  width: 100%;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
