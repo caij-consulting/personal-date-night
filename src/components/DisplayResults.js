@@ -69,7 +69,7 @@ class DisplayResults extends Component {
             <form action="" className="containerUserSelection">
           
               <div className="containerUsers">
-                <div className="user">
+                <div className="user" tabIndex="0">
                   <div>
                     <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
@@ -80,6 +80,7 @@ class DisplayResults extends Component {
                       value="1"
                       aria-label="select for user one"
                       aria-required="true"
+                      tabIndex="0"
                       checked={this.state.currentUser === "1"}
                     />
                     <div className="perUserContents">
@@ -92,7 +93,7 @@ class DisplayResults extends Component {
                   </div>
                 </div>     
 
-                <div className="user">
+                <div className="user" tabIndex="0">
                   <div>
                     <input
                       onChange={(e) => { this.handleUserChangeRadio(e) }}
@@ -104,6 +105,7 @@ class DisplayResults extends Component {
                       value="2"
                       aria-label="select for user two"
                       aria-required="true"
+                      tabIndex="0"
                       checked={this.state.currentUser === "2"}
                     />
 
