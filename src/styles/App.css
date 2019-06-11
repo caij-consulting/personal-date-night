@@ -222,7 +222,7 @@ button {
 }
 
 button.large {
-  padding: 15px;
+  padding: 20px 15px;
   width: 100%;
 }
 
@@ -251,11 +251,27 @@ button.navy {
   background-color: #330095;
   border: 1px solid #330095;
   color: #5da9c2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-right: 3px;
 }
 
 a {
   font-weight: 900;
   color: #330095;
+}
+
+svg g {
+  stroke: #fff;
+}
+
+svg g:hover {
+  stroke: #ace8cd;
 }
 
 header {
@@ -283,6 +299,15 @@ header {
 .heroInnerContainer {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.heroInnerContainer body, .heroInnerContainer input, .heroInnerContainer select, .heroInnerContainer svg {
+  color: #fff;
+  fill: #fff;
+}
+
+.heroBorderMiddle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,18 +323,11 @@ header {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  border-radius: 10px;
-}
-
-.heroInnerContainer body, .heroInnerContainer input, .heroInnerContainer select, .heroInnerContainer svg {
-  color: #fff;
-  fill: #fff;
+  padding: 4%;
 }
 
 .heroIntro,
 .heroForm {
-  width: 50%;
-  padding: 5% 5%;
   color: #fff;
 }
 
@@ -329,28 +347,54 @@ header {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  padding-right: 4%;
+  width: 55%;
 }
 
 .heroIntro h1 {
   font-family: "Shrikhand", cursive;
-  font-size: 55px;
-  margin-top: 0;
+  font-size: 4.2rem;
+  letter-spacing: .2rem;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  background: -webkit-linear-gradient(right, rgba(172, 232, 205, 0.6), rgba(93, 169, 194, 0.6));
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 8px transparent;
+  width: 100%;
+  padding-left: 5px;
 }
 
 .heroIntro h1 span {
-  font-size: 48px;
+  font-size: 3.6rem;
   display: block;
 }
 
+.heroIntro p {
+  padding-left: 5px;
+  line-height: 2;
+}
+
+.heroForm {
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  padding-left: 4%;
+  width: 45%;
+}
+
 .heroForm .heroFormBlock {
-  padding-bottom: 8px;
-  margin: 0 0 35px;
+  padding-bottom: 12px;
+  margin: 0 0 42px;
   border-bottom: 2px solid #fff;
 }
 
 .heroForm .heroFormBlock:last-of-type {
-  border-bottom: none;
+  border-bottom: 0;
   margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.heroForm .heroFormBlock .HeroFormInputContainer input[type="text"] {
+  padding-left: 15px;
 }
 
 .heroForm .heroFormBlock label {
@@ -373,6 +417,7 @@ header {
 .heroForm .heroFormBlock .react-date-picker__wrapper,
 .heroForm .heroFormBlock .react-time-picker__wrapper {
   border: none;
+  padding-left: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -408,15 +453,27 @@ header {
           align-items: flex-start;
 }
 
-.heroForm .times {
+.heroForm .heroFormBlock .heroFormBlockTime label {
+  text-transform: uppercase;
+  font-size: .7rem;
+  margin-bottom: 5px;
+}
+
+.heroForm .time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-transform: uppercase;
 }
 
 .error {
   text-align: center;
   font-weight: 700;
+}
+
+.containerUserSelectionBackground {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#5da9c2));
+  background-image: linear-gradient(to right, #ace8cd, #5da9c2);
 }
 
 .containerUserSelection {
@@ -435,9 +492,8 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#5da9c2));
-  background-image: linear-gradient(to right, #ace8cd, #5da9c2);
   margin: 0;
+  padding-top: 15px;
 }
 
 .containerUserSelection .containerUsers {
@@ -458,16 +514,54 @@ header {
           align-items: flex-start;
 }
 
+.containerUserSelection .containerUsers input[type="radio"] {
+  opacity: 0;
+}
+
 .containerUserSelection .user {
-  border: 1px solid black;
-  padding: 1%;
+  border-radius: 8px 8px 0 0;
+  height: 150px;
+  margin-right: 3px;
   width: 200px;
   height: 100%;
   position: relative;
 }
 
+.containerUserSelection .user:active, .containerUserSelection .user:focus {
+  background: white;
+}
+
+.containerUserSelection .user .perUserContents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.containerUserSelection .user input[type="radio"] + div {
+  padding: 5px;
+  height: 150px;
+}
+
+.containerUserSelection .user input[type="radio"]:checked + div {
+  background: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.containerUserSelection .user svg {
+  font-size: 2.5rem;
+  padding-right: 5px;
+}
+
+.containerUserSelection .user svg,
 .containerUserSelection .user label {
   color: #330095;
+}
+
+.containerUserSelection .user label {
   text-transform: uppercase;
   font-size: .65rem;
   font-weight: 900;
@@ -487,7 +581,22 @@ header {
   font-size: .7rem;
 }
 
-.containerFilterEvents {
+.containerUsersButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-width: 50%;
+}
+
+.containerUsersButtons svg {
+  color: #ace8cd;
+}
+
+.containerFilterEvents form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -497,12 +606,18 @@ header {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: space-between;
-      -ms-flex-align: space-between;
-          align-items: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0;
+  margin: 10px 0;
+  border-top: 1px solid #ace8cd;
+  border-bottom: 1px solid #ace8cd;
+}
+
+.containerFilterEvents form input,
+.containerFilterEvents form button {
+  margin: 2px;
 }
 
 .containerResultCard {
@@ -541,7 +656,7 @@ header {
           align-items: center;
   width: calc(25% - 2%);
   margin: 1%;
-  padding: 1%;
+  position: relative;
 }
 
 .resultCard p {
@@ -557,6 +672,39 @@ header {
   cursor: pointer;
 }
 
+.resultCard input[type="radio"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.resultCard input[type="radio"]:checked + div {
+  opacity: 0.5;
+  opacity: 0.3;
+}
+
+.resultCard .resultCard-imgContainer {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.resultCard .resultCard-imgContainer img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.resultCard .eventDetails {
+  padding: 1%;
+}
+
 footer {
   background-color: #ace8cd;
   text-align: center;
@@ -567,5 +715,9 @@ footer p {
   margin: 0;
   padding: .8rem;
   color: #330095;
+}
+
+footer a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=App.css.map */

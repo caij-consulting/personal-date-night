@@ -6,7 +6,7 @@ button {
   font-size: .65rem;
 
   &.large {
-    padding: 15px;
+    padding: 20px 15px;
     width: 100%;
   }
 
@@ -52,5 +52,8 @@ a {
 }
 
 svg g{
-  stroke:white;
+  stroke: $white;
+  &:hover{
+    stroke: $green;
+  }
 }
