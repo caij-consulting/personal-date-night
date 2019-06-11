@@ -9,16 +9,18 @@
   width: calc(25% - 2%);
   margin: 1%;
   position: relative;
-  .innerResultCard{
+
+  .innerResultCard {
     border: 1px solid $grey;
     border-radius: 5px;
     height: 100%;
   }
-  h3{
+
+  h3 {
     font-size: .9rem;
   }
 
-  p{
+  p {
     margin: 0;
     line-height: 1.4rem;
     color: $darkgrey;
@@ -27,7 +29,7 @@
     }
   }
 
-  input{
+  input {
     width: 100%;
     cursor: pointer;
     &[type="radio"]{
@@ -60,12 +62,7 @@
   }
 }
 
-
-.containerResultCard form input:-moz-focusring{
-  border:1px solid rgba(0 ,0,0,1)
-}
-
-.activeEvent{
+.activeEvent {
   border: 5px solid $green;
   &:after{
     content:url('./../assets/check-solid.svg');
@@ -79,9 +76,10 @@
     color: $white;
     background: $blue;
     padding: 5px;
-    margin: 2px;
+    margin: 6px;
   }
 }
-.disabledEvent{
+
+.disabledEvent {
   opacity: 0.3;
 }
