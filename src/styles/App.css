@@ -602,7 +602,7 @@ header {
   font-size: 1.2rem;
 }
 
-.containerFilterEvents form {
+.containerFilterEvents {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -621,9 +621,15 @@ header {
   border-bottom: 1px solid #ace8cd;
 }
 
-.containerFilterEvents form input,
-.containerFilterEvents form button {
+.containerFilterEvents input,
+.containerFilterEvents button {
   margin: 2px;
+}
+
+.containerFilterEvents select,
+.containerFilterEvents input {
+  height: 38px;
+  margin: 4px;
 }
 
 .containerResultCard {
@@ -665,8 +671,14 @@ header {
   position: relative;
 }
 
+.resultCard h3 {
+  font-size: .9rem;
+}
+
 .resultCard p {
   margin: 0;
+  line-height: 1.4rem;
+  color: #444;
 }
 
 .resultCard p.location {
@@ -709,7 +721,12 @@ header {
 }
 
 .resultCard .eventDetails {
-  padding: 1%;
+  padding: 1% 4%;
+  margin-bottom: 16px;
+}
+
+.resultCard .priceString {
+  font-size: .8rem;
 }
 
 footer {

@@ -94,19 +94,20 @@
 }
 
 // FILTER EVENTS
-.containerFilterEvents form {
+.containerFilterEvents {
   @include flex(row, nowrap, space-between, null);
   padding: 20px 0;
   margin: 28px 0 12px;
   border-top: 1px solid $green;
   border-bottom: 1px solid $green;
-
-
+  
   input,
   button {
     margin: 2px;
   }
-  select {
-  
+  select,
+  input {
+    height: 38px;
+    margin: 4px;
   }
 }
