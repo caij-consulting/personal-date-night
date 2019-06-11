@@ -27,6 +27,9 @@
       width: 100%;
       justify-content: center;
     }
+    @include for576{
+      flex-direction: column;
+    }
   }
 
   .user{
@@ -39,6 +42,9 @@
     &:active,
     &:focus {
       background:white;
+    }
+    @include for576{
+      width: 100%;
     }
 
     .perUserContents {
@@ -89,6 +95,7 @@
 }
 
 .containerUsersButtons {
+  justify-content: flex-end;
   @include flex(row, nowrap, null, null);
   width: 50%;
   margin-top: -20px;
@@ -100,10 +107,15 @@
   @include for1200{
   margin-top: 0;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   }
   @include for576{
-    flex-direction: column;
+  flex-direction: column;
+  }
+  .containerButton{
+  @include for576{
+      margin: 1% 0;
+    }
   }
 }
 
