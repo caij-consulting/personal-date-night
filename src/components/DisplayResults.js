@@ -5,8 +5,8 @@ import Modal from "./Modal.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class DisplayResults extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       allEvents: [],
       // add in error handling for "you have not chosen your event yet"
@@ -16,6 +16,11 @@ class DisplayResults extends Component {
       modalIsOpen: false,
       activeUser: false,
     }
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+  //function to fix the userSelection tab
+  handleScroll() {
+    this.setState({ scroll: window.scrollY })
   }
 
   handleUserChangeRadio = (e) => {
@@ -26,7 +31,6 @@ class DisplayResults extends Component {
   }
 
   handleEventSelectRadio = (e, event) =>{
-    console.log(e)
     if(this.state.currentUser==="1"){
       this.setState({
         user1choice: event,
@@ -60,11 +64,21 @@ class DisplayResults extends Component {
       modalIsOpen:false
     })
   }
+  componentDidMount(){
+    const barToFix = document.querySelector('.containerUserSelectionBackground');
+    this.setState({ top: barToFix.offsetTop, height: barToFix.offsetHeight });
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  componentDidUpdate() {
+    this.state.scroll > this.state.top ?
+      document.body.style.paddingTop = `${this.state.height}px` :
+      document.body.style.paddingTop = 0;
+  }
 
   render() {
     return (
       <div className="displayEvents">
-        <div className="containerUserSelectionBackground">
+        <div className={this.state.scroll > this.state.top ? "containerUserSelectionBackground fixed-nav" : "containerUserSelectionBackground"}>
           <div className="wrapper">
             <form action="" className="containerUserSelection">
           
