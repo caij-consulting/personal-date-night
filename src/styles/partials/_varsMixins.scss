@@ -45,7 +45,7 @@ $darkgrey: #444;
 }
 
 @mixin for576 {
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     @content;
   }  
 }
