@@ -6,13 +6,13 @@ button {
   font-size: .7rem;
 
   &.large {
-    padding: 22px 15px;
+    padding: 22px;
     width: 100%;
   }
 
   &.med {
-    padding: 10px;
-    height: 50px;
+    padding: 16px 22px;
+    height: 56px;
   }
 
   &.small {
@@ -40,9 +40,9 @@ button {
   &.navy {
     background-color: $navy;
     border: 1px solid $navy;
-    color: $blue;
+    color: $white;
     @include flex (row, null, null, null);
-    margin-right:3px;
+    margin-right: 10px;
   }
 }
 
@@ -53,6 +53,8 @@ a {
 
 svg g{
   stroke: $white;
+
+  //this hover not working...
   &:hover{
     stroke: $green;
   }

@@ -221,13 +221,13 @@ button {
 }
 
 button.large {
-  padding: 22px 15px;
+  padding: 22px;
   width: 100%;
 }
 
 button.med {
-  padding: 10px;
-  height: 50px;
+  padding: 16px 22px;
+  height: 56px;
 }
 
 button.small {
@@ -249,7 +249,7 @@ button.green {
 button.navy {
   background-color: #330095;
   border: 1px solid #330095;
-  color: #5da9c2;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,7 +257,7 @@ button.navy {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-right: 3px;
+  margin-right: 10px;
 }
 
 a {
@@ -297,7 +297,7 @@ header {
 
 .heroInnerContainer {
   width: 100%;
-  background-color: rgba(93, 169, 194, 0.2);
+  background-color: rgba(100, 198, 225, 0.2);
   border-radius: 10px;
 }
 
@@ -356,7 +356,7 @@ header {
   letter-spacing: .2rem;
   line-height: 1.2;
   margin: 0 0 10px;
-  background: -webkit-linear-gradient(right, rgba(172, 232, 205, 0.6), rgba(93, 169, 194, 0.6));
+  background: -webkit-linear-gradient(right, rgba(172, 232, 205, 0.6), rgba(100, 198, 225, 0.6));
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-stroke: 8px transparent;
@@ -472,8 +472,8 @@ header {
 }
 
 .containerUserSelectionBackground {
-  background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#5da9c2));
-  background-image: linear-gradient(to right, #ace8cd, #5da9c2);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ace8cd), to(#64c6e1));
+  background-image: linear-gradient(to right, #ace8cd, #64c6e1);
 }
 
 .containerUserSelection {
@@ -493,7 +493,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   margin: 0;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 .containerUserSelection .containerUsers {
@@ -519,12 +519,11 @@ header {
 }
 
 .containerUserSelection .user {
-  border: 1px solid black;
   position: relative;
   border-radius: 8px 8px 0 0;
-  height: 100px;
+  height: 97px;
   margin-right: 3px;
-  width: 272px;
+  width: 300px;
 }
 
 .containerUserSelection .user:active, .containerUserSelection .user:focus {
@@ -539,22 +538,21 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: 5px 5px 0;
+  padding: 15px 18px 0;
 }
 
 .containerUserSelection .user input[type="radio"] + div {
-  padding: 5px;
-  height: 120px;
+  height: 97px;
 }
 
 .containerUserSelection .user input[type="radio"]:checked + div {
-  background: white;
+  background: #fff;
   border-radius: 8px 8px 0 0;
 }
 
 .containerUserSelection .user svg {
   font-size: 2.5rem;
-  padding-right: 5px;
+  margin-right: 18px;
 }
 
 .containerUserSelection .user svg,
@@ -564,7 +562,7 @@ header {
 
 .containerUserSelection .user label {
   text-transform: uppercase;
-  font-size: .65rem;
+  font-size: .8rem;
   font-weight: 900;
   letter-spacing: 1px;
 }
@@ -579,7 +577,8 @@ header {
 }
 
 .containerUserSelection .user p {
-  font-size: .8rem;
+  margin-top: 5px;
+  font-size: .75rem;
 }
 
 .containerUsersButtons {
@@ -590,7 +589,10 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   max-width: 50%;
+  margin-top: -20px;
 }
 
 .containerUsersButtons svg {
@@ -691,10 +693,11 @@ header {
   width: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 200px;
+  height: 175px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
 }
 
 .resultCard .resultCard-imgContainer img {

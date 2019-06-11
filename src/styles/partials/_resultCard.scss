@@ -39,8 +39,9 @@
     width: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    height: 200px;
+    height: 175px;
     display:flex;
+    overflow: hidden;
     img{
       object-fit: cover;
     }
