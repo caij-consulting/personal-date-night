@@ -32,6 +32,9 @@ button {
       @include for576{
         justify-content: center;
         width: 100%;
+      @media screen and (max-width:340px) {
+        padding: 16px 1px;
+        }
       }
     }
   }

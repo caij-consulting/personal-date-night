@@ -28,6 +28,9 @@
       width: 100%;
       justify-content: center;
     }
+    @include for576{
+      flex-direction: column;
+    }
   }
 
   .user{
@@ -40,6 +43,9 @@
     &:active,
     &:focus {
       background:white;
+    }
+    @include for576{
+      width: 100%;
     }
 
     .perUserContents {
