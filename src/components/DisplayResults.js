@@ -86,7 +86,7 @@ class DisplayResults extends Component {
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
                         <label htmlFor="user1">user one</label>
-                        {this.state.user1choice ? <p>{this.state.user1choice.name} </p>: <p>You haven't chosen your event yet</p>}
+                        {this.state.user1choice ? <p>{this.state.user1choice.name} </p>: <p>Please choose an event from the list below</p>}
                       </div>
                     </div>
                   </div>
@@ -111,7 +111,7 @@ class DisplayResults extends Component {
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
                         <label htmlFor="user2">user two</label>
-                        {this.state.user2choice ? <p>{this.state.user2choice.name} </p> : <p>You haven't chosen your event yet</p>}
+                        {this.state.user2choice ? <p>{this.state.user2choice.name} </p> : <p>Please choose an event from the list below</p>}
                       </div>
                     </div>
                   </div>
@@ -121,6 +121,7 @@ class DisplayResults extends Component {
               <div className="containerUsersButtons">
                 {this.state.user1choice && this.state.user2choice
                 ? <div>
+                  <div className="containerButton">
                     <button className="navy med"
                       onClick={(e) => {
                         this.confirmBothUsersChoices(e)
@@ -129,6 +130,7 @@ class DisplayResults extends Component {
                       >Confirm Both Events
                       <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
                     </button>
+                  </div>
 
                     <Modal
                       user1choice={this.state.user1choice}

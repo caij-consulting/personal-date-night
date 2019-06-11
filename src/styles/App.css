@@ -220,7 +220,12 @@ img {
   -webkit-font-smoothing: antialiased;
 }
 
+.containerButton {
+  width: 350px;
+}
+
 button {
+  margin: 0 auto;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: .15rem;
@@ -229,7 +234,6 @@ button {
   font-size: .75rem;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  margin: 0 2rem;
 }
 
 button:hover {
@@ -281,10 +285,6 @@ button.navy {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-right: 10px;
-}
-
-button.navy:hover {
-  border-color: #ace8cd;
 }
 
 a {

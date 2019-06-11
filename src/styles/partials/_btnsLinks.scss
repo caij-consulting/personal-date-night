@@ -1,4 +1,10 @@
+.containerButton {
+  width: 350px;
+  
+}
+
 button {
+  margin: 0 auto;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: .15rem;
@@ -6,7 +12,6 @@ button {
   font-weight: 700;
   font-size: .75rem;
   transition: all 0.3s ease-in-out;
-  margin: 0 2rem;
 
   &:hover {
     border-radius: 50px;
@@ -51,10 +56,6 @@ button {
     color: $white;
     @include flex (row, null, null, null);
     margin-right: 10px;
-    
-    &:hover {
-      border-color: $green;
-    }
   }
 }
 
