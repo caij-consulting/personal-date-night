@@ -153,13 +153,15 @@ class DisplayResults extends Component {
                   onChange={(e) => { this.props.handleChange(e) }}
                   name="textFilter"
                   value={this.props.textFilter}
-                  placeholder="Enter text to filter" />
+                  placeholder="Enter text to filter"
+                  aria-label="Enter text to filter events"
+                  />
                 <label className="visuallyHidden" htmlFor="allCategories">Event Categories</label>
                 <select
                   onChange={(e) => { this.props.handleChange(e) }}
                   name="categoryDropdown" 
                   value={this.props.categoryDropdown}
-                  id="">
+                  id="allCategories">
                   {this.props.eventCategories.map((category, i) => {
                     return (
                         <option value={category} key={i}> {category} </option>
@@ -167,12 +169,13 @@ class DisplayResults extends Component {
                     }
                   )}
                 </select>
-
+                
+                <label className="visuallyHidden" htmlFor="allVenues">All Venues</label>
                 <select
                   onChange={(e) => { this.props.handleChange(e) }}
                   name="venueDropdown"
                   value={this.props.venueDropdown}
-                  id="">
+                  id="allVenues">
                   {this.props.eventVenues.map((venue, i) => {
                     return (
                       <option value={venue} key={i}> {venue} </option>
