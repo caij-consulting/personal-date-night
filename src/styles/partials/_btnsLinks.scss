@@ -2,8 +2,17 @@ button {
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: .15rem;
+  border: 3px solid $green;
   font-weight: 700;
   font-size: .75rem;
+  transition: all 0.3s ease-in-out;
+  margin: 0 2rem;
+
+  &:hover {
+    border-radius: 50px;
+    letter-spacing: .2rem;
+    font-weight: 900;
+  }
 
   &.large {
     padding: 22px;
@@ -22,36 +31,29 @@ button {
 
   &.white {
     background-color: $white;
-    border: 1px solid $grey;
+    border-color: $grey;
     color: $navy;
   }
 
   &.green {
     background: $green;
-    border: 3px solid $green;
     color: $navy;
-    transition: all .25s ease-in-out;
 
     &:hover {
-      border-radius: 50px;
       background: $white;
-      border: 3px solid $green;
-      background-position: bottom right;
-      letter-spacing: .2rem;
-      font-weight: 900;
+      border-color: $green;  
     }
   }
 
   &.navy {
     background-color: $navy;
-    border: 1px solid $navy;
+    border-color: $navy;
     color: $white;
     @include flex (row, null, null, null);
     margin-right: 10px;
-    transition: all 0.3s ease-in-out;
     
     &:hover {
-      background-color: $green;
+      border-color: $green;
     }
   }
 }
