@@ -24,8 +24,8 @@ class DisplayResults extends Component {
       currentUser: e.target.value
     })
   }
+
   handleEventSelectRadio = (e, event) =>{
-    // e.preventDefault()
     console.log(e)
     if(this.state.currentUser==="1"){
       this.setState({
@@ -38,6 +38,7 @@ class DisplayResults extends Component {
       })
     }
   }
+
   scrollLinks() {
     scroller.scrollTo('toLinks', {
       duration: 800,
@@ -85,7 +86,7 @@ class DisplayResults extends Component {
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
                         <label htmlFor="user1">user one</label>
-                        {this.state.user1choice ? <p>{this.state.user1choice.name} </p>: <p>You haven't chosen your event yet</p>}
+                        {this.state.user1choice ? <p>{this.state.user1choice.name} </p>: <p>Please choose an event from the list below</p>}
                       </div>
                     </div>
                   </div>
@@ -104,14 +105,13 @@ class DisplayResults extends Component {
                       aria-label="select for user two"
                       aria-required="true"
                       checked={this.state.currentUser === "2"}
-
-
                     />
+
                     <div className="perUserContents">
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
                         <label htmlFor="user2">user two</label>
-                        {this.state.user2choice ? <p>{this.state.user2choice.name} </p> : <p>You haven't chosen your event yet</p>}
+                        {this.state.user2choice ? <p>{this.state.user2choice.name} </p> : <p>Please choose an event from the list below</p>}
                       </div>
                     </div>
                   </div>
@@ -121,17 +121,16 @@ class DisplayResults extends Component {
               <div className="containerUsersButtons">
                 {this.state.user1choice && this.state.user2choice
                 ? <div>
+                  <div className="containerButton">
                     <button className="navy med"
                       onClick={(e) => {
                         this.confirmBothUsersChoices(e)
                       }}
                       aria-label="Confirm choices of user one and user two"
-                      >
-                      
-                      Confirm Both Events
-                      
+                      >Confirm Both Events
                       <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
                     </button>
+                  </div>
 
                     <Modal
                       user1choice={this.state.user1choice}
@@ -187,6 +186,7 @@ class DisplayResults extends Component {
                   })}
                 </select>
               </div>
+
               <div className="filterButtons">
                 <button className="green small"
                   onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
@@ -213,10 +213,10 @@ class DisplayResults extends Component {
           })}
 
           </div>
-
         </div>
       </div>
     )
   }
 }
+
 export default DisplayResults;

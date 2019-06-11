@@ -220,12 +220,26 @@ img {
   -webkit-font-smoothing: antialiased;
 }
 
+.containerButton {
+  width: 350px;
+}
+
 button {
+  margin: 0 auto;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: .15rem;
+  border: 3px solid #ace8cd;
   font-weight: 700;
   font-size: .75rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  border-radius: 50px;
+  letter-spacing: .2rem;
+  font-weight: 900;
 }
 
 button.large {
@@ -245,48 +259,23 @@ button.small {
 
 button.white {
   background-color: #fff;
-  border: 1px solid #b3b3b3;
+  border-color: #b3b3b3;
   color: #330095;
 }
 
 button.green {
-  background-color: #ace8cd;
-  border: 1px solid #ace8cd;
+  background: #ace8cd;
   color: #330095;
-  position: relative;
-  z-index: 5;
-  -webkit-transition: color 0.25 ease;
-  transition: color 0.25 ease;
 }
 
-button.green:before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #3f00b9;
-  color: white;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-          transform-origin: 0 50%;
-  -webkit-transition: -webkit-transform 0.5s ease-out;
-  transition: -webkit-transform 0.5s ease-out;
-  transition: transform 0.5s ease-out;
-  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
-}
-
-button.green:hover:before {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+button.green:hover {
+  background: #fff;
+  border-color: #ace8cd;
 }
 
 button.navy {
   background-color: #330095;
-  border: 1px solid #330095;
+  border-color: #330095;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -296,12 +285,6 @@ button.navy {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-right: 10px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-button.navy:hover {
-  background-color: #ace8cd;
 }
 
 a {
@@ -678,10 +661,10 @@ header {
 .containerFilterEvents input {
   height: 38px;
   margin: 4px;
+  background: url(./../assets/sort-down-solid.svg) no-repeat 96% 3px, #fff;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .containerFilterEvents::-ms-expand {
@@ -773,6 +756,7 @@ header {
 
 .activeEvent {
   border: 5px solid #ace8cd;
+  background: rgba(172, 232, 205, 0.1);
 }
 
 .activeEvent:after {
@@ -792,6 +776,10 @@ header {
 
 .disabledEvent {
   opacity: 0.3;
+}
+
+.disabledEvent input {
+  cursor: not-allowed;
 }
 
 footer {
@@ -832,6 +820,12 @@ footer a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.modalContent:not(:focus-within) {
+  background-color: green;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
 }
 
 .modalContent a {

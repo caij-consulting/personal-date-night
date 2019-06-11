@@ -103,6 +103,9 @@
   width: 100%;
   justify-content: center;
   }
+  @include for576{
+    flex-direction: column;
+  }
 }
 
 // FILTER EVENTS
