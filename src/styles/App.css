@@ -274,6 +274,10 @@ svg g:hover {
   stroke: #ace8cd;
 }
 
+button:focus {
+  outline: 3px solid blue;
+}
+
 header {
   background: url(../assets/bg-cover.jpg);
   background-size: cover;
@@ -735,6 +739,10 @@ header {
 
 .resultCard .priceString {
   font-size: .8rem;
+}
+
+.containerResultCard form input:-moz-focusring {
+  border: 1px solid black;
 }
 
 footer {

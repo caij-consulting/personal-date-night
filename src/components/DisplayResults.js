@@ -74,10 +74,13 @@ class DisplayResults extends Component {
                   <div>
                     <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
+                      // tabIndex="0"
                       className="selectedUser"
                       name="currentUser"
                       id="user1"
                       value="1"
+                      aria-label="select for user one"
+                      aria-required="true"
                       checked={this.state.currentUser === "1"}
                     />
                     <div className="perUserContents">
@@ -95,10 +98,13 @@ class DisplayResults extends Component {
                     <input
                       onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
+                      // tabIndex="0"
                       className="selectedUser"
                       name="currentUser"
                       id="user2"
                       value="2"
+                      aria-label="select for user two"
+                      aria-required="true"
                       checked={this.state.currentUser === "2"}
                     />
                     <div className="perUserContents">
@@ -119,6 +125,7 @@ class DisplayResults extends Component {
                       onClick={(e) => {
                         this.confirmBothUsersChoices(e)
                       }}
+                      aria-label="Confirm choices of user one and user two"
                       >Confirm Both Events<FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
                     </button>
 
@@ -130,8 +137,7 @@ class DisplayResults extends Component {
                     ></Modal>
                   </div>
                 : ""} 
-                      
-              <button className="white med" reset={this.reset}>New Search</button>           
+                <button className="white med" aria-label="Reloads the page to start a new search" reset={this.reset}>New Search</button>           
               </div>
             </form>
           </div>
@@ -192,6 +198,7 @@ class DisplayResults extends Component {
                 handleEventSelectRadio={this.handleEventSelectRadio}
                 user1choice={this.state.user1choice}
                 user2choice={this.state.user2choice}
+                tabIndex="0"
               />
             )
           })}

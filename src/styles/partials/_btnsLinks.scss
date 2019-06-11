@@ -60,3 +60,7 @@ svg g{
     stroke: $green;
   }
 }
+
+button:focus{
+  outline: 3px solid blue;
+}
