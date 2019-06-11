@@ -661,10 +661,10 @@ header {
 .containerFilterEvents input {
   height: 38px;
   margin: 4px;
+  background: url(./../assets/sort-down-solid.svg) no-repeat 96% 3px, #fff;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .containerFilterEvents::-ms-expand {
