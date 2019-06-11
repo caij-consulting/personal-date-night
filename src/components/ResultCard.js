@@ -81,7 +81,8 @@ class ResultCard extends Component {
       <form action="" className="resultCard">
         <label htmlFor="selectedEvent"></label>
         <input 
-          type="radio" 
+          type="radio"
+          tabIndex="0" 
           id={this.props.event.id} 
           name={this.props.name}
           onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}

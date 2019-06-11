@@ -19,7 +19,7 @@ let modalOverlay = {
 class Modal extends Component {
   render() {
     let modal = (
-      <div style={modalOverlay}>
+      <div aria-hidden="true"style={modalOverlay}>
         <DisplayLinks 
           user1choice={this.props.user1choice}
           user2choice={this.props.user2choice}

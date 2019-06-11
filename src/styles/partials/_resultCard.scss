@@ -49,3 +49,8 @@
     padding: 1%;
   }
 }
+
+
+.containerResultCard form input:focus{
+  outline: 3px solid blue;
+}
