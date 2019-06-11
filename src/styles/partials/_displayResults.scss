@@ -13,11 +13,20 @@
   // background-image: linear-gradient(to right, $green, $blue);
   margin: 0;
   padding-top: 20px;
+  @include for1200{
+    flex-direction: column-reverse;
+  }
 
   .containerUsers {
+    width:50%;
     @include flex(row, nowrap, flex-start, flex-start);
     input[type="radio"] {
       opacity:0; 
+    }
+    @include for1200{
+      margin-top: 3%;
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -82,12 +91,17 @@
 
 .containerUsersButtons {
   @include flex(row, nowrap, null, null);
-  max-width: 50%;
+  width: 50%;
   margin-top: -20px;
   svg {
     color: $green;
     margin-left: 5px;
     font-size: 1.2rem;
+  }
+  @include for1200{
+  margin-top: 0;
+  width: 100%;
+  justify-content: center;
   }
 }
 
