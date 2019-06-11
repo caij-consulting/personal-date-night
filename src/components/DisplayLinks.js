@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class DisplayLinks extends Component {
+  constructor() {
+    super();
+    this.modalRef = React.createRef();
+  }
+  
+  componentDidMount() {
+    console.log(this.modalRef);
+    this.modalRef.current.focus();
+  }
 
   render() {
     return(
 
       <div className="toLinks modalContent" tabIndex="-1">
       <button
+          ref={this.modalRef}
           onClick={this.props.closeModal}
           aria-label="click to close the modal">
           <FontAwesomeIcon aria-hidden="true" aria-label="close the box" icon="times" />
