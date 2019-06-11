@@ -21,8 +21,6 @@
     }
   }
 
-// give each radio a same class, put box next to radio button, radio button:checked + whatever the box's div 
-
   .user{
     // border: 1px solid black;
     border-radius: 8px 8px 0 0;
@@ -111,3 +109,56 @@
   
   }
 }
+
+
+// MODAL STYLES
+// styles for modal inspired from https://www.youtube.com/watch?v=liF7puGjYA8
+
+.modalStyles {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background-color: $navy;
+  color: $green;
+  padding: 10px 20px 40px;
+  border-radius: 8px;
+  border: 3px solid $green;
+  display: flex;
+  flex-direction: column;
+  a {
+    color: $blue;
+  }
+}
+
+.modalCloseButtonStyles {
+  margin-bottom: 15px;
+  // padding: 3px 8px;
+  cursor: pointer;
+  // border: 1px black solid;
+  width: 40px;
+  height: 40px;
+  align-self: flex-end;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    color:$navy;
+  }
+};
+
+.modalOverlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+};

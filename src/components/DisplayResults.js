@@ -73,7 +73,6 @@ class DisplayResults extends Component {
               <div className="containerUsers">
                 <div className="user">
                   <div>
-                    <label className="visuallyHidden" htmlFor="user1">user one</label>
                     <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
                       // tabIndex="0"
@@ -97,10 +96,8 @@ class DisplayResults extends Component {
                 </div>
                 
 
-
                 <div className="user">
                   <div>
-                    <label className="visuallyHidden" htmlFor="user2">user two</label>
                     <input
                       onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
@@ -120,29 +117,8 @@ class DisplayResults extends Component {
                         <p>{this.state.user2choice.name}</p>
                       </div>
                     </div>
-                    
                   </div>
                 </div>
-
-                {/* 
-
-                <div className="user">
-                  <FontAwesomeIcon icon="user" aria-hidden="true" />
-                  <div>
-                    <label htmlFor="user2">user two</label>
-                    <input
-                      onChange={(e) => { this.handleUserChangeRadio(e) }}
-                      type="radio"
-                      className="selectedUser"
-                      name="currentUser"
-                      id="user2"
-                      value="2"
-                      checked={this.state.currentUser === "2"}
-                    />
-                    <p>{this.state.user2choice.name}</p>
-                  </div>
-                </div>
-                */}
               </div>
               
               <div className="containerUsersButtons">
