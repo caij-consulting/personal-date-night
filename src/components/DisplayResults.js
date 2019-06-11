@@ -75,10 +75,13 @@ class DisplayResults extends Component {
                   <div>
                     <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
+                      // tabIndex="0"
                       className="selectedUser"
                       name="currentUser"
                       id="user1"
                       value="1"
+                      aria-label="select for user one"
+                      aria-required="true"
                       checked={this.state.currentUser === "1"}
                     />
                     <div className="perUserContents">
@@ -93,17 +96,18 @@ class DisplayResults extends Component {
                 </div>
                 
 
-
                 <div className="user">
                   <div>
-                    
                     <input
                       onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
+                      // tabIndex="0"
                       className="selectedUser"
                       name="currentUser"
                       id="user2"
                       value="2"
+                      aria-label="select for user two"
+                      aria-required="true"
                       checked={this.state.currentUser === "2"}
                     />
                     <div className="perUserContents">
@@ -113,29 +117,8 @@ class DisplayResults extends Component {
                         <p>{this.state.user2choice.name}</p>
                       </div>
                     </div>
-                    
                   </div>
                 </div>
-
-                {/* 
-
-                <div className="user">
-                  <FontAwesomeIcon icon="user" aria-hidden="true" />
-                  <div>
-                    <label htmlFor="user2">user two</label>
-                    <input
-                      onChange={(e) => { this.handleUserChangeRadio(e) }}
-                      type="radio"
-                      className="selectedUser"
-                      name="currentUser"
-                      id="user2"
-                      value="2"
-                      checked={this.state.currentUser === "2"}
-                    />
-                    <p>{this.state.user2choice.name}</p>
-                  </div>
-                </div>
-                */}
               </div>
               
               <div className="containerUsersButtons">
@@ -147,6 +130,7 @@ class DisplayResults extends Component {
                     onClick={(e) => {
                       this.confirmClick(e)
                     }}
+                    aria-label="Confirm choices of user one and user two"
                     >Confirm Both Events <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
                   </button>
                   
@@ -164,7 +148,7 @@ class DisplayResults extends Component {
 
                 : ""} 
 
-              <button className="white med" reset={this.reset}>New Search</button>           
+              <button className="white med" aria-label="Reloads the page to start a new search" reset={this.reset}>New Search</button>           
               </div>
             </form>
           </div>
@@ -179,33 +163,37 @@ class DisplayResults extends Component {
                 onChange={(e) => { this.props.handleChange(e) }}
                 name="textFilter"
                 value={this.props.textFilter}
-                placeholder="Enter text to filter" />
+                placeholder="Enter text to filter"
+                aria-label='enter text to filter events'
+                aria-required="true" />
+
               <label className="visuallyHidden" htmlFor="allCategories">Event Categories</label>
               <select
                 onChange={(e) => { this.props.handleChange(e) }}
                 name="categoryDropdown" 
                 value={this.props.categoryDropdown}
-                id="">
+                id="allCategories">
                 {this.props.eventCategories.map((category, i) => {
                   return (
-                      <option value={category} key={i}> {category} </option>
+                      <option tab index="0" value={category} key={i}> {category} </option>
                   )
                   }
                 )}
               </select>
 
+              <label className="visuallyHidden" htmlFor="allVenues">All Venues</label>                  
               <select
                 onChange={(e) => { this.props.handleChange(e) }}
                 name="venueDropdown"
                 value={this.props.venueDropdown}
-                id="">
+                id="allVenues">
                 {this.props.eventVenues.map((venue, i) => {
                   return (
-										<option value={venue} key={i}> {venue} </option>
+                    <option tabIndex="0" value={venue} key={i}> {venue} </option>
                   )
                 })}
               </select>
-              <button className="green small"
+              <button className="green small" 
                 onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
               <button className="white small" onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>          
             </form>
@@ -221,6 +209,7 @@ class DisplayResults extends Component {
                 handleEventSelectRadio={this.handleEventSelectRadio}
                 user1choice={this.state.user1choice}
                 user2choice={this.state.user2choice}
+                tabIndex="0"
               />
             )
           })}

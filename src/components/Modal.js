@@ -4,7 +4,7 @@ import DisplayLinks from './DisplayLinks.js';
 class Modal extends Component {
   render() {
     let modal = (
-      <div className="modalOverlay">
+      <div className="modalOverlay" aria-hidden="true">
         <DisplayLinks 
           user1choice={this.props.user1choice}
           user2choice={this.props.user2choice}
@@ -27,10 +27,3 @@ class Modal extends Component {
 
 export default Modal;
 
-
-// <form action="">
-//   {/* closes the popup */}
-//   <button>Change Selection</button>
-//   {/* moves to next "screen" */}
-//   <button>Confirm Selection</button>
-// </form>

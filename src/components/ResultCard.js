@@ -81,7 +81,8 @@ class ResultCard extends Component {
       <form action="" className="resultCard">
         <label htmlFor="selectedEvent"></label>
         <input 
-          type="radio" 
+          type="radio"
+          tabIndex="0" 
           id={this.props.event.id} 
           name={this.props.name}
           onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
@@ -89,7 +90,7 @@ class ResultCard extends Component {
         />
         <div>
           <div className="resultCard-imgContainer">
-            <img src={this.props.event.images[1].url} alt="" />
+            <img src={this.props.event.images[1].url} alt={`image for ${this.props.event.name}`}/>
           </div>
           <div className="eventDetails">
             <h3>{this.props.event.name}</h3>

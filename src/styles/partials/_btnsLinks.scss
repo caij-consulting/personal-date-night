@@ -94,3 +94,7 @@ a {
 svg g{
   stroke:white;
 }
+
+button:focus{
+  outline: 3px solid blue;
+}
