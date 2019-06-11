@@ -207,6 +207,8 @@ class DisplayResults extends Component {
                 user1choice={this.state.user1choice}
                 user2choice={this.state.user2choice}
                 tabIndex="0"
+                currentUser={this.state.currentUser}
+
               />
             )
           })}
