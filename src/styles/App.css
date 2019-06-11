@@ -822,6 +822,12 @@ footer a {
           flex-direction: column;
 }
 
+.modalContent:not(:focus-within) {
+  background-color: green;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+}
+
 .modalContent a {
   color: #64c6e1;
 }

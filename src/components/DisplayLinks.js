@@ -12,10 +12,14 @@ class DisplayLinks extends Component {
     this.modalRef.current.focus();
   }
 
+ loopFocus= () => {
+  this.modalRef.current.focus();
+ }
+
   render() {
     return(
 
-      <div className="toLinks modalContent" tabIndex="-1">
+      <div className="toLinks modalContent" tabIndex="-1" onTransitionEnd={this.loopFocus}>
       <button
           ref={this.modalRef}
           onClick={this.props.closeModal}
