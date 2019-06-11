@@ -80,7 +80,6 @@ class DisplayResults extends Component {
                       aria-label="select for user one"
                       aria-required="true"
                       checked={this.state.currentUser === "1"}
-
                     />
                     <div className="perUserContents">
                       <FontAwesomeIcon icon="user" aria-hidden="true" />

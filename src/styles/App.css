@@ -212,6 +212,14 @@ img {
   position: relative;
 }
 
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 button {
   border-radius: 6px;
   text-transform: uppercase;
@@ -696,27 +704,18 @@ header {
 }
 
 .resultCard {
-  border: 1px solid #b3b3b3;
-  border-radius: 5px;
+  border: 5px solid rgba(255, 255, 255, 0);
+  border-radius: 12px;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: calc(25% - 2%);
   margin: 1%;
   position: relative;
+}
+
+.resultCard .innerResultCard {
+  border: 1px solid #b3b3b3;
+  border-radius: 5px;
+  height: 100%;
 }
 
 .resultCard h3 {
@@ -747,15 +746,10 @@ header {
   opacity: 0;
 }
 
-.resultCard input[type="radio"]:checked + div {
-  opacity: 0.5;
-  opacity: 0.3;
-}
-
 .resultCard .resultCard-imgContainer {
   width: 100%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 4px;
   height: 175px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -777,8 +771,27 @@ header {
   font-size: .8rem;
 }
 
-.containerResultCard form input:-moz-focusring {
-  border: 1px solid black;
+.activeEvent {
+  border: 5px solid #ace8cd;
+}
+
+.activeEvent:after {
+  content: url("./../assets/check-solid.svg");
+  font-size: 15px;
+  position: absolute;
+  border-radius: 25px;
+  top: 5px;
+  right: 5px;
+  height: 25px;
+  width: 25px;
+  color: #fff;
+  background: #64c6e1;
+  padding: 5px;
+  margin: 6px;
+}
+
+.disabledEvent {
+  opacity: 0.3;
 }
 
 footer {
@@ -827,8 +840,8 @@ footer a {
 
 .modalContent button {
   cursor: pointer;
-  border: 1px solid red;
-  align: right;
+  border: 0;
+  text-align: right;
 }
 
 .modalContent button svg {
