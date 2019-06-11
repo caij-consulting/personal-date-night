@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
 import DisplayLinks from './DisplayLinks.js';
 
-
-// need an overlay to have opacity and not allow clicking outside
-let modalOverlay = {
-  width: "100%",
-  height: "100%",
-  // background: "rgba(0, 0, 0, 0.3)",
-  backgroundColor: "rgba(255, 255, 255, 0.3)",
-  zIndex: "500",
-  position: "absolute",
-  top: "0",
-  left: "0",
-  right: "0",
-  bottom: "0",
-};
-
 class Modal extends Component {
   render() {
     let modal = (
-      <div style={modalOverlay}>
+      <div className="modalOverlay">
         <DisplayLinks 
           user1choice={this.props.user1choice}
           user2choice={this.props.user2choice}
