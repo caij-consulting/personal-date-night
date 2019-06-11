@@ -90,6 +90,7 @@
 }
 
 .containerUsersButtons {
+  justify-content: flex-end;
   @include flex(row, nowrap, null, null);
   width: 50%;
   margin-top: -20px;
@@ -105,6 +106,11 @@
   }
   @include for576{
     flex-direction: column;
+  }
+  .containerButton{
+    @include for576{
+      margin: 1% 0;
+    }
   }
 }
 
