@@ -64,6 +64,18 @@ class ResultCard extends Component {
       return dateToDisplay;
     }
   }
+  selectedActive = (event) => {
+    if (this.state.eventId1 === event.id && this.props.currentUser === "1" || this.state.eventId2 === event.id && this.props.currentUser === "2") {
+      console.log("working")
+      return "activeEvent"
+    }
+    else if (this.state.eventId1 === event.id && this.props.currentUser === "2" || this.state.eventId2 === event.id && this.props.currentUser === "1") {
+      console.log("working")
+      return "disabledEvent"
+    }
+    console.log("not working")
+    return "";
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.user1choice.id !== prevState.eventId1) {
@@ -78,31 +90,62 @@ class ResultCard extends Component {
   render() {
     this.displayDate(this.props.event)
     return (
-      <form action="" className="resultCard">
-        <label htmlFor="selectedEvent"></label>
-        <input 
-          type="radio"
-          tabIndex="0" 
-          id={this.props.event.id} 
-          name={this.props.name}
-          onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
-          checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
-        />
-        <div>
-          <div className="resultCard-imgContainer">
-            <img src={this.props.event.images[1].url} alt={`image for ${this.props.event.name}`}/>
+      <div className={`resultCard ${(this.selectedActive(this.props.event))}`}>
+        <form action="" className="innerResultCard">
+          <label htmlFor="selectedEvent"></label>
+          <input
+            type="radio"
+            tabIndex="0"
+            id={this.props.event.id}
+            name={this.props.name}
+            onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
+            checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
+          />
+          <div>
+            <div className="resultCard-imgContainer">
+              <img src={this.props.event.images[1].url} alt={`image for ${this.props.event.name}`} />
+            </div>
+            <div className="eventDetails">
+              <h3>{this.props.event.name}</h3>
+              <p>{this.displayDate(this.props.event)}</p>
+              <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
+              <p className="priceString">{this.priceInfo(this.props.event)}</p>
+            </div>
           </div>
-          <div className="eventDetails">
-            <h3>{this.props.event.name}</h3>
-            <p>{this.displayDate(this.props.event)}</p>
-            <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
-            <p className="priceString">{this.priceInfo(this.props.event)}</p>
-          </div>
-        </div>
-      </form>
-
-        
+        </form>
+      </div>
     )
   }
+  // render() {
+  //   this.displayDate(this.props.event)
+  //   return (
+  //     // <div className className={`selection ${(this.selectedActive(this.props.event))}`}>
+  //       <form action="" className="resultcard">
+  //         <label htmlFor="selectedEvent"></label>
+  //         <input 
+  //           type="radio"
+  //           tabIndex="0" 
+  //           id={this.props.event.id} 
+  //           name={this.props.name}
+  //           onChange={(e) => this.props.handleEventSelectRadio(e, this.props.event)}
+  //           checked={this.props.event.id === this.state.eventId1 || this.props.event.id === this.state.eventId2}
+  //         />
+  //         <div>
+  //           <div className="resultCard-imgContainer">
+  //             <img src={this.props.event.images[1].url} alt={`image for ${this.props.event.name}`}/>
+  //           </div>
+  //           <div className="eventDetails">
+  //             <h3>{this.props.event.name}</h3>
+  //             <p>{this.displayDate(this.props.event)}</p>
+  //             <p className="location">{this.props.event._embedded.venues[0].name}, {this.props.event._embedded.venues[0].city.name}</p>
+  //             <p className="priceString">{this.priceInfo(this.props.event)}</p>
+  //           </div>
+  //         </div>
+  //       </form>
+  //     // </div>
+    
+        
+  //   )
+  // }
 }
 export default ResultCard;
