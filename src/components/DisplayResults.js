@@ -24,8 +24,8 @@ class DisplayResults extends Component {
       currentUser: e.target.value
     })
   }
+
   handleEventSelectRadio = (e, event) =>{
-    // e.preventDefault()
     console.log(e)
     if(this.state.currentUser==="1"){
       this.setState({
@@ -38,6 +38,7 @@ class DisplayResults extends Component {
       })
     }
   }
+
   scrollLinks() {
     scroller.scrollTo('toLinks', {
       duration: 800,
@@ -104,9 +105,8 @@ class DisplayResults extends Component {
                       aria-label="select for user two"
                       aria-required="true"
                       checked={this.state.currentUser === "2"}
-
-
                     />
+
                     <div className="perUserContents">
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
                       <div>
@@ -126,10 +126,7 @@ class DisplayResults extends Component {
                         this.confirmBothUsersChoices(e)
                       }}
                       aria-label="Confirm choices of user one and user two"
-                      >
-                      
-                      Confirm Both Events
-                      
+                      >Confirm Both Events
                       <FontAwesomeIcon icon="check-double" aria-hidden="true" /> 
                     </button>
 
@@ -187,6 +184,7 @@ class DisplayResults extends Component {
                   })}
                 </select>
               </div>
+
               <div className="filterButtons">
                 <button className="green small"
                   onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
@@ -213,10 +211,10 @@ class DisplayResults extends Component {
           })}
 
           </div>
-
         </div>
       </div>
     )
   }
 }
+
 export default DisplayResults;

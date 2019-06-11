@@ -11,8 +11,7 @@ import { animateScroll as scroll, scroller } from 'react-scroll';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckDouble, faCheck, faUser, faTimes, faSortDown } from '@fortawesome/free-solid-svg-icons'
-
-library.add(fab, faCheckDouble, faCheck, faUser, faTimes)
+library.add(fab, faCheckDouble, faCheck, faUser, faTimes);
 
 
 class App extends Component {
@@ -193,6 +192,7 @@ class App extends Component {
       smooth: "easeInOutQuart"
     })
   }
+
   //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
   onSubmit = (e) => {
     e.preventDefault();
@@ -233,9 +233,7 @@ class App extends Component {
         </header>
 
         <main className="resultsTop">
-
           <div>
-
             {this.state.error
               ? (
                 <div className="error wrapper">
@@ -268,7 +266,6 @@ class App extends Component {
             }
           </div>
         </main>
-
         <Footer />
       </div>
     );
