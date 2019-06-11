@@ -108,13 +108,13 @@
   @include for1200{
   margin-top: 0;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   }
   @include for576{
-    flex-direction: column;
+  flex-direction: column;
   }
   .containerButton{
-    @include for576{
+  @include for576{
       margin: 1% 0;
     }
   }
