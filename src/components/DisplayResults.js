@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import ResultCard from "./ResultCard.js";
 import { animateScroll as scroll, scroller } from 'react-scroll';
 import Modal from "./Modal.js";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 
 class DisplayResults extends Component {
   constructor() {
@@ -83,7 +80,6 @@ class DisplayResults extends Component {
                       aria-label="select for user one"
                       aria-required="true"
                       checked={this.state.currentUser === "1"}
-
                     />
                     <div className="perUserContents">
                       <FontAwesomeIcon icon="user" aria-hidden="true" />
