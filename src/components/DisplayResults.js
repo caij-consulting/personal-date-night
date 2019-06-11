@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import ResultCard from "./ResultCard.js";
 import { animateScroll as scroll, scroller } from 'react-scroll';
 import Modal from "./Modal.js";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 
 class DisplayResults extends Component {
   constructor() {
     super();
     this.state = {
       allEvents: [],
-      user1choice: "You haven't chosen your event yet!",
-      user2choice: "You haven't chosen your event yet!",
+      // You haven't chosen your event yet!
+      user1choice: "",
+      user2choice: "",
       currentUser: "1",
       modalIsOpen: false,
       activeUser: false
