@@ -8,7 +8,6 @@
   transform: translate(-50%, -50%);
   z-index: 999;
   background-color: rgba($white, .95);
-  // background-color: rgba($white, .8);
   color: $black;
   padding: 10px 20px 40px;
   border-radius: 8px;
@@ -42,6 +41,15 @@
     }
   }
   
+  .userLink {
+    @include flex(row, wrap, flex-start, center);
+    p{
+      font-weight: 700;
+    }
+    svg {
+      margin-right: 10px;
+    }
+  }
 
   button {
     cursor: pointer;
@@ -49,7 +57,7 @@
     text-align: right;
     width: 28px;
     height: 28px;
-    background-color: $white;
+    background-color: rgba($white, .95);
     svg {
       color:$navy;
       font-size: 2rem;  

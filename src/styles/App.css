@@ -1112,13 +1112,39 @@ footer a {
   color: #fff;
 }
 
+.modalContent .userLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modalContent .userLink p {
+  font-weight: 700;
+}
+
+.modalContent .userLink svg {
+  margin-right: 10px;
+}
+
 .modalContent button {
   cursor: pointer;
   border: 0;
   text-align: right;
   width: 28px;
   height: 28px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .modalContent button svg {
