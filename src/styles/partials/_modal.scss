@@ -11,15 +11,27 @@
   color: $black;
   padding: 10px 20px 40px;
   border-radius: 8px;
-  border: 5px solid $green;
+  border: 8px solid $green;
   display: flex;
   flex-direction: column;
 
+ @include for576 {
+  width: 80%;
+  min-width: 300px;
+ }
+
   h2 {
+    text-align: center;
     span {
       font-family: $heading-font;
       display: block;
       font-size: 2rem;
+      @include for576 {
+        font-size: 1.6rem;
+      }
+      @media screen and (max-width:460px) {
+        font-size: 1.25rem;
+      }
     }
   }
   a {
@@ -43,19 +55,24 @@
   }
   
   .userLink {
-    @include flex(row, wrap, flex-start, center);
+    @include flex(row, nowrap, flex-start, center);
     p{
       font-weight: 700;
     }
     svg {
       margin-right: 10px;
     }
+    .faUser {
+      color: $blue;
+    }
   }
 
   button {
+    position: relative;
+    top: 0;
+    left: 45%;
     cursor: pointer;
     border: 0;
-    text-align: right;
     width: 28px;
     height: 28px;
     background-color: rgba($white, .95);

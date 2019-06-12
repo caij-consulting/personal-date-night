@@ -26,6 +26,16 @@ $darkgrey: #444;
 	bottom: $bottom;
 	left: $left;
 }
+
+//Thanks to https://thoughtbot.com/blog/sasss-content-directive
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content;
+  }  
+}
+
+
+// =================
 @mixin for1200 {
   @media (max-width: 1200px) {
     @content;

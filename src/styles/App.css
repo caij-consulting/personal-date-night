@@ -236,11 +236,11 @@ button {
   font-size: .75rem;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
+  font-weight: 900;
 }
 
 button:hover {
   border-radius: 50px;
-  font-weight: 900;
 }
 
 button.large {
@@ -254,13 +254,13 @@ button.med {
   line-height: 1.2rem;
 }
 
-@media screen and (max-width: 1276px) {
+@media (max-width: 1276px) {
   button.med {
     padding: 16px 14px;
   }
 }
 
-@media screen and (max-width: 1276px) and (max-width: 576px) {
+@media (max-width: 1276px) and (max-width: 576px) {
   button.med {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -269,7 +269,7 @@ button.med {
   }
 }
 
-@media screen and (max-width: 1276px) and (max-width: 576px) and (max-width: 340px) {
+@media (max-width: 1276px) and (max-width: 576px) and (max-width: 340px) {
   button.med {
     padding: 16px 1px;
   }
@@ -288,11 +288,6 @@ button.white {
 button.green {
   background: #ace8cd;
   color: #330095;
-}
-
-button.green:hover {
-  background: #fff;
-  border-color: #ace8cd;
 }
 
 button.navy {
@@ -902,6 +897,15 @@ header {
   display: none;
 }
 
+@media screen and (max-width: 1080px) {
+  .containerFilterEvents {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .filterFields {
   max-width: 60%;
   display: -webkit-box;
@@ -921,6 +925,29 @@ header {
 @media (max-width: 1270px) {
   .filterFields {
     max-width: 70%;
+  }
+}
+
+@media (max-width: 1270px) and (max-width: 1080px) {
+  .filterFields {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .filterFields input,
+  .filterFields select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .filterButtons {
+    text-align: center;
   }
 }
 
@@ -1091,7 +1118,7 @@ footer a {
   color: #222;
   padding: 10px 20px 40px;
   border-radius: 8px;
-  border: 5px solid #ace8cd;
+  border: 8px solid #ace8cd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1101,10 +1128,33 @@ footer a {
           flex-direction: column;
 }
 
+@media (max-width: 576px) {
+  .modalContent {
+    width: 80%;
+    min-width: 300px;
+  }
+}
+
+.modalContent h2 {
+  text-align: center;
+}
+
 .modalContent h2 span {
   font-family: "Shrikhand", cursive;
   display: block;
   font-size: 2rem;
+}
+
+@media (max-width: 576px) {
+  .modalContent h2 span {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .modalContent h2 span {
+    font-size: 1.25rem;
+  }
 }
 
 .modalContent a {
@@ -1138,8 +1188,8 @@ footer a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -1156,10 +1206,16 @@ footer a {
   margin-right: 10px;
 }
 
+.modalContent .userLink .faUser {
+  color: #64c6e1;
+}
+
 .modalContent button {
+  position: relative;
+  top: 0;
+  left: 45%;
   cursor: pointer;
   border: 0;
-  text-align: right;
   width: 28px;
   height: 28px;
   background-color: rgba(255, 255, 255, 0.95);
