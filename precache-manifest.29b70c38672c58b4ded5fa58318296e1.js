@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d5386211845809a8c49f994e22627b19",
+    "revision": "1a071d787970d21806398c07de06e8c8",
     "url": "/personal-date-night/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/personal-date-night/static/css/2.d24c78e9.chunk.css"
   },
   {
-    "revision": "b8a84aa991abfbd96d66",
-    "url": "/personal-date-night/static/css/main.36fdb52b.chunk.css"
+    "revision": "ce43598d94f8ad1db4aa",
+    "url": "/personal-date-night/static/css/main.4d624679.chunk.css"
   },
   {
     "revision": "6fbe71c3de238f0c5d79",
     "url": "/personal-date-night/static/js/2.8138f6b7.chunk.js"
   },
   {
-    "revision": "b8a84aa991abfbd96d66",
+    "revision": "ce43598d94f8ad1db4aa",
     "url": "/personal-date-night/static/js/main.7071568d.chunk.js"
   },
   {
