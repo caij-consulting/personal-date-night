@@ -52,11 +52,11 @@ class App extends Component {
     }
   }
   
-  // reset = () => {
-  //   this.setState({
-  //     displayResult: false,
-  //   })
-  // }
+  reset = () => {
+    this.setState({
+      displayResult: false,
+    })
+  }
 
   // convert time function to string so it can be passed as a number in template literals 
   formatDate = (dateObject, time) => {
@@ -106,6 +106,7 @@ class App extends Component {
       }
     })
   }
+  //go through all events that are returned from the API call and go through all the categories they belong to add all the unique categories in an array called categories.
   getEventCategories = () => {
     // loop through all events 
     let eventCategories = ["All Categories"];
@@ -120,7 +121,7 @@ class App extends Component {
       eventCategories: [...eventCategories],
     })
   }
-
+  //go through all events that are returned from the API call and go through all the venues they belong to add all the unique categories in an array called categories.
   getEventVenues = () => {
     // loop through all events 
     let eventVenues = ["All Venues"];
@@ -136,6 +137,7 @@ class App extends Component {
     })
   }
 
+  //filter events based on text, category and venue.
   filterEvents = (e, textFilter, categoryDropdown, venueDropdown) => {
     e.preventDefault();
     let copyOfAllEvents = [...this.state.allEvents];
@@ -167,6 +169,7 @@ class App extends Component {
       filteredEvents: [...filteredEvents],
     })
   }
+  //reset all the filters and return the full list of events.
   resetFilters = (e) => {
     e.preventDefault();
     this.filterEvents(e, "", "All Categories", "All Venues")
@@ -176,7 +179,7 @@ class App extends Component {
       venueDropdown: "All Venues",
     })
   }
-
+  
   scrollTo() {
     scroller.scrollTo("resultsTop", {
       duration: 800,
@@ -185,7 +188,7 @@ class App extends Component {
     })
   }
 
-  //time input format localStartEndDateTime=2019-06-05T17:00:00,2019-06-05T20:00:00 
+  //when user submits their search form, format date and make the API call
   onSubmit = (e) => {
     e.preventDefault();
     this.scrollTo();
@@ -236,7 +239,7 @@ class App extends Component {
                 (this.state.displayResult && (
                   this.state.isLoading
                     //display loading while api results being returned
-                    ? <h1>Getting Your Events...</h1>
+                    ? <h1 className="wrapper">Getting Your Events...</h1>
                     : <DisplayResults
                       date={this.state.date}
                       timeStart={this.state.timeStart}
