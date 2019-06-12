@@ -22,7 +22,7 @@ class App extends Component {
       timeStart: "12:00",
       timeEnd: "23:00",
       date: new Date(),
-      location: "",
+      location: "Toronto",
       filteredEvents: [],
       eventCategories: [],
       userCategory: "",
