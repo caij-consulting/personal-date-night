@@ -12,7 +12,7 @@
   @include flex(row, nowrap, space-between, center);
   margin: 0;
   padding-top: 20px;
-  @include for1200{
+  @include media(1200px){
     flex-direction: column-reverse;
   }
 
@@ -22,12 +22,12 @@
     input[type="radio"] {
       opacity:0; 
     }
-    @include for1200{
+    @include media(1200px){
       margin-top: 3%;
       width: 100%;
       justify-content: center;
     }
-    @include for576{
+    @include media(576px){
       flex-direction: column;
     }
   }
@@ -43,7 +43,7 @@
     &:focus {
       background:white;
     }
-    @include for576{
+    @include media(576px){
       width: 100%;
     }
 
@@ -104,16 +104,16 @@
     margin-left: 5px;
     font-size: 1.2rem;
   }
-  @include for1200{
+  @include media(1200px){
   margin-top: 0;
   width: 100%;
   justify-content: space-evenly;
   }
-  @include for576{
+  @include media(576px){
   flex-direction: column;
   }
   .containerButton{
-  @include for576{
+  @include media(576px){
       margin: 1% 0;
     }
   }
@@ -146,7 +146,7 @@
     display:none;
   }
 
-  @media screen and (max-width: 1080px) {
+  @include media(1080px) {
     flex-direction: column;
   }
 }
@@ -161,10 +161,10 @@
 }
 
  // media queries
-@media (max-width:1270px) {
+@include media(1270px) {
   .filterFields {
     max-width:70%;
-    @media (max-width:1080px) {
+    @include media(1080px) {
       flex-direction: column;
       max-width: 100%;
     }
@@ -174,14 +174,14 @@
 .filterFields {
   input,
   select {
-    @media (max-width:1080px) {
+    @include media(1080px) {
     width: 100%;
     }   
   }
 }
 
 .filterButtons {
-  @media (max-width:1080px) {
+  @include media(1080px) {
     text-align: center;
   }
 }

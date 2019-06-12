@@ -10,17 +10,17 @@
   margin: 1%;
   position: relative;
   
-  @include for1200{
+  @include media(1200px){
     width: calc(33% - 2%);
   }
-  @include for992{
+  @include media(992px){
     width: 50%;
     margin: 0;
   }
-  @include for768{
+  @include media(768px){
     width: 50%;
   }
-  @include for576{
+  @include media(576px){
     width: 100%;
     margin: 1% 0;
   }  
