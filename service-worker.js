@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/personal-date-night/precache-manifest.f40142f746c87001702baea1c1992b60.js"
+  "/personal-date-night/precache-manifest.7915ee2afcaede25861fcef4ca1b763a.js"
 );
 
 self.addEventListener('message', (event) => {
