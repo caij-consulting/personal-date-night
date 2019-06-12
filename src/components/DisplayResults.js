@@ -26,9 +26,9 @@ class DisplayResults extends Component {
       })
   }
 
+  //sets currentUser to be either User1 or User2 on toggle
   handleUserChangeRadio = (e) => {
     this.setState({
-      //sets currentUser to be either User1 or User2 on toggle
       currentUser: e.target.value
     })
   }
@@ -164,6 +164,7 @@ class DisplayResults extends Component {
               </div>
             </form>
           </div>
+           {/* wrapper ends */}
         </div>
 
         <div className="displayContent wrapper">
@@ -205,13 +206,13 @@ class DisplayResults extends Component {
                     )
                   })}
                 </select>
-              </div>
+              </div> {/* Filter Fields ends */}
 
               <div className="filterButtons">
                 <button className="green small"
                   onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
                 <button className="white small" onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>
-              </div>
+              </div>  {/* Filter Buttons ends */}
             </div>
           </form>
         
@@ -231,9 +232,9 @@ class DisplayResults extends Component {
             )
           })}
 
-          </div>
-        </div>
-      </div>
+          </div>  {/* Container for Result card ends*/}
+        </div>  {/* Display content ends */}
+      </div> 
     )
   }
 }
