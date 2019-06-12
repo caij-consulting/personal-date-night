@@ -145,6 +145,10 @@
   &::-ms-expand {
     display:none;
   }
+
+  @media screen and (max-width: 1080px) {
+    flex-direction: column;
+  }
 }
 .filterFields {
   max-width:60%;
@@ -160,9 +164,25 @@
 @media (max-width:1270px) {
   .filterFields {
     max-width:70%;
-    select {
-      // width:25%;
+    @media (max-width:1080px) {
+      flex-direction: column;
+      max-width: 100%;
     }
+  }
+}
+
+.filterFields {
+  input,
+  select {
+    @media (max-width:1080px) {
+    width: 100%;
+    }   
+  }
+}
+
+.filterButtons {
+  @media (max-width:1080px) {
+    text-align: center;
   }
 }
 

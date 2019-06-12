@@ -11,10 +11,10 @@ button {
   font-weight: 700;
   font-size: .75rem;
   transition: all 0.25s ease-in-out;
+  font-weight: 900;
 
   &:hover {
     border-radius: 50px;
-    font-weight: 900;
   }
 
   &.large {
