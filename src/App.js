@@ -22,7 +22,7 @@ class App extends Component {
       timeStart: "12:00",
       timeEnd: "23:00",
       date: new Date(),
-      location: "Toronto",
+      location: "",
       filteredEvents: [],
       eventCategories: [],
       userCategory: "",
@@ -239,7 +239,7 @@ class App extends Component {
                 (this.state.displayResult && (
                   this.state.isLoading
                     //display loading while api results being returned
-                    ? <h1>Getting Your Events...</h1>
+                    ? <h1 className="wrapper">Getting Your Events...</h1>
                     : <DisplayResults
                       date={this.state.date}
                       timeStart={this.state.timeStart}
