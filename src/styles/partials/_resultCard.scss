@@ -80,8 +80,9 @@
 .activeEvent {
   border: 5px solid $green;
   background: rgba($green, 0.10);
+  // implementing checkmark graphic upon active selection
   &:after{
-    content:url('./../assets/check-solid.svg');
+    content:url("./../assets/check-solid.svg");
     font-size: 15px;
     position: absolute;
     border-radius: 25px;

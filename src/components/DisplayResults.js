@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import ResultCard from "./ResultCard.js";
-import { animateScroll as scroll, scroller } from 'react-scroll';
 import Modal from "./Modal.js";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// Importing libraries
+import { animateScroll as scroll, scroller } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 class DisplayResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
       allEvents: [],
-      // add in error handling for "you have not chosen your event yet"
       user1choice: "",
       user2choice: "",
       currentUser: "1",
@@ -27,7 +27,6 @@ class DisplayResults extends Component {
   //function to listen to radio buttons that toggle between user1 and user2
   handleUserChangeRadio = (e) => {
     this.setState({
-      //sets currentUser to be either User1 or User2 on toggle
       currentUser: e.target.value
     })
   }
@@ -47,10 +46,10 @@ class DisplayResults extends Component {
   }
 
   scrollLinks() {
-    scroller.scrollTo('toLinks', {
+    scroller.scrollTo("toLinks", {
       duration: 800,
       delay: 0,
-      smooth: 'easeInOutQuart'
+      smooth: "easeInOutQuart"
     })
   } 
   
@@ -68,13 +67,13 @@ class DisplayResults extends Component {
       modalIsOpen:false
     })
   }
-  //code taken from https://mattgaskey.com/blog/sticky-nav-in-react/ to achieve scroll than fix
+  //code taken from https://mattgaskey.com/blog/sticky-nav-in-react/ to achieve scroll then fix
   componentDidMount(){
-    const barToFix = document.querySelector('.containerUserSelectionBackground');
+    const barToFix = document.querySelector(".containerUserSelectionBackground");
     this.setState({ top: barToFix.offsetTop, height: barToFix.offsetHeight });
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   }
-  //code taken from https://mattgaskey.com/blog/sticky-nav-in-react/ to achieve scroll than fix
+  //code taken from https://mattgaskey.com/blog/sticky-nav-in-react/ to achieve scroll then fix
   componentDidUpdate() {
     this.state.scroll > this.state.top ?
       document.body.style.paddingTop = `${this.state.height}px` :
@@ -93,7 +92,6 @@ class DisplayResults extends Component {
                   <div>
                     <input onChange={(e) => { this.handleUserChangeRadio(e) }}
                       type="radio"
-                      // tabIndex="0"
                       className="selectedUser"
                       name="currentUser"
                       id="user1"
@@ -166,6 +164,7 @@ class DisplayResults extends Component {
               </div>
             </form>
           </div>
+           {/* wrapper ends */}
         </div>
 
         <div className="displayContent wrapper">
@@ -207,13 +206,13 @@ class DisplayResults extends Component {
                     )
                   })}
                 </select>
-              </div>
+              </div> {/* Filter Fields ends */}
 
               <div className="filterButtons">
                 <button className="green small"
                   onClick={(e) => this.props.filterEvents(e, this.props.textFilter, this.props.categoryDropdown, this.props.venueDropdown)}>Filter</button>  
                 <button className="white small" onClick={(e)=>this.props.resetFilters(e)}>Reset Filter</button>
-              </div>
+              </div>  {/* Filter Buttons ends */}
             </div>
           </form>
         
@@ -229,14 +228,13 @@ class DisplayResults extends Component {
                 user2choice={this.state.user2choice}
                 tabIndex="0"
                 currentUser={this.state.currentUser}
-
               />
             )
           })}
 
-          </div>
-        </div>
-      </div>
+          </div>  {/* Container for Result card ends*/}
+        </div>  {/* Display content ends */}
+      </div> 
     )
   }
 }

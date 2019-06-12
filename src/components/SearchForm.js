@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import DatePicker from 'react-date-picker';
-import TimePicker from 'react-time-picker';
-
-// import DateTimePicker from 'react-datetime-picker';
+import React, { Component } from "react";
+// importing libraries
+import DatePicker from "react-date-picker";
+import TimePicker from "react-time-picker";
 
 class SearchForm extends Component{
   //error handling function. if startTime is "10:00", make sure the endTime is atleast "11:00"
