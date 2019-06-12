@@ -15,19 +15,15 @@
   border: 5px solid $green;
   display: flex;
   flex-direction: column;
-  // &:not(:focus-within) {
-  //   background-color: green;
-  //   transition: background-color .2s;
-  // }
+
   a {
     color: $blue;
   }
-  .testModal{
+  .keepFocusModal{
     color: red;
     transition: color .001s;
     &:not(:focus-within){
-      color:blue;
-      
+      color: $white;
     }
   }
   
@@ -36,9 +32,12 @@
     cursor: pointer;
     border: 0;
     text-align: right;
+    width: 28px;
+    height: 28px;
+    background-color: $white;
     svg {
       color:$navy;
-      font-size: 2rem;
+      font-size: 2rem;  
       &:hover {
         color: $green;
       }

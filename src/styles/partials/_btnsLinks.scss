@@ -10,12 +10,11 @@ button {
   border: 3px solid $green;
   font-weight: 700;
   font-size: .75rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s ease-in-out;
 
   &:hover {
     border-radius: 50px;
-    // letter-spacing: .2rem;
-    // font-weight: 900;
+    font-weight: 900;
   }
 
   &.large {
@@ -69,7 +68,6 @@ a {
 
 svg g{
   stroke: $white;
-
   //this hover not working...
   &:hover{
     stroke: $green;

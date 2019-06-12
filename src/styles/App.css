@@ -234,12 +234,13 @@ button {
   border: 3px solid #ace8cd;
   font-weight: 700;
   font-size: .75rem;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 button:hover {
   border-radius: 50px;
+  font-weight: 900;
 }
 
 button.large {
@@ -1040,20 +1041,23 @@ footer a {
   color: #64c6e1;
 }
 
-.modalContent .testModal {
+.modalContent .keepFocusModal {
   color: red;
   -webkit-transition: color .001s;
   transition: color .001s;
 }
 
-.modalContent .testModal:not(:focus-within) {
-  color: blue;
+.modalContent .keepFocusModal:not(:focus-within) {
+  color: #fff;
 }
 
 .modalContent button {
   cursor: pointer;
   border: 0;
   text-align: right;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
 }
 
 .modalContent button svg {
