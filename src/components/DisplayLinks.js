@@ -19,7 +19,8 @@ loopFocus= () => {
     return(
       // keep empty anchor tags for keeping tab within modal
       <div className="toLinks modalContent" tabIndex="-1" >
-        <a href="#" className="keepFocusModal" onTransitionEnd={this.loopFocus} aria-hidden="true"></a>
+      {/* must put a space after "# " for removing warning error */}
+        <a href="# " className="keepFocusModal" onTransitionEnd={this.loopFocus} aria-hidden="true">.</a>
 
       <button ref={this.modalRef}
           onClick={this.props.closeModal}
@@ -36,7 +37,7 @@ loopFocus= () => {
       
         <div className="userLink">
           <FontAwesomeIcon icon="user" aria-hidden="true" /><p className="userText">User Two: <a href={this.props.user2choice.url} target="_blank" rel="noopener noreferrer" aria-label="Click to get your tickets here!">{this.props.user2choice.name}</a></p>
-          <a href="#" className="keepFocusModal" onTransitionEnd={this.loopFocus} aria-hidden="true"></a>
+          <a href="# " className="keepFocusModal" onTransitionEnd={this.loopFocus} aria-hidden="true">.</a>
         </div>
       </div>
     );

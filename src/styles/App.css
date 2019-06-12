@@ -886,25 +886,42 @@ header {
 .containerFilterEvents select,
 .containerFilterEvents input {
   margin: 4px;
-  background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px #fff;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   border: 1px solid #b3b3b3;
   border-radius: 5px;
   padding: 10px 12px;
+}
+
+.containerFilterEvents select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px #fff;
 }
 
 .containerFilterEvents::-ms-expand {
   display: none;
 }
 
-.fixed-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
+.filterFields {
+  max-width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.filterFields select {
+  padding-right: 50px;
+  width: 40%;
+}
+
+@media (max-width: 1270px) {
+  .filterFields {
+    max-width: 70%;
+  }
 }
 
 .containerResultCard {
@@ -1106,10 +1123,11 @@ footer a {
   color: red;
   -webkit-transition: color .001s;
   transition: color .001s;
+  font-size: 0;
 }
 
 .modalContent .keepFocusModal:not(:focus-within) {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .modalContent .userLink {

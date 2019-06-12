@@ -36,8 +36,9 @@
   .keepFocusModal{
     color: red;
     transition: color .001s;
+    font-size: 0;
     &:not(:focus-within){
-      color: $white;
+      color: rgba($white, .95);
     }
   }
   

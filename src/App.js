@@ -36,7 +36,7 @@ class App extends Component {
       error: false,
     }
   }
-
+  //Function that handles changes on form elements.
   handleChange = (e, name) => {
     // our location gets the object but for dateTimePicker we get the actual value 
     // if the item onChange has (name) tsParameterProperty, do the following:
@@ -51,12 +51,12 @@ class App extends Component {
       })
     }
   }
-
-  reset = () => {
-    this.setState({
-      displayResult: false,
-    })
-  }
+  
+  // reset = () => {
+  //   this.setState({
+  //     displayResult: false,
+  //   })
+  // }
 
   // convert time function to string so it can be passed as a number in template literals 
   formatDate = (dateObject, time) => {
@@ -106,7 +106,6 @@ class App extends Component {
       }
     })
   }
-
   getEventCategories = () => {
     // loop through all events 
     let eventCategories = ["All Categories"];
