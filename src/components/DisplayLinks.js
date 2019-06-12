@@ -32,11 +32,11 @@ loopFocus= () => {
         <h2><span>Congratulations!</span> You've both successfully chosen your events!</h2>
         <p>You can buy your tickets here:</p>
         <div className="userLink">
-          <FontAwesomeIcon icon="user" aria-hidden="true" /><p className="userText">User One: <a href={this.props.user1choice.url} target="_blank" rel="noopener noreferrer" aria-label="Click to get your tickets here!">{this.props.user1choice.name}</a></p>
+          <FontAwesomeIcon icon="user" aria-hidden="true" className="faUser" /><p className="userText">User One: <a href={this.props.user1choice.url} target="_blank" rel="noopener noreferrer" aria-label="Click to get your tickets here!">{this.props.user1choice.name}</a></p>
         </div>
       
         <div className="userLink">
-          <FontAwesomeIcon icon="user" aria-hidden="true" /><p className="userText">User Two: <a href={this.props.user2choice.url} target="_blank" rel="noopener noreferrer" aria-label="Click to get your tickets here!">{this.props.user2choice.name}</a></p>
+          <FontAwesomeIcon icon="user" aria-hidden="true" className="faUser" /><p className="userText">User Two: <a href={this.props.user2choice.url} target="_blank" rel="noopener noreferrer" aria-label="Click to get your tickets here!">{this.props.user2choice.name}</a></p>
           <a href="# " className="keepFocusModal" onTransitionEnd={this.loopFocus} aria-hidden="true">.</a>
         </div>
       </div>
