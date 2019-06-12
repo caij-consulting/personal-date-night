@@ -40,7 +40,6 @@ class SearchForm extends Component{
               required pattern="[a-zA-Z]*"
               onChange={(e)=> {this.props.handleChange(e)}}
               value={this.props.location}
-              required={true}
               />
             </div>
           </div>
