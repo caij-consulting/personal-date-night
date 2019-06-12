@@ -134,13 +134,36 @@
   select,
   input {
     margin: 4px;
-    background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px $white;
-    appearance:none;
     border: 1px solid $grey;
     border-radius: 5px;
     padding: 10px 12px;
+  }
+  select{
+    appearance:none;
+    background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px $white;
   }
   &::-ms-expand {
     display:none;
   }
 }
+.filterFields {
+  max-width:60%;
+  display:flex;
+  flex-direction:row;
+  select {
+    padding-right:50px;
+    width:40%;
+  }
+}
+
+ // media queries
+@media (max-width:1270px) {
+  .filterFields {
+    max-width:70%;
+    select {
+      // width:25%;
+    }
+  }
+}
+
+
