@@ -41,7 +41,7 @@ class SearchForm extends Component{
               required pattern="[a-zA-Z]*"
               onChange={(e)=> {this.props.handleChange(e)}}
               value={this.props.location}
-              required
+              required={true}
               />
             </div>
           </div>
@@ -54,7 +54,7 @@ class SearchForm extends Component{
                 format="y-MM-dd"
                 name="date"
                 value={this.props.date}
-                required
+                required={true}
                 minDate={new Date()}
             />
             </div>
@@ -73,7 +73,7 @@ class SearchForm extends Component{
                       onChange={(e, name)=> {this.props.handleChange(e, "timeStart")}}
                       value={this.props.timeStart}
                       disableClock
-                      required
+                      required={true}
                     />
                   </div>
                   <div className="perTimeContainer">
@@ -85,7 +85,7 @@ class SearchForm extends Component{
                       onChange={(e, name)=> {this.props.handleChange(e, "timeEnd")}}
                       value={this.props.timeEnd}
                       disableClock
-                      required
+                      required={true}
                     />
                   </div>
                 </div>
