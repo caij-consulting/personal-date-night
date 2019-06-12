@@ -15,11 +15,23 @@
   display: flex;
   flex-direction: column;
 
+ @include for576 {
+  width: 80%;
+  min-width: 300px;
+ }
+
   h2 {
+    text-align: center;
     span {
       font-family: $heading-font;
       display: block;
       font-size: 2rem;
+      @include for576 {
+        font-size: 1.6rem;
+      }
+      @media screen and (max-width:460px) {
+        font-size: 1.25rem;
+      }
     }
   }
   a {
@@ -43,7 +55,7 @@
   }
   
   .userLink {
-    @include flex(row, wrap, flex-start, center);
+    @include flex(row, nowrap, flex-start, center);
     p{
       font-weight: 700;
     }

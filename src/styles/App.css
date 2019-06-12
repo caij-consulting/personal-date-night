@@ -1101,10 +1101,33 @@ footer a {
           flex-direction: column;
 }
 
+@media (max-width: 576px) {
+  .modalContent {
+    width: 80%;
+    min-width: 300px;
+  }
+}
+
+.modalContent h2 {
+  text-align: center;
+}
+
 .modalContent h2 span {
   font-family: "Shrikhand", cursive;
   display: block;
   font-size: 2rem;
+}
+
+@media (max-width: 576px) {
+  .modalContent h2 span {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .modalContent h2 span {
+    font-size: 1.25rem;
+  }
 }
 
 .modalContent a {
@@ -1138,8 +1161,8 @@ footer a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
