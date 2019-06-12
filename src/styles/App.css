@@ -234,8 +234,9 @@ button {
   border: 3px solid #ace8cd;
   font-weight: 700;
   font-size: .75rem;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  font-weight: 900;
 }
 
 button:hover {
@@ -253,9 +254,24 @@ button.med {
   line-height: 1.2rem;
 }
 
-@media screen and (max-width: 1276px) {
+@media (max-width: 1276px) {
   button.med {
     padding: 16px 14px;
+  }
+}
+
+@media (max-width: 1276px) and (max-width: 576px) {
+  button.med {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1276px) and (max-width: 576px) and (max-width: 340px) {
+  button.med {
+    padding: 16px 1px;
   }
 }
 
@@ -272,11 +288,6 @@ button.white {
 button.green {
   background: #ace8cd;
   color: #330095;
-}
-
-button.green:hover {
-  background: #fff;
-  border-color: #ace8cd;
 }
 
 button.navy {
@@ -717,6 +728,15 @@ header {
   }
 }
 
+@media (max-width: 576px) {
+  .containerUserSelection .containerUsers {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .containerUserSelection .user {
   position: relative;
   border-radius: 8px 8px 0 0;
@@ -727,6 +747,12 @@ header {
 
 .containerUserSelection .user:active, .containerUserSelection .user:focus {
   background: white;
+}
+
+@media (max-width: 576px) {
+  .containerUserSelection .user {
+    width: 100%;
+  }
 }
 
 .containerUserSelection .user .perUserContents {
@@ -781,6 +807,9 @@ header {
 }
 
 .containerUsersButtons {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -804,9 +833,9 @@ header {
   .containerUsersButtons {
     margin-top: 0;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 }
 
@@ -816,6 +845,12 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .containerUsersButtons .containerButton {
+    margin: 1% 0;
   }
 }
 
@@ -846,17 +881,82 @@ header {
 .containerFilterEvents select,
 .containerFilterEvents input {
   margin: 4px;
-  background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px #fff;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   border: 1px solid #b3b3b3;
   border-radius: 5px;
   padding: 10px 12px;
 }
 
+.containerFilterEvents select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px #fff;
+}
+
 .containerFilterEvents::-ms-expand {
   display: none;
+}
+
+@media screen and (max-width: 1080px) {
+  .containerFilterEvents {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.filterFields {
+  max-width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.filterFields select {
+  padding-right: 50px;
+  width: 40%;
+}
+
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@media (max-width: 1270px) {
+  .filterFields {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 1270px) and (max-width: 1080px) {
+  .filterFields {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .filterFields input,
+  .filterFields select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1080px) {
+  .filterButtons {
+    text-align: center;
+  }
 }
 
 .containerResultCard {
@@ -1013,8 +1113,8 @@ footer a {
 }
 
 .modalContent {
-  width: 500px;
-  max-width: 100%;
+  width: 60%;
+  min-width: 500px;
   margin: 0 auto;
   position: fixed;
   left: 50%;
@@ -1022,11 +1122,11 @@ footer a {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 999;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
   color: #222;
   padding: 10px 20px 40px;
   border-radius: 8px;
-  border: 5px solid #ace8cd;
+  border: 8px solid #ace8cd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1036,24 +1136,97 @@ footer a {
           flex-direction: column;
 }
 
-.modalContent a {
-  color: #64c6e1;
+@media (max-width: 576px) {
+  .modalContent {
+    width: 80%;
+    min-width: 300px;
+  }
 }
 
-.modalContent .testModal {
+.modalContent h2 {
+  text-align: center;
+}
+
+.modalContent h2 span {
+  font-family: "Shrikhand", cursive;
+  display: block;
+  font-size: 2rem;
+}
+
+@media (max-width: 576px) {
+  .modalContent h2 span {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .modalContent h2 span {
+    font-size: 1.25rem;
+  }
+}
+
+.modalContent a {
+  color: #330095;
+  padding: 2px 6px;
+  text-decoration: none;
+  -webkit-transition: background-color .25s;
+  transition: background-color .25s;
+}
+
+.modalContent a:hover, .modalContent a:focus, .modalContent a:active {
+  background-color: rgba(172, 232, 205, 0.6);
+}
+
+.modalContent .keepFocusModal {
   color: red;
   -webkit-transition: color .001s;
   transition: color .001s;
+  font-size: 0;
 }
 
-.modalContent .testModal:not(:focus-within) {
-  color: blue;
+.modalContent .keepFocusModal:not(:focus-within) {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.modalContent .userLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modalContent .userLink p {
+  font-weight: 700;
+}
+
+.modalContent .userLink svg {
+  margin-right: 10px;
+}
+
+.modalContent .userLink .faUser {
+  color: #64c6e1;
 }
 
 .modalContent button {
+  position: relative;
+  top: 0;
+  left: 45%;
   cursor: pointer;
   border: 0;
-  text-align: right;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .modalContent button svg {
@@ -1066,8 +1239,9 @@ footer a {
 }
 
 .modalOverlay {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
   background-color: rgba(34, 34, 34, 0.7);
   z-index: 500;
   position: absolute;

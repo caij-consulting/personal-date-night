@@ -12,7 +12,7 @@
   @include flex(row, nowrap, space-between, center);
   margin: 0;
   padding-top: 20px;
-  @include for1200{
+  @include media(1200px){
     flex-direction: column-reverse;
   }
 
@@ -22,10 +22,13 @@
     input[type="radio"] {
       opacity:0; 
     }
-    @include for1200{
+    @include media(1200px){
       margin-top: 3%;
       width: 100%;
       justify-content: center;
+    }
+    @include media(576px){
+      flex-direction: column;
     }
   }
 
@@ -39,6 +42,9 @@
     &:active,
     &:focus {
       background:white;
+    }
+    @include media(576px){
+      width: 100%;
     }
 
     .perUserContents {
@@ -89,6 +95,7 @@
 }
 
 .containerUsersButtons {
+  justify-content: flex-end;
   @include flex(row, nowrap, null, null);
   width: 50%;
   margin-top: -20px;
@@ -97,13 +104,18 @@
     margin-left: 5px;
     font-size: 1.2rem;
   }
-  @include for1200{
+  @include media(1200px){
   margin-top: 0;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   }
-  @include for576{
-    flex-direction: column;
+  @include media(576px){
+  flex-direction: column;
+  }
+  .containerButton{
+  @include media(576px){
+      margin: 1% 0;
+    }
   }
 }
 
@@ -134,6 +146,19 @@
   &::-ms-expand {
     display:none;
   }
+
+  @include media(1080px) {
+    flex-direction: column;
+  }
+}
+.filterFields {
+  max-width:60%;
+  display:flex;
+  flex-direction:row;
+  select {
+    padding-right:50px;
+    width:40%;
+  }
 }
 
 .filterFields {
@@ -146,6 +171,14 @@
   }
 }
 
+.fixed-nav{
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+  z-index: 1;
+}
+
 // media queries
 @media (max-width:1270px) {
   .filterFields {
@@ -156,3 +189,17 @@
   }
 }
 
+@include media(1080px) {
+  .filterFields { 
+  flex-direction: column;
+  max-width: 100%;
+  }
+
+
+
+  .filterButtons {
+    
+    text-align: center;
+    
+  }
+}

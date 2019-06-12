@@ -1,7 +1,3 @@
-// .containerButton {
-//   width: 350px;
-// }
-
 button {
   margin: 0 auto;
   border-radius: 6px;
@@ -10,12 +6,11 @@ button {
   border: 3px solid $green;
   font-weight: 700;
   font-size: .75rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  font-weight: 900;
 
   &:hover {
     border-radius: 50px;
-    // letter-spacing: .2rem;
-    // font-weight: 900;
   }
 
   &.large {
@@ -27,8 +22,16 @@ button {
     padding: 16px 26px;
     height: 56px;
     line-height: 1.2rem;
-      @media screen and (max-width:1276px) {
+      @include media(1276px) {
       padding: 16px 14px;
+
+      @include media(576px){
+        justify-content: center;
+        width: 100%;
+      @include media (340px) {
+        padding: 16px 1px;
+        }
+      }
     }
   }
 
@@ -45,11 +48,6 @@ button {
   &.green {
     background: $green;
     color: $navy;
-
-    &:hover {
-      background: $white;
-      border-color: $green;  
-    }
   }
 
   &.navy {
@@ -69,7 +67,6 @@ a {
 
 svg g{
   stroke: $white;
-
   //this hover not working...
   &:hover{
     stroke: $green;
