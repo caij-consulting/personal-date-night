@@ -23,10 +23,11 @@
     color: $blue;
   }
   .testModal{
-    color: red;
+    color: white;
     transition: color .001s;
+    font-size: 0;
     &:not(:focus-within){
-      color:blue;
+      color:seashell;
       
     }
   }

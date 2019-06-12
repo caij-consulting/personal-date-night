@@ -19,7 +19,7 @@ loopFocus= () => {
     return(
       // keep empty anchor tags for keeping tab within modal
       <div className="toLinks modalContent" tabIndex="-1" >
-        <a href="#" className="testModal" onTransitionEnd={this.loopFocus} aria-hidden="true"></a>
+        <a href="# " className="testModal" onTransitionEnd={this.loopFocus} aria-label="not a link" aria-hidden="true">.</a>
 
       <button
           ref={this.modalRef}
@@ -34,7 +34,7 @@ loopFocus= () => {
         <p>User One: <a href={this.props.user1choice.url} target="_blank" aria-label="Click to get your tickets here!">{this.props.user1choice.name}</a> </p>
       
         <p>User Two: <a href={this.props.user2choice.url} target="_blank" aria-label="Click to get your tickets here!">{this.props.user2choice.name}</a></p>
-        <a href="#" className="testModal" onTransitionEnd={this.loopFocus} aria-hidden="true"></a>
+        <a href="# " className="testModal" onTransitionEnd={this.loopFocus} aria-label="not a link" aria-hidden="true">.</a>
       </div>
     );
   }
