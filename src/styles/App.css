@@ -254,13 +254,13 @@ button.med {
   line-height: 1.2rem;
 }
 
-@media screen and (max-width: 1276px) {
+@media (max-width: 1276px) {
   button.med {
     padding: 16px 14px;
   }
 }
 
-@media screen and (max-width: 1276px) and (max-width: 576px) {
+@media (max-width: 1276px) and (max-width: 576px) {
   button.med {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -269,7 +269,7 @@ button.med {
   }
 }
 
-@media screen and (max-width: 1276px) and (max-width: 576px) and (max-width: 340px) {
+@media (max-width: 1276px) and (max-width: 576px) and (max-width: 340px) {
   button.med {
     padding: 16px 1px;
   }
@@ -288,11 +288,6 @@ button.white {
 button.green {
   background: #ace8cd;
   color: #330095;
-}
-
-button.green:hover {
-  background: #fff;
-  border-color: #ace8cd;
 }
 
 button.navy {
