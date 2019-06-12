@@ -26,32 +26,42 @@ $darkgrey: #444;
 	bottom: $bottom;
 	left: $left;
 }
-@mixin for1200 {
-  @media (max-width: 1200px) {
+
+//Thanks to https://thoughtbot.com/blog/sasss-content-directive
+@mixin media($width) {
+  @media (max-width: $width) {
     @content;
   }  
 }
 
-@mixin for992 {
-  @media (max-width: 992px) {
-    @content;
-  }  
-}
 
-@mixin for768 {
-  @media (max-width: 768px) {
-    @content;
-  }  
-}
+// =================
+// @mixin for1200 {
+//   @media (max-width: 1200px) {
+//     @content;
+//   }  
+// }
 
-@mixin for576 {
-  @media (max-width: 576px) {
-    @content;
-  }  
-}
+// @mixin for992 {
+//   @media (max-width: 992px) {
+//     @content;
+//   }  
+// }
 
-@mixin for320 {
-  @media (max-width: 320px) {
-    @content;
-  }  
-}
+// @mixin for768 {
+//   @media (max-width: 768px) {
+//     @content;
+//   }  
+// }
+
+// @mixin for576 {
+//   @media (max-width: 576px) {
+//     @content;
+//   }  
+// }
+
+// @mixin for320 {
+//   @media (max-width: 320px) {
+//     @content;
+//   }  
+// }

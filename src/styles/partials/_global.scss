@@ -24,7 +24,7 @@ img{
 .wrapper{
   margin: 0 10%;
   max-width: 1400px;
-    @include for768{
+    @include media(768px){
       margin: 0 5%;
     }
 }

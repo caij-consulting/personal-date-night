@@ -111,7 +111,7 @@
 
 
 // Media queries
-@media (max-width:1192px) {
+@include media(1192px) {
   .heroIntro {
 		h1 {
 			font-size:3rem;
@@ -126,7 +126,7 @@
 	}
 }
 
-@media (max-width:1032px) {
+@include media(1032px) {
   .heroIntro {
 		h1 {
 			font-size:2.5rem;
@@ -137,7 +137,7 @@
 	}
 }
 
-@media (max-width:932px) {
+@include media(932px) {
   .heroIntro {
 		align-self:center;
 		h1,
@@ -154,7 +154,7 @@
 }
 
 // becomes column view here
-@media (max-width:768px) {
+@include media(768px) {
   .heroBorderMiddle {
 		flex-direction: column;
 		margin:50px 0;
@@ -190,7 +190,7 @@
 	}
 }
 
-@media (max-width:682px) {
+@include media(682px) {
 	.heroBorderMiddle {
 		padding: 4%;
 		margin:20px;
@@ -206,7 +206,7 @@
 	}
 }
 
-@media (max-width:576px) {
+@include media(576px) {
 	.heroIntro {
 		h1,
 		span {
@@ -220,7 +220,7 @@
 	}
 }
 
-@media (max-width:480px) {
+@include media(480px) {
 	.heroIntro {
 		h1,
 		span {
@@ -233,7 +233,7 @@
 
 }
 
-@media (max-width:392px) {
+@include media(392px) {
 	.heroIntro {
 		h1,
 		span {
@@ -246,6 +246,6 @@
 	}
 }
 
-@media (max-width:320px) {
+@include media (320px) {
 // rubric shows this size needs to be considered and we did - the style for 392px translates well here
 }
