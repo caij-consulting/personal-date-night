@@ -55,7 +55,8 @@ class SearchForm extends Component{
                 name="date"
                 value={this.props.date}
                 required
-              />
+                minDate={new Date()}
+            />
             </div>
           </div>
 

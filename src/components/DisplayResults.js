@@ -16,16 +16,15 @@ class DisplayResults extends Component {
       modalIsOpen: false,
       activeUser: false,
     }
-    
     this.handleScroll = this.handleScroll.bind(this);
   }
-  //function to fix the userSelection tab
+  //function to listen to user scroll and push the scroll height to state
   handleScroll() {
     this.setState({ scroll:
       window.scrollY 
       })
   }
-
+  //function to listen to radio buttons that toggle between user1 and user2
   handleUserChangeRadio = (e) => {
     this.setState({
       //sets currentUser to be either User1 or User2 on toggle
@@ -33,6 +32,7 @@ class DisplayResults extends Component {
     })
   }
 
+  //function to listen to radio buttons that toggle between different events.
   handleEventSelectRadio = (e, event) =>{
     if(this.state.currentUser==="1"){
       this.setState({
@@ -54,13 +54,14 @@ class DisplayResults extends Component {
     })
   } 
   
+  //function that opens the modal to show event links
   confirmBothUsersChoices = (e)=>{
     e.preventDefault();
     this.setState({
       modalIsOpen: true
     })
   }
-
+  //when user pushes x, close modal.
   closeModal = (e) => {
     e.preventDefault();
     this.setState({

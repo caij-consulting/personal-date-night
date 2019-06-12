@@ -76,3 +76,12 @@ svg g{
 button:focus{
   outline: 3px solid blue;
 }
+
+
+.react-calendar{
+  z-index: 10000;
+  opacity: 1;
+}
+.perTimeContainer{
+  z-index: 0;
+}
