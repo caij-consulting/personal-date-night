@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import DisplayLinks from './DisplayLinks.js';
+import React, { Component } from "react";
+import DisplayLinks from "./DisplayLinks.js";
 
 class Modal extends Component {
   render() {

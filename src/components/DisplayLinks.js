@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class DisplayLinks extends Component {
   constructor() {
@@ -11,9 +11,9 @@ class DisplayLinks extends Component {
     this.modalRef.current.focus();
   }
 
-loopFocus= () => {
-  this.modalRef.current.focus();
-}
+  loopFocus= () => {
+    this.modalRef.current.focus();
+  }
 
   render() {
     return(

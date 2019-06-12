@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ResultCard extends Component {
   constructor() {
@@ -27,8 +27,8 @@ class ResultCard extends Component {
     return priceString
   }
   displayDate = (event) =>{
-    let daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    let monthsOfYear =['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    let monthsOfYear =["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     if (event.dates.start.localTime){
       let dateObj = new Date(`${event.dates.start.localDate}T${event.dates.start.localTime}`)
       let day = dateObj.getDay();
@@ -37,7 +37,7 @@ class ResultCard extends Component {
       let hour = dateObj.getHours();
       let minute = dateObj.getMinutes();
       if (minute < 10){
-        minute = '0' + minute;
+        minute = "0" + minute;
       }
       let ampm = "";
       if (hour < 12){
