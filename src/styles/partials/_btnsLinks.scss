@@ -28,6 +28,13 @@ button {
     line-height: 1.2rem;
       @media screen and (max-width:1276px) {
       padding: 16px 14px;
+      @include for576{
+        justify-content: center;
+        width: 100%;
+      @media screen and (max-width:340px) {
+        padding: 16px 1px;
+        }
+      }
     }
   }
 
@@ -39,6 +46,7 @@ button {
     background-color: $white;
     border-color: $grey;
     color: $navy;
+
   }
 
   &.green {

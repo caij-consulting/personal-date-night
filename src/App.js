@@ -70,9 +70,7 @@ class App extends Component {
       day = '0' + day;
     }
     let hours = time.substr(0, 2);
-    // console.log(hours);
     let minutes = time.substr(3, 5);
-    // console.log(minutes);
     let dateString = `${year}-${month}-${day}T${hours}:${minutes}:00`;
     return dateString
   }
@@ -88,9 +86,7 @@ class App extends Component {
       // in-case CORS error comes back
       // dataResponse: "jsonp",     
     }).then((response) => {
-      console.log(response)
       if (response.data.page.totalElements > 0) {
-        console.log('the call returns something')
         response = response.data._embedded.events;
         this.setState({
           // allEvents is the good return we never modify
@@ -116,12 +112,10 @@ class App extends Component {
     let eventCategories = ["All Categories"];
     for (let i = 0; i < this.state.allEvents.length; i++) {
       let eventCategory = this.state.allEvents[i].classifications[0].segment.name;
-      console.log(eventCategory);
       if (!eventCategories.includes(eventCategory)) {
         eventCategories.push(eventCategory)
       }
     }
-    console.log(eventCategories);
     this.setState({
       // ... copies the items to the array
       eventCategories: [...eventCategories],
@@ -137,7 +131,6 @@ class App extends Component {
         eventVenues.push(eventVenue)
       }
     }
-    console.log(eventVenues);
     this.setState({
       // ... copies the items to the array
       eventVenues: [...eventVenues],

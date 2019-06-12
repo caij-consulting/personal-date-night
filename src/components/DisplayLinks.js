@@ -8,13 +8,12 @@ class DisplayLinks extends Component {
   }
   
   componentDidMount() {
-    console.log(this.modalRef);
     this.modalRef.current.focus();
   }
 
- loopFocus= () => {
+loopFocus= () => {
   this.modalRef.current.focus();
- }
+}
 
   render() {
     return(
