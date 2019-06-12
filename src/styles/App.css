@@ -234,12 +234,13 @@ button {
   border: 3px solid #ace8cd;
   font-weight: 700;
   font-size: .75rem;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 button:hover {
   border-radius: 50px;
+  font-weight: 900;
 }
 
 button.large {
@@ -256,6 +257,21 @@ button.med {
 @media screen and (max-width: 1276px) {
   button.med {
     padding: 16px 14px;
+  }
+}
+
+@media screen and (max-width: 1276px) and (max-width: 576px) {
+  button.med {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1276px) and (max-width: 576px) and (max-width: 340px) {
+  button.med {
+    padding: 16px 1px;
   }
 }
 
@@ -717,6 +733,15 @@ header {
   }
 }
 
+@media (max-width: 576px) {
+  .containerUserSelection .containerUsers {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .containerUserSelection .user {
   position: relative;
   border-radius: 8px 8px 0 0;
@@ -727,6 +752,12 @@ header {
 
 .containerUserSelection .user:active, .containerUserSelection .user:focus {
   background: white;
+}
+
+@media (max-width: 576px) {
+  .containerUserSelection .user {
+    width: 100%;
+  }
 }
 
 .containerUserSelection .user .perUserContents {
@@ -781,6 +812,9 @@ header {
 }
 
 .containerUsersButtons {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -804,9 +838,9 @@ header {
   .containerUsersButtons {
     margin-top: 0;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 }
 
@@ -816,6 +850,12 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .containerUsersButtons .containerButton {
+    margin: 1% 0;
   }
 }
 
@@ -846,17 +886,42 @@ header {
 .containerFilterEvents select,
 .containerFilterEvents input {
   margin: 4px;
-  background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px #fff;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   border: 1px solid #b3b3b3;
   border-radius: 5px;
   padding: 10px 12px;
 }
 
+.containerFilterEvents select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url(./../assets/sort-down-solid.svg) no-repeat 96% -8px #fff;
+}
+
 .containerFilterEvents::-ms-expand {
   display: none;
+}
+
+.filterFields {
+  max-width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.filterFields select {
+  padding-right: 50px;
+  width: 40%;
+}
+
+@media (max-width: 1270px) {
+  .filterFields {
+    max-width: 70%;
+  }
 }
 
 .containerResultCard {
@@ -1013,8 +1078,8 @@ footer a {
 }
 
 .modalContent {
-  width: 500px;
-  max-width: 100%;
+  width: 60%;
+  min-width: 500px;
   margin: 0 auto;
   position: fixed;
   left: 50%;
@@ -1022,7 +1087,7 @@ footer a {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 999;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
   color: #222;
   padding: 10px 20px 40px;
   border-radius: 8px;
@@ -1036,24 +1101,68 @@ footer a {
           flex-direction: column;
 }
 
-.modalContent a {
-  color: #64c6e1;
+.modalContent h2 span {
+  font-family: "Shrikhand", cursive;
+  display: block;
+  font-size: 2rem;
 }
 
-.modalContent .testModal {
+.modalContent a {
+  color: #330095;
+  padding: 2px 6px;
+  text-decoration: none;
+  -webkit-transition: background-color .25s;
+  transition: background-color .25s;
+}
+
+.modalContent a:hover, .modalContent a:focus, .modalContent a:active {
+  background-color: rgba(172, 232, 205, 0.6);
+}
+
+.modalContent .keepFocusModal {
   color: red;
   -webkit-transition: color .001s;
   transition: color .001s;
+  font-size: 0;
 }
 
-.modalContent .testModal:not(:focus-within) {
-  color: blue;
+.modalContent .keepFocusModal:not(:focus-within) {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.modalContent .userLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modalContent .userLink p {
+  font-weight: 700;
+}
+
+.modalContent .userLink svg {
+  margin-right: 10px;
 }
 
 .modalContent button {
   cursor: pointer;
   border: 0;
   text-align: right;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .modalContent button svg {
@@ -1066,8 +1175,9 @@ footer a {
 }
 
 .modalOverlay {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
   background-color: rgba(34, 34, 34, 0.7);
   z-index: 500;
   position: absolute;
