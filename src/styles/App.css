@@ -322,6 +322,15 @@ button:focus {
   outline: 3px solid blue;
 }
 
+.react-calendar {
+  z-index: 10000;
+  opacity: 1;
+}
+
+.perTimeContainer {
+  z-index: 0;
+}
+
 header {
   background: url(../assets/bg-cover.jpg);
   background-size: cover;
@@ -897,7 +906,7 @@ header {
   display: none;
 }
 
-@media screen and (max-width: 1080px) {
+@media (max-width: 1080px) {
   .containerFilterEvents {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -922,12 +931,28 @@ header {
   width: 40%;
 }
 
+.filterFields {
+  max-width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.filterFields select {
+  padding-right: 50px;
+  width: 40%;
+}
+
 .fixed-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 20;
 }
 
 @media (max-width: 1270px) {
@@ -936,7 +961,7 @@ header {
   }
 }
 
-@media (max-width: 1270px) and (max-width: 1080px) {
+@media (max-width: 1080px) {
   .filterFields {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -944,16 +969,6 @@ header {
             flex-direction: column;
     max-width: 100%;
   }
-}
-
-@media (max-width: 1080px) {
-  .filterFields input,
-  .filterFields select {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1080px) {
   .filterButtons {
     text-align: center;
   }
@@ -1159,7 +1174,7 @@ footer a {
   }
 }
 
-@media screen and (max-width: 460px) {
+@media (max-width: 460px) {
   .modalContent h2 span {
     font-size: 1.25rem;
   }
@@ -1249,5 +1264,20 @@ footer a {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.react-calendar {
+  z-index: 1;
+  opacity: 1;
+}
+
+.react-calendar button {
+  -webkit-transition: none !important;
+  transition: none !important;
+  border-radius: 0;
+}
+
+.perTimeContainer {
+  z-index: 0;
 }
 /*# sourceMappingURL=App.css.map */
