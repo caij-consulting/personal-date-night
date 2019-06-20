@@ -37,7 +37,7 @@ class SearchForm extends Component{
               <input 
               type="text" 
               name="location"
-              required pattern="[a-zA-Z]*"
+              required pattern="[a-zA-Z\s]*"
               onChange={(e)=> {this.props.handleChange(e)}}
               value={this.props.location}
               />
