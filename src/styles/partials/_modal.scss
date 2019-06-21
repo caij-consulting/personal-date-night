@@ -71,11 +71,12 @@
     position: relative;
     top: 0;
     left: 45%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     border: 0;
-    width: 28px;
-    height: 28px;
     background-color: rgba($white, .95);
+    text-align: center;
     svg {
       color:$navy;
       font-size: 2rem;  
