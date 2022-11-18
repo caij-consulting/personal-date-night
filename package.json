@@ -15,7 +15,7 @@
     "react-date-picker": "^7.5.1",
     "react-datetime-picker": "^2.4.0",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-scroll": "^1.7.11",
     "react-time-picker": "^3.5.2"
   },
